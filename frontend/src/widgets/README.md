@@ -10,4 +10,4 @@
 
 - **ui**: Модули и компоненты, связанные с пользовательским интерфейсом и нераздельные с бизнес логикой.
 - **model**: бизнес логика. actions, thunks, selectors.
-![DIFF](../assets/README_WIDGETS.png)
+  ![DIFF](../assets/README_WIDGETS.png)
