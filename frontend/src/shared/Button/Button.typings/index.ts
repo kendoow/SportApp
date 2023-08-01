@@ -6,9 +6,10 @@ export interface IButtonProps
     HTMLButtonElement
   > {
   children: ReactNode;
+  onClick?: () => void;
   size?: "small" | "medium";
-  type?: "button" | "reset" | "submit";
-  variant?: "primary" | "secondary" | "link";
+  type?: "button";
+  variant?: "primary" | "secondary";
   disabled?: boolean;
   className?: string;
 }

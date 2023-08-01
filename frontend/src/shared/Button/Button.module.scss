@@ -1,15 +1,10 @@
-// @import "@styles/variables";
+@import "@styles/variables";
 
 .btn {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 29px;
-  border: 1px solid #000;
-  border-radius: 3px;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .small {
@@ -20,105 +15,47 @@
 }
 
 .medium {
-  width: 358px;
-  font-style: normal;
-  font-weight: 500;
   font-size: 22px;
-  line-height: 29px;
-  padding: 17px 115px;
-}
-
-.primary {
-  background: #000;
-  color: #e0f1e7;
-  transition: 0.1s;
-  position: relative;
-  z-index: 10;
-
-  &::before {
-    display: none;
-    position: absolute;
-    content: "";
-    transition: 0.2s;
-    left: 5px;
-    bottom: -5px;
-    z-index: -1;
-    border-radius: 3px;
-    border: 1px solid #000;
-    width: 100%;
-    height: 100%;
-  }
-
-  &:active {
-    background: #000;
-
-    &::before {
-      border: 1px solid #000;
-    }
-  }
-
-  &:hover {
-    transform: translateX(-5px) translateY(-5px);
-    transition: 0.2s;
-
-    &::before {
-      display: block;
-    }
-  }
+  padding: 16px 100px;
 }
 
 .secondary {
-  background: #e0f1e7;
-  color: #000;
-  transition: 0.1s;
-  position: relative;
-  z-index: 2;
-
-  &::before {
-    overflow: hidden;
-    display: none;
-    position: absolute;
-    content: "";
-    transition: 0.2s;
-    left: 5px;
-    bottom: -5px;
-    z-index: -1;
-    border-radius: 3px;
-
-    // border: 1px solid #000;
-    width: 100%;
-    height: 100%;
-  }
-
+  color: $black;
+  transition: 0.2s all;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 $blue-dark;
+  border: 2px solid $blue-dark;
+  background-color: $white;
   &:hover {
-    box-shadow: 5px 5px #000;
-    transform: translateX(-5px) translateY(-5px);
-    transition: 0.2s;
-
-    &::before {
-      display: block;
-    }
+    box-shadow: 4px 4px 0px 0px $blue-dark;
   }
-
   &:disabled {
-    color: #fff;
-    border: 1px solid #fff;
-    cursor: auto;
+    opacity: 0.4;
+	cursor: auto;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
 
-.link {
-  background-color: transparent;
-  transition: 0.2s;
-  border: none;
+.primary {
+  color: $black;
+  background-color: $green-light;
+  transition: 0.2s all;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0 $green-dark;
 
   &:hover {
-    transition: 0.2s;
-    background-color: #fff;
+    box-shadow: 4px 4px 0px 0px $green-dark;
   }
-
   &:active {
-    transition: 0.2s;
-    background-color: #fff;
+    background-color: $green-dark;
+  }
+  &:disabled {
+    cursor: auto;
+    background-color: $green-pale;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }

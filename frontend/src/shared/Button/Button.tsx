@@ -1,15 +1,15 @@
 import cn from "classnames";
 
 import type { IButtonProps } from "./Button.typings";
-
 import styles from "./Button.module.scss";
 
 export const Button = ({
   children,
   type = "button",
-  size = "small",
+  size = "medium",
   variant = "primary",
   disabled = false,
+  onClick,
   className,
 }: IButtonProps) => {
   const buttonClassName = cn(
@@ -20,7 +20,7 @@ export const Button = ({
   );
 
   return (
-    <button disabled={disabled} type={type} className={buttonClassName}>
+    <button onClick={onClick} disabled={disabled} type={type} className={buttonClassName}>
       {children}
     </button>
   );
