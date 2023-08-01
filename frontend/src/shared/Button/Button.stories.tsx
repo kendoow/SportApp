@@ -1,7 +1,6 @@
-import type { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 import { Button } from "./Button";
-
 import styles from "./Button.module.scss";
 
 export default {
@@ -12,7 +11,7 @@ export default {
       type: "string",
       description: "Описание внешнего вида кнопки",
       defaultValue: "primary",
-      options: ["primary", "secondary", "link"],
+      options: ["primary", "secondary"],
       control: {
         type: "radio",
       },
@@ -30,7 +29,7 @@ export default {
       type: "string",
       description: "Тип кнопки",
       defaultValue: "button",
-      options: ["button", "submit", "reset"],
+      options: ["button"],
       control: {
         type: "radio",
       },
@@ -42,10 +41,10 @@ export default {
       defaultValue: "Button",
     },
   },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button className={styles.btn} {...args} />
+const Template: StoryFn<typeof Button> = (args) => (
+  <Button className={styles.btn} {...args}>Some Text</Button>
 );
 
 export const Primary = Template.bind({});
@@ -56,11 +55,6 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: "secondary",
-};
-
-export const Link = Template.bind({});
-Link.args = {
-  variant: "link",
 };
 
 export const Small = Template.bind({});
