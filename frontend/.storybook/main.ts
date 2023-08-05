@@ -1,5 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs";
-import path from 'path';
+import path from "path";
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
@@ -17,7 +17,10 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config) => {
     if (config.resolve && config.resolve.alias) {
-      config.resolve.alias['@styles'] = path.resolve(__dirname, '../src/styles');
+      config.resolve.alias["@styles"] = path.resolve(
+        __dirname,
+        "../src/shared/styles"
+      );
       // Add other path aliases here if needed
     }
 
