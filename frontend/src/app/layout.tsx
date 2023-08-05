@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import '@styles/global.scss';
-import { outfit } from '@assets/fonts/Outfit/Outfit';
-
-
+import "@styles/global.scss";
+import { outfit } from "@assets/fonts/Outfit/Outfit";
 
 export const metadata: Metadata = {
   title: "Create Next App",

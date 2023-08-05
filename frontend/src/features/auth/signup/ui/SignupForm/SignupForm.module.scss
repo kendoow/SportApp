@@ -1,0 +1,44 @@
+@import "@styles/variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .input {
+    margin-bottom: 0;
+  }
+  .btn {
+    margin-top: 18px;
+  }
+  .accounts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+    width: 100%;
+  }
+  .restore {
+    margin-top: 8px;
+    color: $grey-light;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px; /* 161.111% */
+    text-decoration-line: underline;
+  }
+  .terms {
+    color: $grey-light;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    &link {
+      color: $black;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 29px;
+      text-decoration-line: underline;
+    }
+  }
+}

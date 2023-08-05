@@ -8,15 +8,17 @@
 }
 
 .small {
+  font-size: 18px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 29px;
-  padding: 5px 25px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 16px 20px;
 }
 
 .medium {
+  width: 100%;
   font-size: 22px;
-  padding: 16px 100px;
+  padding: 16px;
 }
 
 .secondary {
@@ -29,9 +31,12 @@
   &:hover {
     box-shadow: 4px 4px 0px 0px $blue-dark;
   }
+  &:active {
+    background-color: $blue-light;
+  }
   &:disabled {
     opacity: 0.4;
-	cursor: auto;
+    cursor: auto;
     &:hover {
       box-shadow: none;
     }
@@ -58,4 +63,10 @@
       box-shadow: none;
     }
   }
+}
+
+.image {
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
 }

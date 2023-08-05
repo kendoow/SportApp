@@ -44,7 +44,9 @@ export default {
 } as Meta<typeof Button>;
 
 const Template: StoryFn<typeof Button> = (args) => (
-  <Button className={styles.btn} {...args}>Some Text</Button>
+  <Button className={styles.btn} {...args}>
+    Some Text
+  </Button>
 );
 
 export const Primary = Template.bind({});

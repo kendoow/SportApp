@@ -10,6 +10,7 @@ export interface IButtonProps
   size?: "small" | "medium";
   type?: "button";
   variant?: "primary" | "secondary";
+  image?: string;
   disabled?: boolean;
   className?: string;
 }
