@@ -5,10 +5,7 @@ export interface IInputProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  type?: "text" | "password" | "number" | "email" | "checkbox";
   variant?: "primary";
-  placeholder?: string;
-  disabled?: boolean;
   className?: string;
   checkboxLabel?: JSX.Element;
   error?:string;

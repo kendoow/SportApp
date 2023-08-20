@@ -6,11 +6,8 @@ export interface IButtonProps
     HTMLButtonElement
   > {
   children: ReactNode;
-  onClick?: () => void;
   size?: "small" | "medium";
-  type?: "button";
-  variant?: "primary" | "secondary";
-  image?: string;
-  disabled?: boolean;
+  appearance?: "primary" | "secondary";
+  image?: "appleIcon" | "googleIcon" ;
   className?: string;
 }

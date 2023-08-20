@@ -6,27 +6,24 @@ import styles from "./Button.module.scss";
 
 export const Button = ({
   children,
-  type = "button",
   size = "medium",
-  variant = "primary",
-  disabled = false,
+  appearance = "primary",
   image,
-  onClick,
   className,
+  ...props
 }: IButtonProps) => {
   const buttonClassName = cn(
     styles.btn,
     styles[size],
-    styles[variant],
+    styles[appearance],
+	styles[image],
     className
   );
 
   return (
     <button
-      onClick={onClick}
-      disabled={disabled}
-      type={type}
       className={buttonClassName}
+	  {...props}
     >
       {children}
       {image && <Image className={styles.image} src={image} alt="icon" />}

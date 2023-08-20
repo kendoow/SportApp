@@ -8,7 +8,6 @@
 }
 
 .checkbox {
-  margin: 0;
   margin: 15px;
   align-items: center;
   width: 20px;
@@ -26,17 +25,19 @@
   font-style: normal;
 }
 
-.label {
-  position: absolute;
-  top: -8px;
-  left: 8px;
-  background-color: $white;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 29px;
-  padding: 2px 4px;
-  font-size: 12px;
-  color: $grey-light;
-  pointer-events: none;
+.error{
+	border-color: $red-error;
+	&Text{
+		position: absolute;
+		top: -8px;
+		left: 38px; /* Отступ от иконки до текста */
+		background-color: $white;
+		font-size: 18px;
+		font-style: normal;
+		line-height: 29px;
+		padding: 2px 4px;
+		color: $red-error;
+		pointer-events: none;
+	}
 }
+

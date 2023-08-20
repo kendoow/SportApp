@@ -1,33 +1,32 @@
 import cn from "classnames";
-
 import { IInputProps } from "./Input.typings";
 import styles from "./Input.module.scss";
 import { outfit } from "@assets/fonts/Outfit/Outfit";
 
 const Input = ({
-  type = "text",
-  variant = "primary",
-  placeholder,
-  className,
-  children, 
-  error
+	variant = "primary",
+	className,
+	children,
+	error,
+	type,
+	...props
 }: IInputProps) => {
-  const inputClassName = cn(
-    styles[type],
-    styles[variant],
-    outfit.className,
-    className
-  );
+	
+	const inputClassName = cn(
+		error && styles.error,
+		styles[variant],
+		styles[type],
+		outfit.className,
+		className
+	);
 
-  return (
-    <span className={styles.input}>
-      <input placeholder={placeholder} type={type} className={inputClassName} />
-      {type === "checkbox" && children}
-	  {
-		error && <label className={styles.label}>{error}</label>
-	  }
-    </span>
-  );
+	return (
+		<label className={styles.input}>
+			{error && <p className={styles.errorText}>{error}</p>}
+			<input type={type} className={inputClassName} {...props} />
+			{children}
+		</label>
+	);
 };
 
 export default Input;

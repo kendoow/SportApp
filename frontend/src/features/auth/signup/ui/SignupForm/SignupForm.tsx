@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import styles from './SignupForm.module.scss';
 import Link from 'next/link';
 import { Button } from '@shared/ui/Button/Button';
-import AppleIcon from "@assets/images/apple_icon.svg";
-import GoogleIcon from "@assets/images/google_icon.svg";
+import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
+import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
 
 const SignupForm = () => {
 	const router = useRouter();
@@ -27,10 +27,10 @@ const SignupForm = () => {
 				</Input>
 				<Button className={styles.btn}>Continue</Button>
 				<div className={styles.accounts}>
-					<Button image={AppleIcon} size="small" variant="secondary">
+					<Button image={AppleIcon} size="small" appearance="secondary">
 						Sign with
 					</Button>
-					<Button image={GoogleIcon} size="small" variant="secondary">
+					<Button image={GoogleIcon} size="small" appearance="secondary">
 						Sign with
 					</Button>
 				</div>
