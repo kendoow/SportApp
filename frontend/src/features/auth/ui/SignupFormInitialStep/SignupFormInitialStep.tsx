@@ -1,15 +1,20 @@
 "use client";
-import Layout from "@features/auth/Layout";
+import Layout from "@features/auth/ui/Layout";
 import Input from '@shared/ui/Input/Input';
 import { useRouter } from "next/navigation";
-import styles from './SignupForm.module.scss';
+import styles from './SignupFormInitialStep.module.scss';
 import Link from 'next/link';
 import { Button } from '@shared/ui/Button/Button';
 import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
 import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
 
-const SignupForm = () => {
+const SignupFormInitialStep = ({ onNextStep }) => {
 	const router = useRouter();
+
+	const handleContinueClick = () => {
+		onNextStep();
+	};
+
 	return (
 		<Layout
 			title="sign up/"
@@ -22,10 +27,10 @@ const SignupForm = () => {
 					placeholder="Email"
 					className={styles.input}
 				/>
-				<Input type="checkbox" variant={null} > 
-					<p className={styles.terms}>I agree with <Link className={styles.termslink} href='termsofservice'> terms of service </Link></p>	
+				<Input type="checkbox" variant={null} >
+					<p className={styles.terms}>I agree with <Link className={styles.termslink} href='termsofservice'> terms of service </Link></p>
 				</Input>
-				<Button className={styles.btn}>Continue</Button>
+				<Button onClick={handleContinueClick} className={styles.btn}>Continue</Button>
 				<div className={styles.accounts}>
 					<Button image={AppleIcon} size="small" appearance="secondary">
 						Sign with
@@ -39,4 +44,4 @@ const SignupForm = () => {
 	);
 };
 
-export default SignupForm;
+export default SignupFormInitialStep;

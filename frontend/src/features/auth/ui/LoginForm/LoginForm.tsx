@@ -2,7 +2,7 @@
 import Input from "@shared/ui/Input/Input";
 import styles from "./LoginFrom.module.scss";
 import { Button } from "@shared/ui/Button/Button";
-import Layout from "@features/auth/Layout";
+import Layout from "@features/auth/ui/Layout";
 import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
 import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
 import Link from "next/link";

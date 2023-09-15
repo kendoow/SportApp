@@ -1,34 +1,34 @@
 {
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"],
-	
-    "compilerOptions": {
-        "target": "es2021",
-        "module": "CommonJS",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"],
 
-        "rootDir": "src",
-        "outDir": "dist",
+	"compilerOptions": {
+		"target": "es2021",
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
 
-        "allowJs": true,
-        "importHelpers": true,
-        "forceConsistentCasingInFileNames": true,
+		"rootDir": "src",
+		"outDir": "dist",
 
-        "strict": true,
-        "noImplicitAny": true, 
-        "preserveConstEnums": true,
-        "baseUrl": "./src",
-        "paths": {
-			"@config/*" : ["config/*"],
-            "@controllers/*": ["controllers/*"],
-            "@services/*": ["services/*"],
-            "@models/*": ["models/*"],
-            "@routes/*": ["routes/*"],
-            "@interfaces/*": ["interfaces/*"],
-            "@lib/*": ["lib/*"],
-			"@test/*" : ["test/*"],
-			"@query/*" : ["query/*"],
-        }
-    }
+		"allowJs": true,
+		"importHelpers": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"strict": true,
+		"noImplicitAny": true,
+		"preserveConstEnums": true,
+		"baseUrl": "./src",
+		"paths": {
+			"@config/*": ["config/*"],
+			"@controllers/*": ["controllers/*"],
+			"@services/*": ["services/*"],
+			"@models/*": ["models/*"],
+			"@routes/*": ["routes/*"],
+			"@interfaces/*": ["interfaces/*"],
+			"@lib/*": ["lib/*"],
+			"@test/*": ["test/*"],
+			"@query/*": ["query/*"]
+		}
+	}
 }

@@ -1,11 +1,11 @@
-import { Pool } from "pg";
+import { Pool } from "pg"
 
-import UserSchema from "./user.query";
-import TokenSchema from "./token.query";
+import UserSchema from "./user.query"
+import TokenSchema from "./token.query"
 
 const initialTables = (pool: Pool) => {
-	UserSchema(pool);
-	TokenSchema(pool);
-};
+    UserSchema(pool)
+    TokenSchema(pool)
+}
 
-export default initialTables;
+export default initialTables
