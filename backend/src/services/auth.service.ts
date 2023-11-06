@@ -13,7 +13,7 @@ class AuthService {
             )
             if (userConfirmed.rows[0]) {
                 throw ApiError.BadRequest(
-                    `Пользователь с почтовым адресом ${user.email} уже существует `
+                    `User with adress ${user.email} already exists `
                 )
             }
             const hashPassword = hashSync(user.password, 3)
@@ -43,8 +43,8 @@ class AuthService {
                 "SELECT * FROM user_account where email = $1",
                 [user.email]
             )
-            if (!user) {
-                throw ApiError.BadRequest("Пользователь не был найден")
+            if (!user || userConfirmed?.rows[0] == undefined) {
+                throw ApiError.BadRequest("User not found")
             }
             const isPassedEquals = compareSync(
                 user.password,
@@ -52,7 +52,7 @@ class AuthService {
             )
 
             if (!isPassedEquals) {
-                throw ApiError.BadRequest("Неверный пароль")
+                throw ApiError.BadRequest("Incorrect password")
             }
             const refreshToken = await tokenService.exist(
                 userConfirmed?.rows[0].id
@@ -122,7 +122,7 @@ class AuthService {
             ).rows[0]
 
             if (email !== DBuser.email) {
-                throw new Error("Неверно введенные данные")
+                throw new Error("Incorrect data")
             }
 
             // 15 min valid Link
@@ -140,7 +140,7 @@ class AuthService {
 
     async logout(refreshToken: string) {
         if (!refreshToken) {
-            throw new Error("Нет refreshToken")
+            throw new Error("RefreshToken doesn't exist")
         }
         const token = await tokenService.delete(refreshToken)
         return token
@@ -149,7 +149,7 @@ class AuthService {
     async check(refreshToken: string) {
         try {
             if (!refreshToken) {
-                throw new Error("Нет refreshToken")
+                throw new Error("RefreshToken doesn't exist")
             }
             const jwtPayload: IJwtPayload =
 				tokenService.validRefreshToken(refreshToken)
@@ -158,7 +158,7 @@ class AuthService {
                 [jwtPayload.id]
             )
             if (!userConfirm) {
-                throw new Error("Пользователь не зарегестрирован")
+                throw ApiError.UnauthorizedError()
             }
             return userConfirm.rows[0]
         } catch (e) {

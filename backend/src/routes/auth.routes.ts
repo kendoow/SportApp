@@ -17,7 +17,7 @@ authRouter.post(
     authController.login
 )
 authRouter.post("/logout", authController.logout)
-authRouter.post("/reset", authController.reset)
+authRouter.post("/reset", authController.reset) // full user reset
 authRouter.post("/reset/:id", authController.resetPassword)  
 // authRouter.get("/reset/:id", authController.resetPassword);  
 authRouter.get("/refresh", authController.refresh)

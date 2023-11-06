@@ -12,8 +12,8 @@ config({
 })
 
 const PORT = process.env.PORT || 5000
-console.log(process.env.PORT)
-const app: Application = express()
+
+export const app: Application = express()
 
 app.use(json())
 

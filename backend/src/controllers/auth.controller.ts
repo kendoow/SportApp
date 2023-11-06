@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import authService from "@services/auth.service"
+import checkError from "@lib/checkError"
 
 class AuthController {
     async registration(req: Request, res: Response) {
@@ -12,7 +13,7 @@ class AuthController {
             })
             res.json(createdUser)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -25,7 +26,7 @@ class AuthController {
             })
             res.json(user)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -42,7 +43,7 @@ class AuthController {
             )
             res.json(resetToken)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -55,7 +56,7 @@ class AuthController {
             })
             res.json(resetToken)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -66,7 +67,7 @@ class AuthController {
             res.clearCookie("refreshToken")
             return res.json(token)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -80,7 +81,7 @@ class AuthController {
             }) // 30d for refresh in cookie
             return res.json(userData)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 
@@ -94,7 +95,7 @@ class AuthController {
             )
             return res.json(updatedUserInfo)
         } catch (e) {
-            res.status(401).json({ message: `Auth Controller Error - ${e}` })
+            res.status(401).json({ message: checkError(e) })
         }
     }
 }

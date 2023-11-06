@@ -16,14 +16,14 @@ export const Button = ({
     styles.btn,
     styles[size],
     styles[appearance],
-	styles[image],
+    styles[image],
     className
   );
 
   return (
     <button
       className={buttonClassName}
-	  {...props}
+      {...props}
     >
       {children}
       {image && <Image className={styles.image} src={image} alt="icon" />}

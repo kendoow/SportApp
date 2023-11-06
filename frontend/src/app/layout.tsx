@@ -1,9 +1,7 @@
 'use client'
 import type { Metadata } from "next";
-import { Provider } from 'react-redux';
 import "@styles/global.scss";
 import { outfit } from "@assets/fonts/Outfit/Outfit";
-import store from 'src/store/store';
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -16,10 +14,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<Provider store={store}>
-			<html lang="en">
-				<body className={outfit.className}>{children}</body>
-			</html>
-		</Provider>
+		<html lang="en">
+			<body className={outfit.className}>{children}</body>
+		</html>
 	);
 }

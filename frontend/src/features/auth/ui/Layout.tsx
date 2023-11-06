@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styles from "./Layout.module.scss";
 
-interface LayoutProps {
+type LayoutProps = {
 	children: ReactNode;
 	title: string;
 	subtitle: string;
@@ -13,7 +13,7 @@ const Layout = ({ children, title, subtitle, route }: LayoutProps) => {
 		<>
 			<div className={styles.container}>
 				<div className={styles.text}>
-					<h2 className={styles.title}>{title}</h2>
+					<p className={styles.title}>{title}</p>
 					<p onClick={route} className={styles.subtitle}>
 						{subtitle}
 					</p>

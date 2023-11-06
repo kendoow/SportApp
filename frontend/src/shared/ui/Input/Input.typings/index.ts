@@ -1,4 +1,5 @@
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from "react";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 export interface IInputProps
   extends DetailedHTMLProps<
@@ -8,5 +9,7 @@ export interface IInputProps
   variant?: "primary";
   className?: string;
   checkboxLabel?: JSX.Element;
-  error?:string;
+  error?: string;
+  children?: ReactNode;
+  register?: UseFormRegister<FieldValues>;
 }
