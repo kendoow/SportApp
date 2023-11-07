@@ -13,12 +13,11 @@ config({
 
 const PORT = process.env.PORT || 5000
 
-export const app: Application = express()
+const app: Application = express()
 
 app.use(json())
 
 app.use(cookieParser())
-
 
 app.use(
     cors({

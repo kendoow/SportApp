@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable",],
+    "allowJs": true,
+    "module": "esnext",
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@styles/*": ["./src/shared/styles/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@features/*": ["./src/features/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@app/*": ["./src/app/*"],
+      "@entities/*": ["src/entities/*"],
+      "@widgets/*": ["src/widgets/*"]
+    },
+  },
+  "include": [
+    "next-env.d.ts",
+    "app_old/declaration.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.stories.tsx",
+    "src/app/router/index.jsx", 
+  ],
+  "exclude": ["node_modules"]
+}

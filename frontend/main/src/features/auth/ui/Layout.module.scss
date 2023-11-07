@@ -1,0 +1,40 @@
+@import "@styles/variables";
+
+.container {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .text {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 36px;
+
+    .title {
+      color: $black;
+      font-size: 96px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .subtitle {
+      color: $grey-light;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $black;
+        transition: all 0.3s;
+        font-size: 96px;
+      }
+    }
+  }
+}
