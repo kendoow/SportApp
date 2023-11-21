@@ -8,7 +8,7 @@ func CreateUser(user *model.User, db *Database) (model.User, error) {
 		VALUES ($1, $2, $3) RETURNING ID`
 
 	err := db.QueryRowContext()
-
+	
 	user, nil
 }
 
