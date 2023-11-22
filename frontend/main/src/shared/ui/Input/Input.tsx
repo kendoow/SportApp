@@ -2,7 +2,6 @@ import cn from "classnames";
 import { ReactNode } from "react";
 
 import { IInputProps } from "./Input.typings";
-import { outfit } from "@assets/fonts/Outfit/Outfit";
 
 import styles from "./Input.module.scss";
 

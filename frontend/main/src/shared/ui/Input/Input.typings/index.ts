@@ -9,7 +9,7 @@ export interface IInputProps
   variant?: "primary";
   className?: string;
   checkboxLabel?: JSX.Element;
-  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
+  error?: string | FieldError | Merge<FieldError, FieldErrorsImpl>;
   children?: ReactNode;
   register?: UseFormRegister<FieldValues>;
 }

@@ -1,4 +1,4 @@
-import { TAuthError, TAuthResponse, TUser, TUserLogin, TUserSignUp } from "../types";
+import { TAuthResponse, TUser, TUserLogin, TUserSignUp } from "../types";
 import api from "@shared/api";
 
 export const authLogin = async (data: TUserLogin): Promise<TUser | string> => {
