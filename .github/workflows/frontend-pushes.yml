@@ -8,13 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend/main
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 18
       - name: Npm install
-        working-directory: ./frontend/main
         run: npm ci
       - name: Run linters
         run: npm run lint
