@@ -20,7 +20,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, err := services.Login(requestBody)
+	user, rToken, err := services.Login(requestBody)
 	if err != nil {
 		http.Error(w, "Login failed", http.StatusUnauthorized)
 		return
@@ -28,7 +28,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	cookie := http.Cookie{
 		Name:     "refreshToken",
-		Value:    user.RefreshToken,
+		Value:    rToken,
 		MaxAge:   30 * 24 * 60 * 60 * 1000,
 		HttpOnly: true,
 	}
@@ -51,7 +51,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	createdUser, err := services.SignUp(requestBody)
+	createdUser, rToken, err := services.SignUp(requestBody)
 	if err != nil {
 		http.Error(w, "SignUp failed", http.StatusUnauthorized)
 		return
@@ -59,7 +59,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 
 	cookie := http.Cookie{
 		Name:     "refreshToken",
-		Value:    createdUser.refreshToken,
+		Value:    rToken,
 		MaxAge:   30 * 24 * 60 * 60,
 		HttpOnly: true,
 	}

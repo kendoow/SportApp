@@ -7,7 +7,19 @@ type User struct {
 	Password string
 }
 
-type CreateUser struct {
+type UserCreds struct {
 	Email    string
 	Password string
+}
+
+type UserInfo struct {
+	Username string
+	Email    string
+	Password string
+}
+
+type UserAuthirized struct {
+	Username    string
+	Email       string
+	AccessToken string
 }
