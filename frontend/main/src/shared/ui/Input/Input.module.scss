@@ -25,19 +25,20 @@
   font-style: normal;
 }
 
-.error{
-	border-color: $red-error;
-	&Text{
-		position: absolute;
-		top: -8px;
-		left: 38px; /* Отступ от иконки до текста */
-		background-color: $white;
-		font-size: 18px;
-		font-style: normal;
-		line-height: 29px;
-		padding: 2px 4px;
-		color: $red-error;
-		pointer-events: none;
-	}
+.error {
+  border-color: $red-error;
+
+  &Text {
+    position: absolute;
+    top: -8px;
+    left: 38px; /* Отступ от иконки до текста */
+    background-color: $white;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 29px;
+    padding: 2px 4px;
+    color: $red-error;
+    pointer-events: none;
+  }
 }
 

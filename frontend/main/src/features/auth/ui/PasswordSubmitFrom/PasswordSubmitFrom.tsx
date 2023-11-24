@@ -1,9 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 import Layout from '@features/auth/ui/Layout';
 import Input from '@shared/ui/Input/Input';
 import { Button } from '@shared/ui/Button/Button';
-
 import styles from './PasswordSubmitFrom.module.scss';
-import { useNavigate } from 'react-router-dom';
+
 
 const PasswordSubmitFrom = () => {
 	const navigate = useNavigate();

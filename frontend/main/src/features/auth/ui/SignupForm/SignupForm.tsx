@@ -2,19 +2,21 @@ import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { observer } from 'mobx-react-lite';
 
-import Input from '@shared/ui/Input/Input';
-import styles from './SignupForm.module.scss';
-import { Button } from '@shared/ui/Button/Button';
-import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
-import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
 import { SignUpSchema } from "@features/auth/model/validation";
 import { TUserSignUp } from "@features/auth/types";
 import { authSignup } from "@features/auth/api";
 import Layout from "@features/auth/ui/Layout";
+import Input from '@shared/ui/Input/Input';
+import { Button } from '@shared/ui/Button/Button';
+import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
+import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
+
+import styles from './SignupForm.module.scss';
 
 
-const SignupForm = () => {
+const SignupForm = observer(() => {
 	const navigate = useNavigate();
 	const [showPassword, setShowPassword] = useState(false);
 	const { register, handleSubmit, formState: { errors } } = useForm({
@@ -81,6 +83,6 @@ const SignupForm = () => {
 			<p className={styles.terms}>I agree with <Link className={styles.termslink} to='/termsofservice'> terms of service </Link></p>
 		</Layout>
 	);
-};
+});
 
 export default SignupForm;
