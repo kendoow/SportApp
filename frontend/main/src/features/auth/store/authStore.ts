@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 import { TUser } from '@features/auth/types'
 
 class AuthStore {
-   = null
+  accessToken = null
   email = ''
   password = ''
 
