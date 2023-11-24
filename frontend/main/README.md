@@ -13,7 +13,7 @@
 - **REST**
 - **Vite**
 - **Eslint**
-- **Github actions**
+- **GitHub actions**
 - **Husky**
 ## Архитектурный подход:
 - **Feature-Sliced-Design**

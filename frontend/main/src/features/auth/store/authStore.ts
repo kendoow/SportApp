@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 import { TUser } from '@features/auth/types'
 
 class AuthStore {
-  acessToken = localStorage.getItem('accessToken')
+   = null
   email = ''
   password = ''
 
@@ -10,10 +10,11 @@ class AuthStore {
     makeAutoObservable(this)
   }
 
-  setUserData(userData: TUser)   {
+  setUserData(userData: TUser, accessToken: string) {
     const { password, email } = userData
     this.email = email
     this.password = password
+    this.accessToken = accessToken
   }
 
 }
