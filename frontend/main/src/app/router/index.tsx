@@ -5,17 +5,13 @@ import RestoreFrom from '@features/auth/ui/RestoreForm/RestoreForm'
 import SignupForm from '@features/auth/ui/SignupForm/SignupForm'
 import authStore from '@features/auth/store/authStore'
 import ProtectedRoute from '@shared/lib/ProtectedRoute'
+import Main from '@pages/main'
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to='login'>About Us</Link>
-      </div>
-    )
+    element: <Main />
   },
   {
     path: 'login',

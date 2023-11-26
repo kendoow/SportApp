@@ -11,7 +11,18 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  
+
+}
+
+//theme
+:root[data-theme="light"] {
+  --background-color: #fafafa;
+}
+
+:root[data-theme="dark"] {
+  --primary-color: #232525;
+  --secondary-color: #DFDFDF;
+  --text-color: #344054;
 }
 
 :focus,
