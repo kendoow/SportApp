@@ -1,4 +1,4 @@
-import { Link, createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 import LoginForm from '@features/auth/ui/LoginForm/LoginForm'
 import RestoreFrom from '@features/auth/ui/RestoreForm/RestoreForm'
