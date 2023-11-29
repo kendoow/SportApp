@@ -1,7 +1,7 @@
-import { themes } from '@shared/contexts/ThemeContext'
+import { Theme, themes } from '@shared/contexts/ThemeContext'
 
-const getTheme = () => {
-  const theme = `${window?.localStorage?.getItem('theme')}`
+const getTheme = ():Theme => {
+  const theme: Theme = `${window?.localStorage?.getItem('theme')}` as Theme;
   if (Object.values(themes).includes(theme)) return theme
 
   const userMedia = window.matchMedia('(prefers-color-scheme: light)')

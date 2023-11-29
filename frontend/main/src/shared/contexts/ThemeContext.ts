@@ -5,7 +5,7 @@ export const themes = {
   light: 'light'
 } as const;
 
-type Theme = typeof themes[keyof typeof themes];
+export type Theme = typeof themes[keyof typeof themes];
 
 export interface ThemeContextProps {
   theme: Theme;

@@ -8,6 +8,6 @@ export interface IButtonProps
   children: ReactNode;
   size?: "small" | "medium";
   appearance?: "primary" | "secondary";
-  image?: "appleIcon" | "googleIcon" ;
+  image?: string;
   className?: string;
 }
