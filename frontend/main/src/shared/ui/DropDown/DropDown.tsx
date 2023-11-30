@@ -13,10 +13,6 @@ const Dropdown: React.FC<DropdownProps> = ({ children, title }) => {
     setIsOpen((prevIsOpen) => !prevIsOpen)
   }
 
-  const closeDropdown = () => {
-    setIsOpen(false)
-  }
-
   return (
     <div className={`${styles.dropdown} ${isOpen ? styles.dropdownOpen : ''}`}>
       <div className={styles.dropdownToggle} onClick={toggleDropdown}>

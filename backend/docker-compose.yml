@@ -1,23 +1,21 @@
 version: '3'
 services:
-  nodejs-app:
+  go-app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "8080:8080"
     volumes:
-      - ./src:/app/src
+      - .:/go/src/app
+    environment:
+      - GOPATH=/go
+    command: go run cmd/main.go
     depends_on:
       - postgres
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
     networks:
       - app-network
-    command: npm run dev
-
+#    db
   postgres:
     image: postgres:latest
     environment:
@@ -31,10 +29,9 @@ services:
     networks:
       - app-network
 
+volumes:
+  postgres-data:
+
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  postgres-data:
- 
