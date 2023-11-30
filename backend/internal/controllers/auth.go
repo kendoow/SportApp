@@ -3,25 +3,26 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/kendoow/SportApp/backend/internal/model"
+	"log"
 	"net/http"
 
 	"github.com/kendoow/SportApp/backend/internal/services"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
+	//if r.Method != http.MethodPost {
+	//	http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	//	return
+	//}
 
 	var requestBody *model.UserCreds
-	err := json.NewDecoder(r.Body).Decode(&requestBody)
+	err := json.NewDecoder(r.Body).Decode(requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
 	}
 
-	user, rToken, err := services.Login(requestBody)
+	user, refreshToken, err := services.Login(requestBody)
 	if err != nil {
 		http.Error(w, "Login failed", http.StatusUnauthorized)
 		return
@@ -29,21 +30,23 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	cookie := http.Cookie{
 		Name:     "refreshToken",
-		Value:    rToken,
+		Value:    refreshToken,
 		MaxAge:   30 * 24 * 60 * 60 * 1000,
 		HttpOnly: true,
 	}
 
 	http.SetCookie(w, &cookie)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(user)
+	if err := json.NewEncoder(w).Encode(user); err != nil {
+		log.Panicln(err)
+	}
 }
 
 func SignUp(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
+	//if r.Method != http.MethodPost {
+	//	http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	//	return
+	//}
 
 	var requestBody *model.UserCreds
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
