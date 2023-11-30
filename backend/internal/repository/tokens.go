@@ -40,3 +40,17 @@ func GetTokenByUserId(ctx context.Context, id int64) (string, error) {
 
 	return token, nil
 }
+
+func UpdateTokenByUserId(ctx context.Context, id int64, refreshToken string) error {
+	query := `UPDATE tokens 
+			  SET token = $1
+			  WHERE id = $2`
+
+	if err := db.GetDB().QueryRow(ctx, query,
+		refreshToken,
+		id).Scan(); err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -1,48 +1,34 @@
 package services
 
 import (
-	"fmt"
-	"os"
-	"time"
-
-	"github.com/golang-jwt/jwt/v5"
+	"context"
+	"github.com/kendoow/SportApp/backend/internal/repository"
+	"github.com/kendoow/SportApp/backend/util"
 )
 
-var secretKey = []byte("secret-key") // TODO: env variable
-
-var (
-	ACCESS  = os.Getenv("SECRET_ACCESS_TOKEN")
-	REFRESH = os.Getenv("SECRET_REFRESH_TOKEN")
-)
-
-func verifyToken(tokenString string) error {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		return secretKey, nil
-	})
-
+func createToken(email string, id int64) (string, error) {
+	token, err := util.CreateToken(email, id, util.REFRESH)
 	if err != nil {
-		return err
+		return "", nil
 	}
 
-	if !token.Valid {
-		return fmt.Errorf("invalid token")
+	if err := repository.SaveToken(context.Background(), id, token); err != nil {
+		return "", nil
 	}
 
-	return nil
+	return token, nil
 }
 
-func createToken(email string, id int64, secret string) (string, error) {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256,
-		jwt.MapClaims{
-			"email": email,
-			"id":    id,
-			"exp":   time.Now().Add(time.Hour * 24).Unix(),
-		})
-
-	tokenString, err := token.SignedString(secret)
+func CreatePairTokens(email string, id int64) (string, string, error) {
+	refreshToken, err := createToken(email, id)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 
-	return tokenString, nil
+	accessToken, err := util.CreateToken(email, id, util.ACCESS)
+	if err != nil {
+		return "", "", err
+	}
+
+	return accessToken, refreshToken, nil
 }

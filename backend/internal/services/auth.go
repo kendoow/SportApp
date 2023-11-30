@@ -20,11 +20,7 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		return nil, "", err
 	}
 
-	aToken, err := createToken(req.Email, id, ACCESS)
-	if err != nil {
-		return nil, "", err
-	}
-	rToken, err := createToken(req.Email, id, REFRESH)
+	accessToken, refreshToken, err := CreatePairTokens(req.Email, id)
 	if err != nil {
 		return nil, "", err
 	}
@@ -32,8 +28,8 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	return &model.UserAuthirized{
 		"",
 		req.Email,
-		aToken,
-	}, rToken, nil
+		accessToken,
+	}, refreshToken, nil
 }
 
 func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
@@ -46,11 +42,7 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		return nil, "", err
 	}
 
-	aToken, err := createToken(req.Email, user.ID, ACCESS)
-	if err != nil {
-		return nil, "", err
-	}
-	rToken, err := createToken(req.Email, user.ID, REFRESH)
+	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.ID) //TODO do upsert
 	if err != nil {
 		return nil, "", err
 	}
@@ -58,8 +50,8 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	return &model.UserAuthirized{
 		user.Username,
 		user.Email,
-		aToken,
-	}, rToken, nil
+		accessToken,
+	}, refreshToken, nil
 }
 
 func Logout(token string) {
