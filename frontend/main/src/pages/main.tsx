@@ -1,22 +1,27 @@
 import React from 'react'
-import { themes } from '@shared/contexts/ThemeContext'
-import useTheme from '@shared/hooks/useTheme'
 
-const Main: React.FC = () => {
-  const { theme, toggleTheme } = useTheme()
+import Dropdown from '@shared/ui/DropDown/DropDown' // Импортируйте стили как модуль
+
+const App: React.FC = () => {
+  const options = ['Option 1', 'Option 2', 'Option 3']
+
+  const handleSelect = (selectedOption: string) => {
+    console.log(`Selected option: ${selectedOption}`)
+    // Здесь вы можете выполнить дополнительные действия при выборе опции
+  }
 
   return (
-    <input
-      id='toggler'
-      type='checkbox'
-      onClick={() => {
-        if (theme === themes.light) toggleTheme()
-        if (theme === themes.dark) toggleTheme()
-      }}
-      checked={theme === themes.dark}
-      readOnly
-    />
+    <div>
+      <h1>React Dropdown Example</h1>
+      <Dropdown title='main pages'>
+        {options.map((option) => (
+          <div key={option} onClick={() => handleSelect(option)}>
+            {option}
+          </div>
+        ))}
+      </Dropdown>
+    </div>
   )
 }
 
-export default Main
+export default App

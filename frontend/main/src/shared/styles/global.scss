@@ -16,13 +16,24 @@
 
 //theme
 :root[data-theme="light"] {
-  --background-color: #fafafa;
+  --background: #F9FAFB;
+  --primary-text: #111827;
+  --secondary-background: #E5E7EB;
+  --secondary-text: #4B5563;
+  --secondary-buttons: #9CA3AF;
+  --tertiary-text: #6D7280;
+  --placeholder-text: #E5E7EB;
+
 }
 
 :root[data-theme="dark"] {
-  --primary-color: #232525;
-  --secondary-color: #DFDFDF;
-  --text-color: #344054;
+  --background: #232525;
+  --primary-text: #DFDFDF;
+  --secondary-background: #191A1B;
+  --secondary-text: #8E8E8E;
+  --secondary-buttons: #9CA3AF;
+  --tertiary-text: #344054;
+  --placeholder-text: #595A5A;
 }
 
 :focus,
