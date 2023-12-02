@@ -1,39 +1,37 @@
-@import "./variables.scss";
+@import "variables";
 
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-
 }
 
 //theme
 :root[data-theme="light"] {
-  --background: #F9FAFB;
+  --background: #f9fafb;
   --primary-text: #111827;
-  --secondary-background: #E5E7EB;
-  --secondary-text: #4B5563;
-  --secondary-buttons: #9CA3AF;
-  --tertiary-text: #6D7280;
-  --placeholder-text: #E5E7EB;
-
+  --secondary-background: #e5e7eb;
+  --secondary-text: #4b5563;
+  --secondary-buttons: #9ca3af;
+  --tertiary-text: #6d7280;
+  --placeholder-text: #e5e7eb;
 }
 
 :root[data-theme="dark"] {
   --background: #232525;
-  --primary-text: #DFDFDF;
-  --secondary-background: #191A1B;
-  --secondary-text: #8E8E8E;
-  --secondary-buttons: #9CA3AF;
+  --primary-text: #dfdfdf;
+  --secondary-background: #191a1b;
+  --secondary-text: #8e8e8e;
+  --secondary-buttons: #9ca3af;
   --tertiary-text: #344054;
-  --placeholder-text: #595A5A;
+  --placeholder-text: #595a5a;
 }
 
 :focus,
@@ -64,9 +62,8 @@ body {
   width: 100%;
   height: 100vh;
   scroll-behavior: smooth;
-  background-color: $white;
+  background-color: var(--background);
   font-size: 100%;
-  font-size: 14px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

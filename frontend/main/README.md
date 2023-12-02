@@ -3,9 +3,10 @@
 Для frontend части приложения используются следующие технологии, инструменты и подходы:
 
 ## Технологии и Инструменты:
+
 - **React 18**
 - **TypeScript (TS)**
-- **SCSS Modules:** 
+- **SCSS Modules:**
 - **MobX**
 - **StoryBook**
 - **Jest**
@@ -15,5 +16,7 @@
 - **Eslint**
 - **GitHub actions**
 - **Husky**
+
 ## Архитектурный подход:
+
 - **Feature-Sliced-Design**

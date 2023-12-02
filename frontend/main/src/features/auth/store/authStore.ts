@@ -1,24 +1,23 @@
-import { makeAutoObservable } from 'mobx'
-import { TUser } from '@features/auth/types'
+import { makeAutoObservable } from "mobx";
+import { TUser } from "@features/auth/types";
 
 class AuthStore {
-  accessToken = null
-  email = ''
-  password = ''
+  accessToken = null;
+  email = "";
+  password = "";
 
   constructor() {
-    makeAutoObservable(this)
+    makeAutoObservable(this);
   }
 
   setUserData(userData: TUser, accessToken: string) {
-    const { password, email } = userData
-    this.email = email
-    this.password = password
-    this.accessToken = accessToken
+    const { password, email } = userData;
+    this.email = email;
+    this.password = password;
+    this.accessToken = accessToken;
   }
-
 }
 
-const authStore = new AuthStore()
+const authStore = new AuthStore();
 
-export default authStore
+export default authStore;

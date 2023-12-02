@@ -1,6 +1,4 @@
-
-
-export const outfit = ([
+export const outfit = [
   {
     path: "./Outfit-Black.ttf",
     weight: "900",
@@ -46,4 +44,4 @@ export const outfit = ([
     weight: "100",
     style: "normal",
   },
-]);
+];

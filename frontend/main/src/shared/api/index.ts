@@ -1,21 +1,25 @@
-import { BASE_URL } from '@shared/lib/constants/env'
-import axios, { InternalAxiosRequestConfig } from 'axios'
+import { BASE_URL } from "@shared/lib/constants/env";
+import axios, { InternalAxiosRequestConfig } from "axios";
 
 const api = axios.create({
-    withCredentials: true,
-    baseURL: BASE_URL,
-})
+  withCredentials: true,
+  baseURL: BASE_URL,
+});
 
 export const defaultApi = axios.create({
-    withCredentials: true,
-    baseURL: BASE_URL,
-})
+  withCredentials: true,
+  baseURL: BASE_URL,
+});
 
-api.interceptors.request.use((config: InternalAxiosRequestConfig): InternalAxiosRequestConfig  => {
+api.interceptors.request.use(
+  (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
     if (config && config.headers) {
-        config.headers.Authorization = `Bearer ${localStorage.getItem('accessToken')}`
+      config.headers.Authorization = `Bearer ${localStorage.getItem(
+        "accessToken"
+      )}`;
     }
-    return config
-})
+    return config;
+  }
+);
 
-export default api
+export default api;

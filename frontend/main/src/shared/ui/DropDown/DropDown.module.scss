@@ -2,17 +2,43 @@
   &Toggle {
     cursor: pointer;
     display: flex;
-    background-color: var(--primary-text);
+    background-color: var(--background);
     width: 100%;
-    padding: 0.5rem 0.75rem 0.625rem 2rem;
+    padding: 0.5rem 0.75rem 0.625rem 0.75rem;
     gap: 0.625rem;
     align-items: flex-start;
     border-radius: 0.625rem;
-    color: var(--background)
+    color: var(--background);
+
+    &Up {
+      &:after {
+        display: inline-block;
+        content: "";
+        background: url("../../../assets/images/arrow.svg") no-repeat bottom;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+      }
+    }
+
+    &Down {
+      &:after {
+        display: inline-block;
+        content: "";
+        background: url("../../../assets/images/arrow.svg") no-repeat bottom;
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+        transform: rotate(-90deg);
+      }
+    }
   }
-  &Open {
-    display: block;
+
+  &Empty {
+    transition: all 0.2s;
+    display: none;
   }
+
   &Element {
     cursor: pointer;
     display: flex;
@@ -22,6 +48,18 @@
     gap: 0.625rem;
     align-items: flex-start;
     border-radius: 0.625rem;
-    color: var(--primary-text)
+    color: var(--primary-text);
+  }
+
+  &Menu {
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &Title {
+    color: var(--primary-text);
+    font-size: 1.375rem;
   }
 }

@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { createRoot } from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import router from '@app/router'
-import ThemeProvider from '@shared/providers/ThemeProvider'
+import * as React from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import router from "@app/router";
+import ThemeProvider from "@app/providers/ThemeProvider/ui/ThemeProvider";
 
-import '@styles/global.scss'
+import "@app/styles/global.scss";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <ThemeProvider>
     <RouterProvider router={router} />
   </ThemeProvider>
-)
+);

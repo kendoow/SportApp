@@ -1,5 +1,11 @@
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from "react";
-import { FieldError, FieldErrorsImpl, FieldValues, Merge, UseFormRegister } from "react-hook-form";
+import {
+  FieldError,
+  FieldErrorsImpl,
+  FieldValues,
+  Merge,
+  UseFormRegister,
+} from "react-hook-form";
 
 export interface IInputProps
   extends DetailedHTMLProps<
