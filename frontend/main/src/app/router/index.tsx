@@ -6,19 +6,32 @@ import SignupForm from "@features/auth/ui/SignupForm/SignupForm";
 import authStore from "@features/auth/store/authStore";
 import ProtectedRoute from "@app/router/ProtectedRoute";
 import Main from "@pages/main";
+import Layout from "@pages/Layout/Layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: (
+      <Layout>
+        <Main />
+      </Layout>
+    ),
   },
   {
     path: "home",
-    element: <Main />,
+    element: (
+      <Layout>
+        <Main />
+      </Layout>
+    ),
   },
   {
     path: "bio",
-    element: <Main />,
+    element: (
+      <Layout>
+        <Main />
+      </Layout>
+    ),
   },
   {
     path: "login",
