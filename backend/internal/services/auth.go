@@ -39,17 +39,23 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	user, err := repository.GetUserByEmail(context.Background(), req.Email)
 	if err != nil {
+		log.Println(err.Error())
+		log.Println("failed in getting user from db")
 		return nil, "", err
 	}
 
 	if err := util.CheckPassword(req.Password, user.Password); err != nil {
+		log.Println("uncorrect password")
 		return nil, "", err
 	}
 
-	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.ID) //TODO do upsert
+	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.Id) //TODO do upsert
 	if err != nil {
+		log.Println("failed in creating tokens")
 		return nil, "", err
 	}
+
+	log.Println(accessToken, "<--->", refreshToken)
 
 	return &model.UserAuthirized{
 		user.Username,

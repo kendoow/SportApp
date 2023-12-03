@@ -8,10 +8,14 @@ import (
 
 func SaveToken(ctx context.Context, id int64, rToken string) error {
 	query := `INSERT INTO tokens(id, token) 
-		VALUES ($1, $2)`
+		VALUES ($1, $2)
+		ON CONFLICT ("id")
+		DO
+			UPDATE SET token = EXCLUDED.token;`
 
-	if err := db.GetDB().QueryRow(ctx, query, id, rToken).Scan(); err != nil {
-		log.Print("Error in token repo with saving")
+	_, err := db.GetDB().Exec(ctx, query, id, rToken)
+	if err != nil {
+		log.Print("Error in token repo with saving: ", err.Error())
 		return err
 	}
 
@@ -22,7 +26,9 @@ func DeleteToken(ctx context.Context, rToken string) error {
 	query := `DELETE FROM tokens
 			WHERE token = $1;`
 
-	if err := db.GetDB().QueryRow(ctx, query, rToken).Scan(); err != nil {
+	_, err := db.GetDB().Exec(ctx, query, rToken)
+	if err != nil {
+		log.Println("Error in deleting token: ", err.Error())
 		return err
 	}
 

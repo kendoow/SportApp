@@ -55,11 +55,15 @@ func GetUserByEmail(ctx context.Context, email string) (*model.User, error) {
 			  FROM users
 			  WHERE email = $1;`
 
-	var user = &model.User{}
+	var user = model.User{}
 
-	if err := db.GetDB().QueryRow(ctx, query, email).Scan(user); err != nil {
+	if err := db.GetDB().QueryRow(ctx, query, email).Scan(
+		&user.Id,
+		&user.Username,
+		&user.Email,
+		&user.Password); err != nil {
 		return nil, err
 	}
 
-	return user, nil
+	return &user, nil
 }

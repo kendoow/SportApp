@@ -15,18 +15,22 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
-	var requestBody *model.UserCreds
-	err := json.NewDecoder(r.Body).Decode(requestBody)
+	var requestBody model.UserCreds
+	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		log.Println(err.Error())
 		return
 	}
 
-	user, refreshToken, err := services.Login(requestBody)
+	user, refreshToken, err := services.Login(&requestBody)
 	if err != nil {
+		log.Println(err.Error())
 		http.Error(w, "Login failed", http.StatusUnauthorized)
 		return
 	}
+
+	log.Println(refreshToken)
 
 	cookie := http.Cookie{
 		Name:     "refreshToken",
@@ -48,14 +52,14 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
-	var requestBody *model.UserCreds
+	var requestBody model.UserCreds
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
 	}
 
-	createdUser, rToken, err := services.SignUp(requestBody)
+	createdUser, rToken, err := services.SignUp(&requestBody)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnauthorized)
 		return
