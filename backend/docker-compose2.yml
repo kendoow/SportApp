@@ -12,6 +12,7 @@ services:
       - app-network
 
   postgres:
+    container_name: postgres-sp
     image: postgres:latest
     environment:
       POSTGRES_DB: ${DB_NAME}

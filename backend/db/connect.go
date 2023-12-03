@@ -16,7 +16,13 @@ var (
 )
 
 func connect() (*pgx.Conn, error) {
-	conn, err := pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
+	conn, err := pgx.Connect(context.Background(),
+		fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
+			os.Getenv("DB_USER"),
+			os.Getenv("DB_PASSWORD"),
+			os.Getenv("DB_PORT"),
+			os.Getenv("DB_NAME")))
+
 	if err != nil {
 		return nil, fmt.Errorf("unable to connect to database: %v", err)
 	}

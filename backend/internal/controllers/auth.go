@@ -57,7 +57,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 
 	createdUser, rToken, err := services.SignUp(requestBody)
 	if err != nil {
-		http.Error(w, "SignUp failed", http.StatusUnauthorized)
+		http.Error(w, err.Error(), http.StatusUnauthorized)
 		return
 	}
 
@@ -73,42 +73,58 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(createdUser)
 }
 
-//func Logout(w http.ResponseWriter, r *http.Request) {
-//	if r.Method != http.MethodPost {
-//		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-//		return
-//	}
-//
-//	refreshToken, err := r.Cookie("refreshToken")
-//	if err != nil {
-//		http.Error(w, "Invalid request, missing refreshToken cookie", http.StatusBadRequest)
-//		return
-//	}
-//
-//	token, err := services.Logout(refreshToken.Value)
-//	if err != nil {
-//		http.Error(w, "Logout failed", http.StatusUnauthorized)
-//		return
-//	}
-//
-//	// Очистка куки refreshToken
-//	clearCookie := http.Cookie{
-//		Name:     "refreshToken",
-//		Value:    "",
-//		MaxAge:   -1,
-//		HttpOnly: true,
-//	}
-//
-//	http.SetCookie(w, &clearCookie)
-//
-//	w.Header().Set("Content-Type", "application/json")
-//	json.NewEncoder(w).Encode(token)
-//}
-//
-//func Reset(w http.ResponseWriter, r *http.Request) {
-//
-//}
-//
-//func Refresh(w http.ResponseWriter, r *http.Request) {
-//
-//}
+func Logout(w http.ResponseWriter, r *http.Request) {
+	//if r.Method != http.MethodPost {
+	//	http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	//	return
+	//} // by default
+
+	refreshToken, err := r.Cookie("refreshToken")
+	if err != nil {
+		http.Error(w, "Invalid request, missing refreshToken cookie", http.StatusBadRequest)
+		return
+	}
+
+	if err := services.Logout(refreshToken.Value); err != nil {
+		http.Error(w, "Logout failed", http.StatusUnauthorized)
+		return
+	}
+
+	// Очистка куки refreshToken
+	clearCookie := http.Cookie{
+		Name:     "refreshToken",
+		Value:    "",
+		MaxAge:   -1,
+		HttpOnly: true,
+	}
+
+	http.SetCookie(w, &clearCookie)
+
+	w.Header().Set("Content-Type", "application/json")
+
+	//json.NewEncoder(w).Encode()
+}
+
+func Reset(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func Refresh(w http.ResponseWriter, r *http.Request) {
+	refreshToken, err := r.Cookie("refreshToken")
+	if err != nil {
+		http.Error(w, "Invalid request, missing refreshToken cookie", http.StatusBadRequest)
+		return
+	}
+
+	accessToken, err := services.Refresh(refreshToken.Value)
+	if err != nil {
+		http.Error(w, "RefreshFailed failed", http.StatusUnauthorized)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(
+		map[string]string{"accessToken": accessToken}); err != nil {
+		//TODO panic
+	}
+}
