@@ -5,27 +5,28 @@ import (
 	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/repository"
 	"github.com/kendoow/SportApp/backend/util"
+	"log"
 )
 
 func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 
 	hashedPassword, err := util.HashPassword(req.Password)
 	if err != nil {
+		log.Println("error in hashing password")
 		return nil, "", err
 	}
 	req.Password = hashedPassword
 
 	id, err := repository.CreateUser(context.Background(), req)
 	if err != nil {
+		log.Println("error in creating user")
 		return nil, "", err
 	}
 
-	accessToken, err := createToken(req.Email, id, ACCESS)
+	accessToken, refreshToken, err := CreatePairTokens(req.Email, id)
+
 	if err != nil {
-		return nil, "", err
-	}
-	refreshToken, err := createToken(req.Email, id, REFRESH)
-	if err != nil {
+		log.Panicln("error in create of pairs")
 		return nil, "", err
 	}
 
@@ -39,21 +40,24 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	user, err := repository.GetUserByEmail(context.Background(), req.Email)
 	if err != nil {
+		log.Println(err.Error())
+		log.Println("failed in getting user from db")
 		return nil, "", err
 	}
 
 	if err := util.CheckPassword(req.Password, user.Password); err != nil {
+		log.Println("uncorrect password")
 		return nil, "", err
 	}
 
-	accessToken, err := createToken(req.Email, user.ID, ACCESS)
+
+	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.Id) //TODO do upsert
 	if err != nil {
+		log.Println("failed in creating tokens")
 		return nil, "", err
 	}
-	refreshToken, err := createToken(req.Email, user.ID, REFRESH)
-	if err != nil {
-		return nil, "", err
-	}
+
+	log.Println(accessToken, "<--->", refreshToken)
 
 	return &model.UserAuthirized{
 		user.Username,
@@ -62,14 +66,33 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	}, refreshToken, nil
 }
 
-//func Logout(token string) {
-//
-//}
-//
-//func Refresh() {
-//
-//}
-//
-//func Reset() {
-//
-//}
+
+func Logout(token string) error {
+	if err := repository.DeleteToken(context.Background(), token); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func Refresh(refreshToken string) (string, error) {
+	claims, err := util.ParseUserClaims(refreshToken, util.REFRESH)
+	if err != nil {
+		return "", err
+	}
+
+	if err := IsTokenExistsAndCorrect(refreshToken, claims.UserId); err != nil {
+		return "", err
+	}
+
+	accessToken, err := util.CreateToken(claims.Email, claims.UserId, util.ACCESS)
+	if err != nil {
+		return "", nil
+	}
+
+	return accessToken, nil
+}
+
+func Reset() {
+
+}

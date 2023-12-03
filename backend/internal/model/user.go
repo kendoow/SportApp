@@ -1,10 +1,10 @@
 package model
 
 type User struct {
-	ID       int64
-	Username string
-	Email    string
-	Password string
+	Id       int64  `db:"id"`
+	Username string `db:"username"`
+	Email    string `db:"email"`
+	Password string `db:"password"`
 }
 
 type UserCreds struct {
