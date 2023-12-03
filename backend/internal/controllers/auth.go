@@ -16,6 +16,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//}
 
 	var requestBody model.UserCreds
+
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
@@ -52,7 +53,9 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
+
 	var requestBody model.UserCreds
+
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
@@ -76,6 +79,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(createdUser)
 }
+
 
 func Logout(w http.ResponseWriter, r *http.Request) {
 	//if r.Method != http.MethodPost {

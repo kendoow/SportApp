@@ -9,7 +9,7 @@ export const LoginSchema = yup.object().shape({
     .string()
     .required("This field is required")
     .min(3, "Password is too short")
-    .max(20, "Password is too long")
+    .max(20, "Password is too long"),
 });
 
 export const SignUpSchema = yup.object().shape({
@@ -25,5 +25,5 @@ export const SignUpSchema = yup.object().shape({
   passwordSubmit: yup
     .string()
     .required("This field is required")
-    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
 });

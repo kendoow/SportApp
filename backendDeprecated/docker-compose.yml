@@ -17,6 +17,7 @@ services:
     networks:
       - app-network
     command: npm run dev
+
   postgres:
     image: postgres:latest
     environment:

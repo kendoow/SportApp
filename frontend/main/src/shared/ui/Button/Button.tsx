@@ -20,10 +20,7 @@ export const Button = ({
   );
 
   return (
-    <button
-      className={buttonClassName}
-      {...props}
-    >
+    <button className={buttonClassName} {...props}>
       {children}
       {image && <img className={styles.image} src={image} alt="icon" />}
     </button>

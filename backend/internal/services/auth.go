@@ -24,6 +24,7 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	}
 
 	accessToken, refreshToken, err := CreatePairTokens(req.Email, id)
+
 	if err != nil {
 		log.Panicln("error in create of pairs")
 		return nil, "", err
@@ -49,6 +50,7 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		return nil, "", err
 	}
 
+
 	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.Id) //TODO do upsert
 	if err != nil {
 		log.Println("failed in creating tokens")
@@ -63,6 +65,7 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		accessToken,
 	}, refreshToken, nil
 }
+
 
 func Logout(token string) error {
 	if err := repository.DeleteToken(context.Background(), token); err != nil {

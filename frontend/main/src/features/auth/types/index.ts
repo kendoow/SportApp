@@ -3,15 +3,15 @@ export type TUser = {
   password: string;
   email: string;
   id?: number;
-}
+};
 
 export type TUserSignUp = {
   email: string;
   password: string;
   passwordSubmit: string;
-}
+};
 
-export type TUserLogin = Omit<TUser, "id" | "name">
+export type TUserLogin = Omit<TUser, "id" | "name">;
 
 export type TAuthResponse = {
   refreshToken: string;
@@ -21,4 +21,4 @@ export type TAuthResponse = {
 
 export type TAuthError = {
   message: string;
-}
+};

@@ -1,0 +1,25 @@
+.sidebar {
+  padding: 0.75rem 0.6875rem 1rem 0.6875rem;
+  max-width: 18.5rem;
+
+  &Element {
+    display: flex;
+    padding: 0.5rem 0.75rem 0.625rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 0.625rem;
+  }
+
+  &Inactive {
+    background-color: var(--background);
+    color: var(--primary-text);
+  }
+
+  &Active {
+    background-color: var(--primary-text);
+    color: var(--background);
+  }
+}

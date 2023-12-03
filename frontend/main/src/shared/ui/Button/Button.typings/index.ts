@@ -1,4 +1,4 @@
-  import type { DetailedHTMLProps, ButtonHTMLAttributes, ReactNode } from "react";
+import type { DetailedHTMLProps, ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface IButtonProps
   extends DetailedHTMLProps<
@@ -8,6 +8,6 @@ export interface IButtonProps
   children: ReactNode;
   size?: "small" | "medium";
   appearance?: "primary" | "secondary";
-  image?: "appleIcon" | "googleIcon" ;
+  image?: string;
   className?: string;
 }
