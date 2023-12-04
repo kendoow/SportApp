@@ -53,7 +53,6 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
-
 	var requestBody model.UserCreds
 
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
@@ -79,7 +78,6 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(createdUser)
 }
-
 
 func Logout(w http.ResponseWriter, r *http.Request) {
 	//if r.Method != http.MethodPost {
