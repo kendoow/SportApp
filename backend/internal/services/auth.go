@@ -41,15 +41,14 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 	user, err := repository.GetUserByEmail(context.Background(), req.Email)
 	if err != nil {
 		log.Println(err.Error())
-		log.Println("failed in getting user from db")
+		log.Println("failed when getting user from db")
 		return nil, "", err
 	}
 
 	if err := util.CheckPassword(req.Password, user.Password); err != nil {
-		log.Println("uncorrect password")
+		log.Println("incorrect password")
 		return nil, "", err
 	}
-
 
 	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.Id) //TODO do upsert
 	if err != nil {
@@ -65,7 +64,6 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		accessToken,
 	}, refreshToken, nil
 }
-
 
 func Logout(token string) error {
 	if err := repository.DeleteToken(context.Background(), token); err != nil {
