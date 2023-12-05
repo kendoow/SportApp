@@ -17,7 +17,8 @@ var (
 
 func connect() (*pgx.Conn, error) {
 	conn, err := pgx.Connect(context.Background(),
-		fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
+		fmt.Sprintf("host=%s user=%s password=%s port=%s database=%s",
+			os.Getenv("DB_HOST"),
 			os.Getenv("DB_USER"),
 			os.Getenv("DB_PASSWORD"),
 			os.Getenv("DB_PORT"),
