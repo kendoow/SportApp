@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"github.com/kendoow/SportApp/backend/internal/utils"
 	"log"
 	"net/http"
 	"runtime/debug"
@@ -11,7 +12,7 @@ func Logging(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		start := time.Now()
 		next.ServeHTTP(w, req)
-		log.Printf("[%s] - %s - %s", time.Since(start), req.Method, req.RequestURI)
+		utils.Info.Printf("[%s] - %s - %s", time.Since(start), req.Method, req.RequestURI)
 	})
 }
 

@@ -1,10 +1,8 @@
 package utils
 
-import "log"
-
-func CheckError(err error, msg string, logger log.Logger) bool {
+func CheckError(err error, msg string) bool {
 	if err != nil {
-		logger.Println("Error encountered:", msg)
+		Debug.Println("Error encountered:", msg)
 		return true
 	}
 	return false

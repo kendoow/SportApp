@@ -1,9 +1,9 @@
-FROM golang:latest
-
+FROM golang:latest as build
 WORKDIR /go/src/app
 COPY . .
+RUN go build ./cmd/main.go
 
-RUN go get -d -v ./...
-RUN go install -v ./...
-
-CMD ["app"]
+FROM ubuntu:22.04 as production
+WORKDIR /application
+COPY --from=build /go/src/app/main .
+CMD ["./main"]

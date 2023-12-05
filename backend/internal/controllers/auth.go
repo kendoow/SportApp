@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/kendoow/SportApp/backend/internal/model"
-	"log"
+	"github.com/kendoow/SportApp/backend/internal/utils"
 	"net/http"
 
 	"github.com/kendoow/SportApp/backend/internal/services"
@@ -20,18 +20,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
-		log.Println(err.Error())
+		utils.Info.Println(err.Error())
 		return
 	}
 
 	user, refreshToken, err := services.Login(&requestBody)
 	if err != nil {
-		log.Println(err.Error())
+		utils.Info.Printf(err.Error())
 		http.Error(w, "Login failed", http.StatusUnauthorized)
 		return
 	}
 
-	log.Println(refreshToken)
+	utils.Info.Println(refreshToken)
 
 	cookie := http.Cookie{
 		Name:     "refreshToken",
@@ -43,7 +43,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, &cookie)
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(user); err != nil {
-		log.Panicln(err)
+		utils.Info.Panicln(err)
 	}
 }
 
