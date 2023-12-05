@@ -1,0 +1,17 @@
+<svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        :root{
+          --primary-text: #111827;
+        }
+        :root[data-theme="dark"] {
+          --primary-text: #DFDFDF;
+        }
+        path {
+        stroke: var(--primary-text);
+        stroke-width: 3;
+        stroke-linecap: square;
+        stroke-linejoin: round;
+        }
+    </style>
+    <path d="M3 3L10 8L17 3" />
+</svg>

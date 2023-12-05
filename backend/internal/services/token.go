@@ -1,48 +1,66 @@
 package services
 
 import (
-	"fmt"
-	"os"
-	"time"
-
+	"context"
+	"errors"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/kendoow/SportApp/backend/internal/repository"
+	"github.com/kendoow/SportApp/backend/util"
+	"log"
 )
 
-var secretKey = []byte("secret-key") // TODO: env variable
+func createToken(email string, id int64) (string, error) {
+	token, err := util.CreateToken(email, id, util.REFRESH)
+	if err != nil {
+		log.Println("err in creating token in utils")
+		return "", nil
+	}
 
-var (
-	ACCESS  = os.Getenv("SECRET_ACCESS_TOKEN")
-	REFRESH = os.Getenv("SECRET_REFRESH_TOKEN")
-)
+	if err := repository.SaveToken(context.Background(), id, token); err != nil {
+		log.Println("err with saving")
+		return "", nil
+	}
 
-func verifyToken(tokenString string) error {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		return secretKey, nil
+	return token, nil
+}
+
+func CreatePairTokens(email string, id int64) (string, string, error) {
+	refreshToken, err := createToken(email, id)
+	if err != nil {
+		log.Println("err in creating refresh token")
+		return "", "", err
+	}
+
+	accessToken, err := util.CreateToken(email, id, util.ACCESS)
+	if err != nil {
+		log.Println("err in create access token")
+		return "", "", err
+	}
+
+	return accessToken, refreshToken, nil
+}
+
+func IsTokenExistsAndCorrect(tokenStr string, tokenId int64) error {
+	currentToken, err := repository.GetTokenByUserId(context.Background(), tokenId)
+	if err != nil {
+		return err
+	}
+
+	token, err := jwt.Parse(currentToken, func(tokenStr *jwt.Token) (interface{}, error) {
+		return util.REFRESH, nil
 	})
-
 	if err != nil {
 		return err
 	}
 
 	if !token.Valid {
-		return fmt.Errorf("invalid token")
+		return errors.New("token is invalid")
+	}
+
+	if currentToken != tokenStr {
+		return errors.New("invalidate token") //TODO create api error for what throws
+		// TODO by invalidate token and then throw error by not auth user
 	}
 
 	return nil
-}
-
-func createToken(email string, id int64, secret string) (string, error) {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256,
-		jwt.MapClaims{
-			"email": email,
-			"id":    id,
-			"exp":   time.Now().Add(time.Hour * 24).Unix(),
-		})
-
-	tokenString, err := token.SignedString(secret)
-	if err != nil {
-		return "", err
-	}
-
-	return tokenString, nil
 }

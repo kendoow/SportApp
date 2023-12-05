@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable",],
+    "lib": ["dom", "dom.iterable"],
     "allowJs": true,
     "module": "esnext",
     "skipLibCheck": true,
@@ -23,7 +23,7 @@
       "@app/*": ["./src/app/*"],
       "@entities/*": ["src/entities/*"],
       "@widgets/*": ["src/widgets/*"]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -31,7 +31,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.stories.tsx",
-    "src/app/router/index.tsx",
+    "src/app/router/index.tsx"
   ],
   "exclude": ["node_modules"]
 }

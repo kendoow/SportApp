@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS tokens(
+    id BIGINT PRIMARY KEY,
+    token text NOT NULL
+);

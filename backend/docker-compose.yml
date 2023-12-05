@@ -6,17 +6,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    volumes:
-      - .:/go/src/app
-    environment:
-      - GOPATH=/go
-    command: go run cmd/main.go
     depends_on:
       - postgres
     networks:
       - app-network
-#    db
+
   postgres:
+    container_name: postgres-sp
     image: postgres:latest
     environment:
       POSTGRES_DB: ${DB_NAME}
