@@ -3,10 +3,9 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/kendoow/SportApp/backend/internal/model"
+	"github.com/kendoow/SportApp/backend/internal/services/auth-service"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"net/http"
-
-	"github.com/kendoow/SportApp/backend/internal/services"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -24,7 +23,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, refreshToken, err := services.Login(&requestBody)
+	user, refreshToken, err := auth_service.Login(&requestBody)
 	if err != nil {
 		utils.Info.Printf(err.Error())
 		http.Error(w, "Login failed", http.StatusUnauthorized)
@@ -61,7 +60,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	createdUser, rToken, err := services.SignUp(&requestBody)
+	createdUser, rToken, err := auth_service.SignUp(&requestBody)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnauthorized)
 		return
@@ -91,7 +90,7 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := services.Logout(refreshToken.Value); err != nil {
+	if err := auth_service.Logout(refreshToken.Value); err != nil {
 		http.Error(w, "Logout failed", http.StatusUnauthorized)
 		return
 	}
@@ -122,7 +121,7 @@ func Refresh(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	accessToken, err := services.Refresh(refreshToken.Value)
+	accessToken, err := auth_service.Refresh(refreshToken.Value)
 	if err != nil {
 		http.Error(w, "RefreshFailed failed", http.StatusUnauthorized)
 		return
