@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router";
 
-const ProtectedRoute = ({ token, redirectPath = "/", children }) => {
-  if (token !== null) {
+const ProtectedRoute = ({ isAuth, redirectPath = "/", children }) => {
+  if (isAuth !== null) {
     return <Navigate to={redirectPath} replace />;
   }
 

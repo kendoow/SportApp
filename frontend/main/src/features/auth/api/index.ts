@@ -17,7 +17,6 @@ export const authSignup = async (data: TUserSignUp): Promise<TUser> => {
   delete data.passwordSubmit;
   try {
     const response = await api.post<TAuthResponse>("/auth/signup", data);
-    console.log(response.data);
     authStore.setUserData(data, response.data.accessToken);
     localStorage.setItem("accessToken", response.data.accessToken);
     return response.data;

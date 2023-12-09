@@ -2,7 +2,8 @@ import { makeAutoObservable } from "mobx";
 import { TUser } from "@features/auth/types";
 
 class AuthStore {
-  accessToken = null;
+  isAuthenticated = false;
+  accessToken = localStorage.getItem("accessToken");
   email = "";
   password = "";
 
@@ -15,6 +16,7 @@ class AuthStore {
     this.email = email;
     this.password = password;
     this.accessToken = accessToken;
+    this.isAuthenticated = true;
   }
 }
 

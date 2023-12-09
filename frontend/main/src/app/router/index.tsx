@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: (
-      <ProtectedRoute token={authStore.accessToken}>
+      <ProtectedRoute user={authStore.isAuthenticated}>
         <LoginForm />
       </ProtectedRoute>
     ),
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
   {
     path: "restore",
     element: (
-      <ProtectedRoute token={authStore.accessToken}>
+      <ProtectedRoute user={authStore.isAuthenticated}>
         <RestoreFrom />
       </ProtectedRoute>
     ),
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: (
-      <ProtectedRoute token={authStore.accessToken}>
+      <ProtectedRoute user={authStore.isAuthenticated}>
         <SignupForm />
       </ProtectedRoute>
     ),
