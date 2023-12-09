@@ -16,7 +16,9 @@ export type TUserLogin = Omit<TUser, "id" | "name">;
 export type TAuthResponse = {
   refreshToken: string;
   accessToken: string;
-  user: TUser;
+  password: string;
+  email: string;
+  id?: number;
 };
 
 export type TAuthError = {

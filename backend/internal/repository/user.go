@@ -6,7 +6,7 @@ import (
 	"github.com/kendoow/SportApp/backend/internal/model"
 )
 
-func CreateUser(ctx context.Context, user *model.UserCreds) (int64, error) {
+func CreateUser(ctx context.Context, user *model.UserCredits) (int64, error) {
 
 	query := `INSERT INTO users(email, password)
 		VALUES ($1, $2) RETURNING ID;`

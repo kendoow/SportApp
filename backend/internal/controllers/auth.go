@@ -14,7 +14,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
-	var requestBody model.UserCreds
+	var requestBody model.UserCredits
 
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {
@@ -52,7 +52,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//}
 
-	var requestBody model.UserCreds
+	var requestBody model.UserCredits
 
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 	if err != nil {

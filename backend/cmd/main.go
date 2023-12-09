@@ -16,7 +16,8 @@ func main() {
 
 	handler := middleware.Logging(r)
 	handler = middleware.PanicCatching(handler)
-
+	handler = middleware.CorsMiddleware(handler)
+	
 	utils.Info.Println("Server started")
 	utils.Error.Fatal(http.ListenAndServe("0.0.0.0:8080", handler)) // TODO: env variable
 }

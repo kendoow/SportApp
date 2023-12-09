@@ -7,19 +7,20 @@ type User struct {
 	Password string `db:"password"`
 }
 
-type UserCreds struct {
-	Email    string
-	Password string
+type UserCredits struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
 
 type UserInfo struct {
-	Username string
-	Email    string
-	Password string
+	Username string `json:"username"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
 
-type UserAuthirized struct {
-	Username    string
-	Email       string
-	AccessToken string
+type UserAuthorized struct {
+	Id          int64  `json:"id"`
+	Username    string `json:"username"`
+	Email       string `json:"email"`
+	AccessToken string `json:"accessToken"`
 }

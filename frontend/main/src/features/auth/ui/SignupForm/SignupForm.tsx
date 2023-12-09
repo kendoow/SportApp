@@ -34,6 +34,7 @@ const SignupForm = observer(() => {
     delete data.passwordSubmit;
     try {
       const response = await authSignup(data);
+      console.log(response);
       if (response.id) {
         navigate("/");
       }

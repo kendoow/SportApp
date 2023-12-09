@@ -4,6 +4,7 @@ import (
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"log"
 	"net/http"
+	"os"
 	"runtime/debug"
 	"time"
 )
@@ -25,5 +26,27 @@ func PanicCatching(next http.Handler) http.Handler {
 			}
 		}()
 		next.ServeHTTP(w, req)
+	})
+}
+
+func CorsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Разрешенный домен
+		allowedOrigin := os.Getenv("CLIENT_URL")
+
+		// Устанавливаем заголовки CORS
+		w.Header().Set("Access-Control-Allow-Origin", allowedOrigin)
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		w.Header().Set("Access-Control-Allow-Credentials", "true")
+
+		// Если это preflight запрос, завершаем обработку
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
+		// Передаем запрос следующему обработчику
+		next.ServeHTTP(w, r)
 	})
 }

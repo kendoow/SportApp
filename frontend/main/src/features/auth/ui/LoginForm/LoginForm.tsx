@@ -37,7 +37,9 @@ const LoginForm = observer(() => {
         setError(response);
         return;
       }
-      navigate("/");
+      if (response.id) {
+        navigate("/");
+      }
     } catch (e) {
       console.log(e);
     }

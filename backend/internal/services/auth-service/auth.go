@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
+func SignUp(req *model.UserCredits) (*model.UserAuthorized, string, error) {
 
 	hashedPassword, err := util.HashPassword(req.Password)
 	if err != nil {
@@ -30,14 +30,15 @@ func SignUp(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 		return nil, "", err
 	}
 
-	return &model.UserAuthirized{
+	return &model.UserAuthorized{
+		id,
 		"",
 		req.Email,
 		accessToken,
 	}, refreshToken, nil
 }
 
-func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
+func Login(req *model.UserCredits) (*model.UserAuthorized, string, error) {
 	user, err := repository.GetUserByEmail(context.Background(), req.Email)
 	if err != nil {
 		log.Println(err.Error())
@@ -58,7 +59,8 @@ func Login(req *model.UserCreds) (*model.UserAuthirized, string, error) {
 
 	log.Println(accessToken, "<--->", refreshToken)
 
-	return &model.UserAuthirized{
+	return &model.UserAuthorized{
+		user.Id,
 		user.Username,
 		user.Email,
 		accessToken,

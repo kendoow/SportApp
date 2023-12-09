@@ -7,7 +7,7 @@ export const authLogin = async (data: TUserLogin): Promise<TUser | string> => {
     const response = await api.post<TAuthResponse>("/auth/login", data);
     authStore.setUserData(data, response.data.accessToken);
     localStorage.setItem("accessToken", response.data.accessToken);
-    return response.data.user;
+    return response.data;
   } catch (e) {
     return e.response.data.message;
   }
@@ -17,9 +17,10 @@ export const authSignup = async (data: TUserSignUp): Promise<TUser> => {
   delete data.passwordSubmit;
   try {
     const response = await api.post<TAuthResponse>("/auth/signup", data);
+    console.log(response.data);
     authStore.setUserData(data, response.data.accessToken);
     localStorage.setItem("accessToken", response.data.accessToken);
-    return response.data.user;
+    return response.data;
   } catch (e) {
     return e.response.data.message;
   }
