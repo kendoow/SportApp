@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1702419916817" clover="3.2.0">
-  <project timestamp="1702419916817" name="All files">
-    <metrics statements="26" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1" elements="30" coveredelements="20" complexity="0" loc="26" ncloc="26" packages="1" files="1" classes="1"/>
+<coverage generated="1702420062765" clover="3.2.0">
+  <project timestamp="1702420062765" name="All files">
+    <metrics statements="26" coveredstatements="14" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1" elements="31" coveredelements="17" complexity="0" loc="26" ncloc="26" packages="1" files="1" classes="1"/>
     <file name="index.ts" path="C:\Users\Vados\projects\SportApp\frontend\main\src\features\auth\api\index.ts">
-      <metrics statements="26" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <metrics statements="26" coveredstatements="14" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -23,9 +23,9 @@
       <line num="17" count="1" type="stmt"/>
       <line num="18" count="1" type="stmt"/>
       <line num="19" count="1" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
+      <line num="20" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
       <line num="24" count="1" type="stmt"/>
       <line num="25" count="1" type="stmt"/>

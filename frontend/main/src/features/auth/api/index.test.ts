@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { authSignup } = require("./index");
 jest.mock("@shared/api", () => ({
   post: jest.fn(),
@@ -7,9 +8,10 @@ jest.mock("@features/auth/store/authStore", () => ({
   setUserData: jest.fn(),
 }));
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const mockedApiPost = require("@shared/api").post;
-const mockedAuthStoreSetUserData =
-  require("@features/auth/store/authStore").setUserData;
+// const mockedAuthStoreSetUserData =
+//   require("@features/auth/store/authStore").setUserData;
 
 describe("authSignup", () => {
   afterEach(() => {
