@@ -9,6 +9,7 @@ const NavigationSidebar = () => {
       <h3 title="main pages" />
       {mainPagesOptions.map((option) => (
         <NavLink
+          key={option}
           to={`/${option}`}
           className={({ isActive }) =>
             isActive
