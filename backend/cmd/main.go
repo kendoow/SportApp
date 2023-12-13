@@ -6,6 +6,7 @@ import (
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"github.com/kendoow/SportApp/backend/middleware"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -17,7 +18,7 @@ func main() {
 	handler := middleware.Logging(r)
 	handler = middleware.PanicCatching(handler)
 	handler = middleware.CorsMiddleware(handler)
-	
-	utils.Info.Println("Server started")
-	utils.Error.Fatal(http.ListenAndServe("0.0.0.0:8080", handler)) // TODO: env variable
+
+	utils.Info.Println("Server started on", os.Getenv("PORT"))
+	utils.Error.Fatal(http.ListenAndServe(os.Getenv("PORT"), handler))
 }
