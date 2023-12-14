@@ -7,6 +7,9 @@ import authStore from "@features/auth/store/authStore";
 import ProtectedRoute from "@app/router/ProtectedRoute";
 import Main from "@pages/main";
 import Layout from "@pages/Layout/Layout";
+import Home from "@pages/Home";
+import Bio from "@pages/Bio";
+import History from "@pages/History";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
     path: "home",
     element: (
       <Layout>
-        <Main />
+        <Home />
       </Layout>
     ),
   },
@@ -29,14 +32,38 @@ const router = createBrowserRouter([
     path: "bio",
     element: (
       <Layout>
+        <Bio />
+      </Layout>
+    ),
+  },
+  {
+    path: "workouts",
+    element: (
+      <Layout>
         <Main />
+      </Layout>
+    ),
+  },
+  {
+    path: "nutrition",
+    element: (
+      <Layout>
+        <Main />
+      </Layout>
+    ),
+  },
+  {
+    path: "history",
+    element: (
+      <Layout>
+        <History />
       </Layout>
     ),
   },
   {
     path: "login",
     element: (
-      <ProtectedRoute user={authStore.isAuthenticated}>
+      <ProtectedRoute isAuth={authStore.accessToken}>
         <LoginForm />
       </ProtectedRoute>
     ),
@@ -44,7 +71,7 @@ const router = createBrowserRouter([
   {
     path: "restore",
     element: (
-      <ProtectedRoute user={authStore.isAuthenticated}>
+      <ProtectedRoute isAuth={authStore.accessToken}>
         <RestoreFrom />
       </ProtectedRoute>
     ),
@@ -52,7 +79,7 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: (
-      <ProtectedRoute user={authStore.isAuthenticated}>
+      <ProtectedRoute isAuth={authStore.accessToken}>
         <SignupForm />
       </ProtectedRoute>
     ),

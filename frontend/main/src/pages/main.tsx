@@ -1,6 +1,6 @@
 import React from "react";
 
-const App: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <div>
       <h1>React Dropdown Example</h1>
@@ -8,4 +8,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Main;

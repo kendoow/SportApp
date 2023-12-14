@@ -6,7 +6,7 @@ import styles from "./NavigationSidebar.module.scss";
 const NavigationSidebar = () => {
   return (
     <div className={styles.sidebar}>
-      <h3 title="main pages" />
+      <h3 className={styles.sidebarTitle}>main pages</h3>
       {mainPagesOptions.map((option) => (
         <NavLink
           key={option}
