@@ -8,6 +8,18 @@ import (
 	"net/http"
 )
 
+// @Summary Authenticates a user and generates a refresh token
+// @Tags auth
+// @Description Endpoint to handle user login and authentication.
+// @ID login
+// @Accept json
+// @Produce json
+// @Param request body UserCredits true "User credentials for login"
+// @Success 200 {object} User "Successful login"
+// @Failure 400 {object} Error "Invalid request body"
+// @Failure 401 {object} Error "Login failed"
+// @Router /auth/login [post]
+
 func Login(w http.ResponseWriter, r *http.Request) {
 	//if r.Method != http.MethodPost {
 	//	http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)

@@ -5,7 +5,7 @@ import authStore from "@features/auth/store/authStore";
 export const authLogin = async (data: TUserLogin): Promise<TUser | string> => {
   try {
     const response = await api.post<TAuthResponse>("/auth/login", data);
-    authStore.setUserData(data, response.data.accessToken);
+    authStore.setUserDataLogin(data, response.data.accessToken);
     localStorage.setItem("accessToken", response.data.accessToken);
     return response.data;
   } catch (e) {
@@ -17,7 +17,7 @@ export const authSignup = async (data: TUserSignUp): Promise<TUser> => {
   delete data.passwordSubmit;
   try {
     const response = await api.post<TAuthResponse>("/auth/signup", data);
-    authStore.setUserData(data, response.data.accessToken);
+    authStore.setUserDataLogin(data, response.data.accessToken);
     localStorage.setItem("accessToken", response.data.accessToken);
     return response.data;
   } catch (e) {

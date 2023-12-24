@@ -2,7 +2,6 @@ import { makeAutoObservable } from "mobx";
 import { TUser } from "@features/auth/types";
 
 class AuthStore {
-  isAuthenticated = false;
   accessToken = localStorage.getItem("accessToken");
   email = "";
   password = "";
@@ -11,12 +10,17 @@ class AuthStore {
     makeAutoObservable(this);
   }
 
-  setUserData(userData: TUser, accessToken: string) {
+  setUserDataLogin(userData: TUser, accessToken: string) {
     const { password, email } = userData;
     this.email = email;
     this.password = password;
     this.accessToken = accessToken;
-    this.isAuthenticated = true;
+  }
+
+  setUserDataLogout() {
+    this.email = "";
+    this.password = "";
+    this.accessToken = "";
   }
 }
 
