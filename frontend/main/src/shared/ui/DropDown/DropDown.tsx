@@ -5,9 +5,16 @@ import styles from "./Dropdown.module.scss";
 interface DropdownProps {
   children: ReactNode;
   title: string;
+  className?: string;
+  icon?: any;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ children, title }) => {
+const Dropdown: React.FC<DropdownProps> = ({
+  children,
+  title,
+  className,
+  icon,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
@@ -15,7 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({ children, title }) => {
   };
 
   return (
-    <div className={styles.dropdown}>
+    <div className={cn(styles.dropdown, className)}>
       <div
         className={`${
           isOpen
@@ -24,6 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({ children, title }) => {
         }`}
         onClick={toggleDropdown}
       >
+        {icon && icon}
         <p className={styles.dropdownTitle}>{title}</p>
       </div>
       <div className={isOpen ? styles.dropdownMenu : styles.dropdownEmpty}>

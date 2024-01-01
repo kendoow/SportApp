@@ -1,7 +1,14 @@
-import Dropdown from "@shared/ui/DropDown/DropDown";
-import { authLogout } from "@entities/ProfileMenu/api";
 import { useNavigate } from "react-router-dom";
+
+import { authLogout } from "@entities/ProfileMenu/api";
+import Dropdown from "@shared/ui/DropDown/DropDown";
+import UserIcon from "@shared/ui/Icons/UserIcon";
+import LogoutIcon from "@shared/ui/Icons/LogoutIcon";
+import profile from "@assets/images/mockprofile.svg";
+
 import styles from "./ProfileMenu.module.scss";
+import ThemeIcon from "@shared/ui/Icons/ThemeIcon";
+import I18nIcon from "@shared/ui/Icons/I18nIcon";
 
 const ProfileMenu = () => {
   const navigate = useNavigate();
@@ -16,12 +23,26 @@ const ProfileMenu = () => {
 
   return (
     <div className={styles.container}>
-      <span>👤</span>
-      @username
-      <div>Account</div>
-      <Dropdown title="appearence">dark/light</Dropdown>
-      <Dropdown title="language">eng/ru</Dropdown>
-      <button onClick={onLogout}>Sign out</button>
+      <div className={styles.wrapper}>
+        <img src={profile} alt="mock profile icon" />
+        <span className={styles.title}>@username</span>
+      </div>
+      <div className={styles.wrapper}>
+        <UserIcon className={styles.icon} />
+        <p className={styles.text}>account</p>
+      </div>
+      <Dropdown icon={<ThemeIcon className={styles.icon} />} title="appearence">
+        dark/light
+      </Dropdown>
+      <Dropdown icon={<I18nIcon className={styles.icon} />} title="language">
+        eng/ru
+      </Dropdown>
+      <div className={styles.wrapper}>
+        <LogoutIcon className={styles.icon} />
+        <button className={styles.text} onClick={onLogout}>
+          sign out
+        </button>
+      </div>
     </div>
   );
 };
