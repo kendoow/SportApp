@@ -6,15 +6,12 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(getTheme);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
+    document.documentElement.dataset.theme = theme;
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(
-      (prevTheme): Theme =>
-        prevTheme === themes.light ? themes.dark : themes.light
-    );
+    setTheme(theme === themes.light ? themes.dark : themes.light);
   };
 
   return (

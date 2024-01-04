@@ -4,12 +4,15 @@ import LoginForm from "@features/auth/ui/LoginForm/LoginForm";
 import RestoreFrom from "@features/auth/ui/RestoreForm/RestoreForm";
 import SignupForm from "@features/auth/ui/SignupForm/SignupForm";
 import authStore from "@features/auth/store/authStore";
-import ProtectedRoute from "@app/router/ProtectedRoute";
+
 import Main from "@pages/main";
 import Layout from "@pages/Layout/Layout";
 import Home from "@pages/Home";
 import Bio from "@pages/Bio";
 import History from "@pages/History";
+import Account from "@pages/Account";
+
+import ProtectedRoute from "@app/router/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +85,14 @@ const router = createBrowserRouter([
       <ProtectedRoute accessToken={authStore.accessToken}>
         <SignupForm />
       </ProtectedRoute>
+    ),
+  },
+  {
+    path: "account",
+    element: (
+      <Layout>
+        <Account />
+      </Layout>
     ),
   },
 ]);

@@ -1,13 +1,7 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import cn from "classnames";
 import styles from "./Dropdown.module.scss";
-
-interface DropdownProps {
-  children: ReactNode;
-  title: string;
-  className?: string;
-  icon?: any;
-}
+import { DropdownProps } from "@shared/ui/DropDown/Dropdown.typings";
 
 const Dropdown: React.FC<DropdownProps> = ({
   children,
