@@ -1,22 +1,20 @@
-import { createBrowserRouter } from "react-router-dom";
+import Account from '@pages/Account';
+import Bio from '@pages/Bio';
+import History from '@pages/History';
+import Home from '@pages/Home';
+import Layout from '@pages/Layout/Layout';
+import Main from '@pages/main';
+import { createBrowserRouter } from 'react-router-dom';
 
-import LoginForm from "@features/auth/ui/LoginForm/LoginForm";
-import RestoreFrom from "@features/auth/ui/RestoreForm/RestoreForm";
-import SignupForm from "@features/auth/ui/SignupForm/SignupForm";
-import authStore from "@features/auth/store/authStore";
-
-import Main from "@pages/main";
-import Layout from "@pages/Layout/Layout";
-import Home from "@pages/Home";
-import Bio from "@pages/Bio";
-import History from "@pages/History";
-import Account from "@pages/Account";
-
-import ProtectedRoute from "@app/router/ProtectedRoute";
+import ProtectedRoute from '@app/router/ProtectedRoute';
+import authStore from '@features/auth/store/authStore';
+import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
+import RestoreFrom from '@features/auth/ui/RestoreForm/RestoreForm';
+import SignupForm from '@features/auth/ui/SignupForm/SignupForm';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <Layout>
         <Main />
@@ -24,7 +22,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "home",
+    path: 'home',
     element: (
       <Layout>
         <Home />
@@ -32,7 +30,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "bio",
+    path: 'bio',
     element: (
       <Layout>
         <Bio />
@@ -40,7 +38,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "workouts",
+    path: 'workouts',
     element: (
       <Layout>
         <Main />
@@ -48,7 +46,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "nutrition",
+    path: 'nutrition',
     element: (
       <Layout>
         <Main />
@@ -56,7 +54,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "history",
+    path: 'history',
     element: (
       <Layout>
         <History />
@@ -64,7 +62,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "login",
+    path: 'login',
     element: (
       <ProtectedRoute accessToken={authStore.accessToken}>
         <LoginForm />
@@ -72,7 +70,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "restore",
+    path: 'restore',
     element: (
       <ProtectedRoute accessToken={authStore.accessToken}>
         <RestoreFrom />
@@ -80,7 +78,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "signup",
+    path: 'signup',
     element: (
       <ProtectedRoute accessToken={authStore.accessToken}>
         <SignupForm />
@@ -88,7 +86,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "account",
+    path: 'account',
     element: (
       <Layout>
         <Account />

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "Outfit", sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 *,
@@ -16,7 +16,7 @@ svg {
 }
 
 /*theme*/
-:root[data-theme="light"] {
+:root[data-theme='light'] {
   --background: #f9fafb;
   --primary-text: #111827;
   --secondary-background: #e5e7eb;
@@ -27,7 +27,7 @@ svg {
   --technical-background: #ffffff;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --background: #232525;
   --primary-text: #dfdfdf;
   --secondary-background: #191a1b;

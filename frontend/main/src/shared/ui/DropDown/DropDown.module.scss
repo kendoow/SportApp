@@ -13,8 +13,8 @@
     &Up {
       &:after {
         display: inline-block;
-        content: "";
-        background: url("../../../assets/images/arrow.svg") no-repeat bottom;
+        content: '';
+        background: url('../../../assets/images/arrow.svg') no-repeat bottom;
         width: 20px;
         height: 20px;
         margin-left: auto;
@@ -24,8 +24,8 @@
     &Down {
       &:after {
         display: inline-block;
-        content: "";
-        background: url("../../../assets/images/arrow.svg") no-repeat bottom;
+        content: '';
+        background: url('../../../assets/images/arrow.svg') no-repeat bottom;
         width: 30px;
         height: 30px;
         margin-left: auto;

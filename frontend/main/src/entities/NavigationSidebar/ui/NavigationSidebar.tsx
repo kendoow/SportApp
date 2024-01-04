@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
-import cn from "classnames";
-import { mainPagesOptions } from "@entities/NavigationSidebar/constans";
-import styles from "./NavigationSidebar.module.scss";
+import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
+
+import { mainPagesOptions } from '@entities/NavigationSidebar/constans';
+
+import styles from './NavigationSidebar.module.scss';
 
 const NavigationSidebar = () => {
   return (

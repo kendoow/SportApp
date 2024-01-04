@@ -1,12 +1,11 @@
-import cn from "classnames";
-import { ReactNode } from "react";
+import { IInputProps } from './Input.typings';
+import cn from 'classnames';
+import { ReactNode } from 'react';
 
-import { IInputProps } from "./Input.typings";
-
-import styles from "./Input.module.scss";
+import styles from './Input.module.scss';
 
 const Input = ({
-  variant = "primary",
+  variant = 'primary',
   className,
   children,
   error,
@@ -15,12 +14,7 @@ const Input = ({
   name,
   ...InputProps
 }: IInputProps) => {
-  const inputClassName = cn(
-    error && styles.error,
-    styles[variant],
-    styles[type],
-    className
-  );
+  const inputClassName = cn(error && styles.error, styles[variant], styles[type], className);
 
   return (
     <label className={styles.input}>

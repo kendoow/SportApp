@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import cn from "classnames";
-import styles from "./Dropdown.module.scss";
-import { DropdownProps } from "@shared/ui/DropDown/Dropdown.typings";
+import cn from 'classnames';
+import React, { useState } from 'react';
 
-const Dropdown: React.FC<DropdownProps> = ({
-  children,
-  title,
-  className,
-  icon,
-}) => {
+import { DropdownProps } from '@shared/ui/DropDown/Dropdown.typings';
+
+import styles from './Dropdown.module.scss';
+
+const Dropdown: React.FC<DropdownProps> = ({ children, title, className, icon }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
@@ -28,9 +25,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         {icon && icon}
         <p className={styles.dropdownTitle}>{title}</p>
       </div>
-      <div className={isOpen ? styles.dropdownMenu : styles.dropdownEmpty}>
-        {children}
-      </div>
+      <div className={isOpen ? styles.dropdownMenu : styles.dropdownEmpty}>{children}</div>
     </div>
   );
 };

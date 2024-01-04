@@ -1,10 +1,11 @@
-import { makeAutoObservable } from "mobx";
-import { TUser } from "@features/auth/types";
+import { makeAutoObservable } from 'mobx';
+
+import { TUser } from '@features/auth/types';
 
 class AuthStore {
-  accessToken = localStorage.getItem("accessToken");
-  email = "";
-  password = "";
+  accessToken = localStorage.getItem('accessToken');
+  email = '';
+  password = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -18,9 +19,9 @@ class AuthStore {
   }
 
   setUserDataLogout() {
-    this.email = "";
-    this.password = "";
-    this.accessToken = "";
+    this.email = '';
+    this.password = '';
+    this.accessToken = '';
   }
 }
 

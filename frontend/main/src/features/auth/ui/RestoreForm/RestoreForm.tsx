@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-import Layout from "@features/auth/ui/Layout";
-import { Button } from "@shared/ui/Button/Button";
-import Input from "@shared/ui/Input/Input";
-import styles from "./RestoreForm.module.scss";
+import Layout from '@features/auth/ui/Layout';
+import { Button } from '@shared/ui/Button/Button';
+import Input from '@shared/ui/Input/Input';
+
+import styles from './RestoreForm.module.scss';
 
 const RestoreFrom = () => {
   const navigation = useNavigate();
@@ -11,7 +12,7 @@ const RestoreFrom = () => {
     <Layout
       title="restore your account/"
       subtitle="log in"
-      route={() => navigation("/login")}
+      route={() => navigation('/login')}
     >
       <form>
         <Input placeholder="Email" />

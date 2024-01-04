@@ -1,19 +1,19 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { authSignup } = require("./index");
-jest.mock("@shared/api", () => ({
+const { authSignup } = require('./index');
+jest.mock('@shared/api', () => ({
   post: jest.fn(),
 }));
 
-jest.mock("@features/auth/store/authStore", () => ({
+jest.mock('@features/auth/store/authStore', () => ({
   setUserData: jest.fn(),
 }));
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const mockedApiPost = require("@shared/api").post;
+const mockedApiPost = require('@shared/api').post;
 // const mockedAuthStoreSetUserData =
 //   require("@features/auth/store/authStore").setUserData;
 
-describe("authSignup", () => {
+describe('authSignup', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -51,20 +51,20 @@ describe("authSignup", () => {
   //   );
   // });
 
-  it("should handle signup error and return error message", async () => {
+  it('should handle signup error and return error message', async () => {
     const mockErrorResponse = {
-      response: { data: { message: "Signup failed" } },
+      response: { data: { message: 'Signup failed' } },
     };
     mockedApiPost.mockRejectedValue(mockErrorResponse);
 
     const mockSignupData = {
-      username: "testuser",
-      email: "testuser@example.com",
-      password: "testpassword",
-      passwordSubmit: "testpassword",
+      username: 'testuser',
+      email: 'testuser@example.com',
+      password: 'testpassword',
+      passwordSubmit: 'testpassword',
     };
     const result = await authSignup(mockSignupData);
 
-    expect(result).toEqual("Signup failed");
+    expect(result).toEqual('Signup failed');
   });
 });

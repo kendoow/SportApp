@@ -1,7 +1,9 @@
-import { ReactNode } from "react";
-import NavigationSidebar from "@entities/NavigationSidebar/ui/NavigationSidebar";
-import Header from "@widgets/Header/ui/Header";
-import styles from "./Layout.module.scss";
+import { ReactNode } from 'react';
+
+import Header from '@widgets/Header/ui/Header';
+import NavigationSidebar from '@entities/NavigationSidebar/ui/NavigationSidebar';
+
+import styles from './Layout.module.scss';
 
 type LayoutProps = {
   children: ReactNode;

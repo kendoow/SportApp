@@ -1,23 +1,24 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { observer } from "mobx-react-lite";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { observer } from 'mobx-react-lite';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-import Input from "@shared/ui/Input/Input";
-import { Button } from "@shared/ui/Button/Button";
-import Layout from "@features/auth/ui/Layout";
-import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
-import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
-import { LoginSchema } from "@features/auth/model/validation";
-import { TUserLogin } from "@features/auth/types";
-import { authLogin } from "@features/auth/api";
-import styles from "./LoginForm.module.scss";
+import { authLogin } from '@features/auth/api';
+import { LoginSchema } from '@features/auth/model/validation';
+import { TUserLogin } from '@features/auth/types';
+import Layout from '@features/auth/ui/Layout';
+import { Button } from '@shared/ui/Button/Button';
+import Input from '@shared/ui/Input/Input';
+import AppleIcon from '@assets/images/buttonIcons/apple_icon.svg';
+import GoogleIcon from '@assets/images/buttonIcons/google_icon.svg';
+
+import styles from './LoginForm.module.scss';
 
 const LoginForm = observer(() => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const {
     register,
     handleSubmit,
@@ -33,12 +34,12 @@ const LoginForm = observer(() => {
   const onLogin = async (data: TUserLogin) => {
     try {
       const response = await authLogin(data);
-      if (typeof response === "string") {
+      if (typeof response === 'string') {
         setError(response);
         return;
       }
       if (response.id) {
-        navigate("/");
+        navigate('/');
       }
     } catch (e) {
       console.log(e);
@@ -49,9 +50,12 @@ const LoginForm = observer(() => {
     <Layout
       title="log in/"
       subtitle="sign up"
-      route={() => navigate("/signup")}
+      route={() => navigate('/signup')}
     >
-      <form onSubmit={handleSubmit(onLogin)} className={styles.container}>
+      <form
+        onSubmit={handleSubmit(onLogin)}
+        className={styles.container}
+      >
         <Input
           placeholder="Email"
           register={register}
@@ -61,7 +65,7 @@ const LoginForm = observer(() => {
         <Input
           placeholder="Password"
           className={styles.input}
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           name="password"
           register={register}
           error={errors?.password?.message || error}
@@ -74,18 +78,32 @@ const LoginForm = observer(() => {
           <p className={styles.checkbox}>show password</p>
         </Input>
 
-        <Button type="submit" className={styles.btn}>
+        <Button
+          type="submit"
+          className={styles.btn}
+        >
           Continue
         </Button>
         <div className={styles.accounts}>
-          <Button image={AppleIcon} size="small" appearance="secondary">
+          <Button
+            image={AppleIcon}
+            size="small"
+            appearance="secondary"
+          >
             Sign with
           </Button>
-          <Button image={GoogleIcon} size="small" appearance="secondary">
+          <Button
+            image={GoogleIcon}
+            size="small"
+            appearance="secondary"
+          >
             Sign with
           </Button>
         </div>
-        <Link className={styles.restore} to="/restore">
+        <Link
+          className={styles.restore}
+          to="/restore"
+        >
           Forget your password?
         </Link>
       </form>

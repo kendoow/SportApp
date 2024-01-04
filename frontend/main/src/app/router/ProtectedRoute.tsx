@@ -1,8 +1,13 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet } from 'react-router';
 
-const ProtectedRoute = ({ accessToken, redirectPath = "/", children }) => {
+const ProtectedRoute = ({ accessToken, redirectPath = '/', children }) => {
   if (accessToken !== null) {
-    return <Navigate to={redirectPath} replace />;
+    return (
+      <Navigate
+        to={redirectPath}
+        replace
+      />
+    );
   }
 
   return children ? children : <Outlet />;

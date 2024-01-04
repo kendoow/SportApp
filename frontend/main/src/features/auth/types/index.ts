@@ -11,7 +11,7 @@ export type TUserSignUp = {
   passwordSubmit: string;
 };
 
-export type TUserLogin = Omit<TUser, "id" | "name">;
+export type TUserLogin = Omit<TUser, 'id' | 'name'>;
 
 export type TAuthResponse = {
   refreshToken: string;

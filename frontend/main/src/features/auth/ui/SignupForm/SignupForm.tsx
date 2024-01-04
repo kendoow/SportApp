@@ -1,19 +1,19 @@
-import { useState } from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { observer } from "mobx-react-lite";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { observer } from 'mobx-react-lite';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-import { SignUpSchema } from "@features/auth/model/validation";
-import { TUserSignUp } from "@features/auth/types";
-import { authSignup } from "@features/auth/api";
-import Layout from "@features/auth/ui/Layout";
-import Input from "@shared/ui/Input/Input";
-import { Button } from "@shared/ui/Button/Button";
-import AppleIcon from "@assets/images/buttonIcons/apple_icon.svg";
-import GoogleIcon from "@assets/images/buttonIcons/google_icon.svg";
+import { authSignup } from '@features/auth/api';
+import { SignUpSchema } from '@features/auth/model/validation';
+import { TUserSignUp } from '@features/auth/types';
+import Layout from '@features/auth/ui/Layout';
+import { Button } from '@shared/ui/Button/Button';
+import Input from '@shared/ui/Input/Input';
+import AppleIcon from '@assets/images/buttonIcons/apple_icon.svg';
+import GoogleIcon from '@assets/images/buttonIcons/google_icon.svg';
 
-import styles from "./SignupForm.module.scss";
+import styles from './SignupForm.module.scss';
 
 const SignupForm = observer(() => {
   const navigate = useNavigate();
@@ -36,16 +36,23 @@ const SignupForm = observer(() => {
       const response = await authSignup(data);
       console.log(response);
       if (response.id) {
-        navigate("/");
+        navigate('/');
       }
     } catch (error) {
-      console.error("Error during signup:", error);
+      console.error('Error during signup:', error);
     }
   };
 
   return (
-    <Layout title="sign up/" subtitle="log in" route={() => navigate(-1)}>
-      <form onSubmit={handleSubmit(onSignUp)} className={styles.container}>
+    <Layout
+      title="sign up/"
+      subtitle="log in"
+      route={() => navigate(-1)}
+    >
+      <form
+        onSubmit={handleSubmit(onSignUp)}
+        className={styles.container}
+      >
         <Input
           register={register}
           placeholder="Email"
@@ -54,7 +61,7 @@ const SignupForm = observer(() => {
         />
         <Input
           register={register}
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           name="password"
           placeholder="Password"
           error={errors?.password?.message}
@@ -62,7 +69,7 @@ const SignupForm = observer(() => {
         <Input
           register={register}
           name="passwordSubmit"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           placeholder="Confirm your password"
           error={errors?.passwordSubmit?.message}
           className={styles.input}
@@ -74,23 +81,37 @@ const SignupForm = observer(() => {
         >
           <p className={styles.checkbox}>show password</p>
         </Input>
-        <Button type="submit" className={styles.btn}>
+        <Button
+          type="submit"
+          className={styles.btn}
+        >
           Continue
         </Button>
         <div className={styles.accounts}>
-          <Button image={AppleIcon} size="small" appearance="secondary">
+          <Button
+            image={AppleIcon}
+            size="small"
+            appearance="secondary"
+          >
             Sign with
           </Button>
-          <Button image={GoogleIcon} size="small" appearance="secondary">
+          <Button
+            image={GoogleIcon}
+            size="small"
+            appearance="secondary"
+          >
             Sign with
           </Button>
         </div>
       </form>
       <p className={styles.terms}>
-        I agree with{" "}
-        <Link className={styles.termslink} to="/termsofservice">
-          {" "}
-          terms of service{" "}
+        I agree with{' '}
+        <Link
+          className={styles.termslink}
+          to="/termsofservice"
+        >
+          {' '}
+          terms of service{' '}
         </Link>
       </p>
     </Layout>
