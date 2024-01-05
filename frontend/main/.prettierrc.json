@@ -11,9 +11,7 @@
   "arrowParens": "always",
   "trailingComma": "es5",
   "quoteProps": "as-needed",
-  "plugins": [
-    "@ianvs/prettier-plugin-sort-imports"
-  ],
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
   "importOrder": [
     "^(react|next(.*))$",
     "",
@@ -29,10 +27,5 @@
     "",
     "^(.*)(sass|css|scss)$"
   ],
-  "importOrderParserPlugins": [
-    "classProperties",
-    "decorators-legacy",
-    "jsx",
-    "typescript"
-  ]
+  "importOrderParserPlugins": ["classProperties", "decorators-legacy", "jsx", "typescript"]
 }

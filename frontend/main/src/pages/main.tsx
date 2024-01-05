@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Tag from '@shared/ui/Tag/Tag';
+
 const Main: React.FC = () => {
   return (
     <div>
-      <h1>Main page</h1>
+      <Tag text={1231} />
     </div>
   );
 };

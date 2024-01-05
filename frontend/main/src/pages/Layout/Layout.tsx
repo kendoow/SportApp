@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={styles.container}>
       <Header />
       <NavigationSidebar />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 };

@@ -25,6 +25,9 @@ svg {
   --tertiary-text: #6d7280;
   --placeholder-text: #e5e7eb;
   --technical-background: #ffffff;
+  --error: #d47c7c;
+  --warning: #e9cb60;
+  --success: #7cd485;
 }
 
 :root[data-theme='dark'] {
@@ -36,6 +39,9 @@ svg {
   --tertiary-text: #344054;
   --placeholder-text: #595a5a;
   --technical-background: #080808;
+  --error: #d47c7c;
+  --warning: #e9cb60;
+  --success: #7cd485;
 }
 
 :focus,
