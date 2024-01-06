@@ -1,4 +1,10 @@
-const UserIcon = ({ className }) => {
+import { IconType } from '@shared/lib/types/iconTypes';
+
+
+
+
+
+const UserIcon = ({ className }: IconType) => {
   return (
     <svg
       className={className}

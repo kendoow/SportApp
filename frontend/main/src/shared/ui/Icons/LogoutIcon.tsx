@@ -1,4 +1,10 @@
-const LogoutIcon = ({ className }) => {
+import { IconType } from '@shared/lib/types/iconTypes';
+
+
+
+
+
+const LogoutIcon = ({ className }: IconType) => {
   return (
     <svg
       className={className}

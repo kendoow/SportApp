@@ -1,4 +1,10 @@
-const I18nIcon = ({ className }) => {
+import { IconType } from '@shared/lib/types/iconTypes';
+
+
+
+
+
+const I18nIcon = ({ className }: IconType) => {
   return (
     <svg
       className={className}
