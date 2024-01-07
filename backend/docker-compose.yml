@@ -11,6 +11,7 @@ services:
       - .env
     depends_on:
       - postgres
+      - mongodb
     networks:
       - app-network
 
@@ -28,8 +29,19 @@ services:
     networks:
       - app-network
 
+  mongodb:
+    container_name: mongodb-sp
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - app-network
+
 volumes:
   postgres-data:
+  mongodb-data:
 
 networks:
   app-network:
