@@ -27,6 +27,9 @@ func main() {
 
 	routes.AuthRoutes(r)
 	routes.HealthRoutes(r)
+	routes.TemplatesRoutes(r)
+	routes.WorkoutRoutes(r)
+
 	r.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 	handler := middleware.Logging(r)
 	handler = middleware.PanicCatching(handler)

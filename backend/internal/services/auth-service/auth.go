@@ -4,13 +4,13 @@ import (
 	"context"
 	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/repository"
-	"github.com/kendoow/SportApp/backend/util"
+	"github.com/kendoow/SportApp/backend/internal/utils"
 	"log"
 )
 
 func SignUp(req *model.UserCredits) (*model.UserAuthorized, string, error) {
 
-	hashedPassword, err := util.HashPassword(req.Password)
+	hashedPassword, err := utils.HashPassword(req.Password)
 	if err != nil {
 		log.Println("error in hashing password")
 		return nil, "", err
@@ -46,7 +46,7 @@ func Login(req *model.UserCredits) (*model.UserAuthorized, string, error) {
 		return nil, "", err
 	}
 
-	if err := util.CheckPassword(req.Password, user.Password); err != nil {
+	if err := utils.CheckPassword(req.Password, user.Password); err != nil {
 		log.Println("incorrect password")
 		return nil, "", err
 	}
@@ -76,7 +76,7 @@ func Logout(token string) error {
 }
 
 func Refresh(refreshToken string) (string, error) {
-	claims, err := util.ParseUserClaims(refreshToken, util.REFRESH)
+	claims, err := utils.ParseUserClaims(refreshToken, utils.REFRESH)
 	if err != nil {
 		return "", err
 	}
@@ -85,7 +85,7 @@ func Refresh(refreshToken string) (string, error) {
 		return "", err
 	}
 
-	accessToken, err := util.CreateToken(claims.Email, claims.UserId, util.ACCESS)
+	accessToken, err := utils.CreateToken(claims.Email, claims.UserId, utils.ACCESS)
 	if err != nil {
 		return "", nil
 	}

@@ -5,12 +5,12 @@ import (
 	"errors"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/kendoow/SportApp/backend/internal/repository"
-	"github.com/kendoow/SportApp/backend/util"
+	"github.com/kendoow/SportApp/backend/internal/utils"
 	"log"
 )
 
 func createToken(email string, id int64) (string, error) {
-	token, err := util.CreateToken(email, id, util.REFRESH)
+	token, err := utils.CreateToken(email, id, utils.REFRESH)
 	if err != nil {
 		log.Println("err in creating token in utils")
 		return "", nil
@@ -31,7 +31,7 @@ func CreatePairTokens(email string, id int64) (string, string, error) {
 		return "", "", err
 	}
 
-	accessToken, err := util.CreateToken(email, id, util.ACCESS)
+	accessToken, err := utils.CreateToken(email, id, utils.ACCESS)
 	if err != nil {
 		log.Println("err in create access token")
 		return "", "", err
@@ -47,7 +47,7 @@ func IsTokenExistsAndCorrect(tokenStr string, tokenId int64) error {
 	}
 
 	token, err := jwt.Parse(currentToken, func(tokenStr *jwt.Token) (interface{}, error) {
-		return util.REFRESH, nil
+		return utils.REFRESH, nil
 	})
 	if err != nil {
 		return err

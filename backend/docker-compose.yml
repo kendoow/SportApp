@@ -32,6 +32,10 @@ services:
   mongodb:
     container_name: mongodb-sp
     image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER_MONGO}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD_MONGO}
+      MONGO_INITDB_DATABASE: ${DB_MONGO_DATABASE}
     ports:
       - "27017:27017"
     volumes:

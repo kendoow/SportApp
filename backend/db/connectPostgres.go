@@ -3,7 +3,7 @@ package db
 import (
 	"context"
 	"fmt"
-	"log"
+	"github.com/kendoow/SportApp/backend/internal/utils"
 	"os"
 	"sync"
 
@@ -15,7 +15,7 @@ var (
 	dbOnce sync.Once
 )
 
-func connect() (*pgx.Conn, error) {
+func connectPostgres() (*pgx.Conn, error) {
 	conn, err := pgx.Connect(context.Background(),
 		fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
 			os.Getenv("DB_USER"),
@@ -29,11 +29,11 @@ func connect() (*pgx.Conn, error) {
 	return conn, nil
 }
 
-func getDB() *pgx.Conn {
+func getDBPostgres() *pgx.Conn {
 	dbOnce.Do(func() {
-		conn, err := connect()
+		conn, err := connectPostgres()
 		if err != nil {
-			log.Fatal(err)
+			utils.Error.Fatal(err)
 		}
 		db = conn
 	})
@@ -50,5 +50,5 @@ func CloseDB() {
 
 // GetDB returns the database connection.
 func GetDB() *pgx.Conn {
-	return getDB()
+	return getDBPostgres()
 }
