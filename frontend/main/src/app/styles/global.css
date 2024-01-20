@@ -3,6 +3,7 @@
     padding: 0;
     border: 0;
     font-family: 'Outfit', sans-serif;
+    color: var(--primary-text);
 }
 
 *,
@@ -13,7 +14,6 @@
 
 svg {
     stroke: var(--primary-text);
-
 }
 
 /*theme*/

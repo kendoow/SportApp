@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.delete {
+  display: flex;
+  width: 4.5rem;
+  background: var(--error)
+}

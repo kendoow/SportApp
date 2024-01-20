@@ -1,4 +1,4 @@
-import type { DetailedHTMLProps, ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react'
 
 export interface IButtonProps
   extends DetailedHTMLProps<
@@ -6,8 +6,8 @@ export interface IButtonProps
     HTMLButtonElement
   > {
   children: ReactNode;
-  size?: "small" | "medium";
-  appearance?: "primary" | "secondary";
-  image?: string;
+  size?: 'small' | 'medium';
+  appearance?: 'primary' | 'secondary';
+  icon?: string;
   className?: string;
 }

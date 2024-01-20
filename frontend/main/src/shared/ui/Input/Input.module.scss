@@ -3,6 +3,7 @@
   align-items: center;
   width: 100%;
   position: relative;
+  border-radius: 12px;
 }
 
 .checkbox {
@@ -14,10 +15,9 @@
 }
 
 .primary {
+  width: 100%;
   margin: 8px 0;
   background-color: var(--background);
-  border: 2px solid var(--primary-text);
-  border-radius: 12px;
   padding: 16px;
   font-size: 22px;
   font-style: normal;

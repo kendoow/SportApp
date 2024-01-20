@@ -1,7 +1,5 @@
-import React from 'react';
-
-import SearchIcon from '@shared/ui/Icons/SearchIcon';
-import Input from '@shared/ui/Input/Input';
+import HistoryFilters from '@entities/History/ui/HistoryFilters/HistoryFilters';
+import SearchWithClear from '@entities/SearchWithClear/ui/SearchWithClear';
 
 
 
@@ -9,10 +7,10 @@ import Input from '@shared/ui/Input/Input';
 
 const History = () => {
   return (
-    <div>
-      <Input />
-      <SearchIcon />
-    </div>
+    <>
+      <SearchWithClear />
+      <HistoryFilters />
+    </>
   );
 };
 

@@ -26,7 +26,6 @@ func main() {
 	r := mux.NewRouter()
 
 	routes.AuthRoutes(r)
-	routes.HealthRoutes(r)
 	routes.TemplatesRoutes(r)
 	routes.WorkoutRoutes(r)
 
