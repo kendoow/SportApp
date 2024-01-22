@@ -1,11 +1,8 @@
-.container {
+
+.wrapper {
   display: flex;
   justify-content: space-between;
-}
-
-.tagsWrapper {
-  display: flex;
-  gap: 0.5rem;
+  margin-bottom: 0.44rem;
 }
 
 .text {
@@ -16,6 +13,7 @@
   line-height: 1.8125rem;
 }
 
-.recent {
-
+.button {
+  display: flex;
+  gap: 0.6rem;
 }

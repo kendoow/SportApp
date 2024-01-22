@@ -12,6 +12,10 @@ import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
 import RestoreFrom from '@features/auth/ui/RestoreForm/RestoreForm';
 import SignupForm from '@features/auth/ui/SignupForm/SignupForm';
 
+
+
+
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,14 +43,6 @@ const router = createBrowserRouter([
   },
   {
     path: 'workouts',
-    element: (
-      <Layout>
-        <Main />
-      </Layout>
-    ),
-  },
-  {
-    path: 'nutrition',
     element: (
       <Layout>
         <Main />

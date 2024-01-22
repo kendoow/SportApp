@@ -1,5 +1,6 @@
 import tagsNames from '@shared/constants/tagsNames';
 import { Button } from '@shared/ui/Button/Button';
+import HorizontalDropdown from '@shared/ui/HorizontalDropdown/HorizontalDropdown';
 import SwitchIcon from '@shared/ui/Icons/SwitchIcon';
 import Tag from '@shared/ui/Tag/Tag';
 
@@ -10,17 +11,22 @@ const HistoryFilters = () => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.tagsWrapper}>
+        <div className={styles.wrapper}>
           <p className={styles.text}>filter by:</p>
-          {tagsNames.map((tag: string) => (
-            <Tag text={tag} />
-          ))}
-        </div>
-        <div className={styles.recent}>
           <p className={styles.text}>sort by:</p>
-          <Button>
-            recents <SwitchIcon />
-          </Button>
+        </div>
+        <div className={styles.wrapper}>
+          <HorizontalDropdown title="tags">
+            {tagsNames.map((tag: string) => (
+              <Tag text={tag} />
+            ))}
+          </HorizontalDropdown>
+          <div>
+            <Button className={styles.button}>
+              <p>recents</p>
+              <SwitchIcon />
+            </Button>
+          </div>
         </div>
       </div>
     </>

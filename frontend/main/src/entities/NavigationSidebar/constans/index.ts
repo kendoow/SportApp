@@ -1,1 +1,1 @@
-export const mainPagesOptions = ['home', 'workouts', 'history', 'bio', 'nutrition'];
+export const mainPagesOptions = ['home', 'workouts', 'history', 'bio'];
