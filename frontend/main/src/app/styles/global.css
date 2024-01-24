@@ -17,32 +17,37 @@ svg {
 }
 
 /*theme*/
-:root[data-theme='light'] {
-    --background: #f9fafb;
-    --primary-text: #111827;
-    --secondary-background: #e5e7eb;
-    --secondary-text: #4b5563;
-    --secondary-buttons: #9ca3af;
-    --tertiary-text: #6d7280;
-    --placeholder-text: #e5e7eb;
-    --technical-background: #ffffff;
-    --error: #d47c7c;
-    --warning: #e9cb60;
-    --success: #7cd485;
+:root[data-theme='dark'] {
+    --background: #191A1B;
+    --primary-text: #DFDFDF;
+    --secondary: #111111;
+    --modal-background: #141415;
+    --delete-button: #A62828;
+    --delete-button-hover: #E16161;
+    --delete-button-active: #780000;
+    --primaty-button: #7CD485;
+    --primaty-button-hover: #BEEFC3;
+    --primaty-button-active: #589D5F;
+    --secondary-button-hover: #363636;
+    --secondary-button-active: #080808;
+    --button-text-disabled: #8E8E8E;
 }
 
-:root[data-theme='dark'] {
-    --background: #232525;
-    --primary-text: #dfdfdf;
-    --secondary-background: #191a1b;
-    --secondary-text: #8e8e8e;
-    --secondary-buttons: #9ca3af;
-    --tertiary-text: #344054;
-    --placeholder-text: #595a5a;
-    --technical-background: #080808;
-    --error: #d47c7c;
-    --warning: #e9cb60;
-    --success: #7cd485;
+:root[data-theme='darkv2'] {
+    --background: #0C0C0C;
+    --primary-text: #DFDFDF;
+    --secondary: #111111;
+    --modal-background: #141415;
+    --delete-button: #A62828;
+    --delete-button-hover: #E16161;
+    --delete-button-active: #780000;
+    --primaty-button: #7CD485;
+    --primaty-button-hover: #BEEFC3;
+    --primaty-button-active: #589D5F;
+
+    --secondary-button-hover: #363636;
+    --secondary-button-active: #080808;
+    --button-text-disabled: #8E8E8E;
 }
 
 :focus,

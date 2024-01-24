@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import getTheme from '@app/providers/ThemeProvider/lib/getTheme';
 import { Theme, ThemeContext, themes } from '@shared/contexts/ThemeContext';
 
+
+
+
+
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(getTheme);
 
@@ -12,7 +16,7 @@ const ThemeProvider = ({ children }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === themes.light ? themes.dark : themes.light);
+    setTheme(theme === themes.dark ? themes.darkv2 : themes.dark);
   };
 
   return <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>{children}</ThemeContext.Provider>;

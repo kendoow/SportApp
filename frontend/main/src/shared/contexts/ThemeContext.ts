@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 
 export const themes = {
   dark: 'dark',
-  light: 'light',
+  darkv2: 'darkv2',
 } as const;
 
 export type Theme = (typeof themes)[keyof typeof themes];

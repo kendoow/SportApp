@@ -10,7 +10,8 @@
 - **MobX**
 - **StoryBook**
 - **Jest**
-- **RTK Query**
+- **React Query**
+- **Axios**
 - **REST**
 - **Vite**
 - **Eslint**
