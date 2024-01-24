@@ -51,6 +51,10 @@ func getMongoClient() *mongo.Client {
 	return mongoClient
 }
 
+func Client() *mongo.Client {
+	return getMongoClient()
+}
+
 // CloseMongoDB closes the MongoDB connection.
 func CloseMongoDB() {
 	if mongoClient != nil {
