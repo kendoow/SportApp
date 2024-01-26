@@ -1,0 +1,44 @@
+.container {
+  border-radius: 1.25rem;
+  background: var(--secondary);
+  display: flex;
+  padding: 1rem 1.5rem 1.75rem 1.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 23.4375rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      display: flex;
+      justify-content: space-between;
+
+      &AndStatus {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    .lastuse {
+      color: var(--button-text-disabled);
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      color: var(--primary-text);
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import tagsNames from '@shared/constants/tagsNames';
 import { Button } from '@shared/ui/Button/Button';
 import HorizontalDropdown from '@shared/ui/HorizontalDropdown/HorizontalDropdown';
@@ -8,6 +10,10 @@ import styles from './HistoryFilters.module.scss';
 
 
 const HistoryFilters = () => {
+  const [filterTitle, setFilterTitle] = useState('recents');
+  const onFilter = () => {
+    setFilterTitle(filterTitle === 'recents' ? 'oldest' : 'recents');
+  };
   return (
     <>
       <div className={styles.container}>
@@ -22,8 +28,11 @@ const HistoryFilters = () => {
             ))}
           </HorizontalDropdown>
           <div>
-            <Button className={styles.button}>
-              <p>recents</p>
+            <Button
+              onClick={onFilter}
+              className={styles.button}
+            >
+              <p>{filterTitle}</p>
               <SwitchIcon />
             </Button>
           </div>

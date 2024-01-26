@@ -1,9 +1,10 @@
+import { HistoryCardProps } from '@entities/History/model/types';
 import Tag from '@shared/ui/Tag/Tag';
 
 import styles from './HistoryCard.module.scss';
 
 
-const HistoryCard = ({ title, tags, date }) => {
+const HistoryCard = ({ title, tags, date, isEditable }: HistoryCardProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -19,7 +20,7 @@ const HistoryCard = ({ title, tags, date }) => {
         </div>
       </div>
 
-      <input type={'checkbox'} />
+      {isEditable && <input type={'checkbox'} />}
     </div>
   );
 };

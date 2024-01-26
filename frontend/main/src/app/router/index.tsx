@@ -1,11 +1,11 @@
-import Account from '@pages/Account';
+import { createBrowserRouter } from 'react-router-dom';
+
 import Bio from '@pages/Bio';
 import History from '@pages/History';
 import Home from '@pages/Home';
 import Layout from '@pages/Layout/Layout';
 import Main from '@pages/main';
-import { createBrowserRouter } from 'react-router-dom';
-
+import Workouts from '@pages/Workouts';
 import ProtectedRoute from '@app/router/ProtectedRoute';
 import authStore from '@features/auth/store/authStore';
 import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     path: 'workouts',
     element: (
       <Layout>
-        <Main />
+        <Workouts />
       </Layout>
     ),
   },
@@ -79,14 +79,6 @@ const router = createBrowserRouter([
       <ProtectedRoute accessToken={authStore.accessToken}>
         <SignupForm />
       </ProtectedRoute>
-    ),
-  },
-  {
-    path: 'account',
-    element: (
-      <Layout>
-        <Account />
-      </Layout>
     ),
   },
 ]);

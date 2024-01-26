@@ -15,6 +15,7 @@
   "importOrder": [
     "^(react|next(.*))$",
     "",
+    "^@pages/(.*)$",
     "^@app/(.*)$",
     "^@routes/(.*)$",
     "^@widgets/(.*)$",
