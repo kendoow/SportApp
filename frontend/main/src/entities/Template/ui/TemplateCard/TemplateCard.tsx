@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { WorkoutCardProps } from '@entities/Workout/model/types';
+import { TemplateCardProps } from '@entities/Template/model/types';
 
-import styles from './WorkoutCard.module.scss';
+import styles from './TemplateCard.module.scss';
 
 
-const WorkoutCard = ({ title, date, isEditable }: WorkoutCardProps) => {
+const TemplateCard = ({ title, date, isEditable }: TemplateCardProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -22,4 +22,4 @@ const WorkoutCard = ({ title, date, isEditable }: WorkoutCardProps) => {
   );
 };
 
-export default WorkoutCard;
+export default TemplateCard;

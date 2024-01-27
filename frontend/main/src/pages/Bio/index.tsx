@@ -1,7 +1,7 @@
-import React from 'react';
+import styles from './Bio.module.scss'
 
 const Bio = () => {
-  return <div>Bio</div>;
+  return <div className={styles.container}>Bio</div>;
 };
 
 export default Bio;

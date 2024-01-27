@@ -2,7 +2,11 @@
   display: flex;
   gap: 0.75rem;
 }
-
+.cancel {
+  width: 4.5rem;
+  border-radius: 0.625rem;
+  background: var(--secondary);
+}
 .delete {
   display: flex;
   width: 4.5rem;

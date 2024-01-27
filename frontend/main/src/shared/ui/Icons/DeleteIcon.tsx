@@ -1,9 +1,5 @@
 import { IconType } from '@shared/lib/types/iconTypes';
 
-
-
-
-
 const DeleteIcon = ({ className }: IconType) => {
   return (
     <svg

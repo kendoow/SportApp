@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2.2rem;
+  button {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+
+    &.active {
+      background-color: var(--secondary);
+      color: var(--primary-text);
+    }
+  }
+}

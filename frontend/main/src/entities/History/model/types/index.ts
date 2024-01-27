@@ -6,3 +6,9 @@ export type HistoryCardProps = {
   date: string;
   isEditable: boolean;
 };
+
+export type PaginationProps = {
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+}

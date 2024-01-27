@@ -1,12 +1,18 @@
-
+.container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+}
 .wrapper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.44rem;
+  flex-direction: column;
+  
 }
 
 .text {
-  color: var(--secondary-text);
+  color: var(--button-text-disabled);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;

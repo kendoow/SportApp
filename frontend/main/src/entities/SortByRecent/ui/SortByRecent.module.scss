@@ -1,0 +1,25 @@
+.text {
+  color: var(--primary-text);
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8125rem;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+
+  &Text {
+    color: var(--button-text-disabled);
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8125rem;
+  }
+}
+
+.button {
+  display: flex;
+  gap: 0.6rem;
+}

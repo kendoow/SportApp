@@ -5,7 +5,7 @@ import History from '@pages/History';
 import Home from '@pages/Home';
 import Layout from '@pages/Layout/Layout';
 import Main from '@pages/main';
-import Workouts from '@pages/Workouts';
+import Templates from '@pages/Templates';
 import ProtectedRoute from '@app/router/ProtectedRoute';
 import authStore from '@features/auth/store/authStore';
 import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
@@ -42,10 +42,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: 'workouts',
+    path: 'templates',
     element: (
       <Layout>
-        <Workouts />
+        <Templates />
       </Layout>
     ),
   },
