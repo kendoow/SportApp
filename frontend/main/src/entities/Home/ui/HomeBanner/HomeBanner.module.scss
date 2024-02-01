@@ -45,4 +45,46 @@
       }
     }
   }
+
+  .userStats {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+
+    .baseStats {
+      display: flex;
+      flex-direction: column;
+
+      &Name {
+        font-size: 1rem;
+        color: var(--button-text-disabled);
+      }
+
+      &Value {
+        font-size: 2.5rem;
+      }
+
+
+    }
+
+    .linkBlock {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 1.5rem;
+
+      .link {
+        white-space: normal;
+        width: max-content;
+        font-size: 1.5rem;
+        color: red;
+      }
+
+      .icon {
+        transform: rotateY(180deg);
+      }
+    }
+
+  }
 }
