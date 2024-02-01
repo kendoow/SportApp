@@ -3,8 +3,8 @@ package db
 import (
 	"context"
 	"fmt"
+	"github.com/kendoow/SportApp/backend/config"
 	"github.com/kendoow/SportApp/backend/internal/utils"
-	"os"
 	"sync"
 
 	"github.com/jackc/pgx/v5"
@@ -16,12 +16,7 @@ var (
 )
 
 func connectPostgres() (*pgx.Conn, error) {
-	conn, err := pgx.Connect(context.Background(),
-		fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
-			os.Getenv("DB_USER"),
-			os.Getenv("DB_PASSWORD"),
-			os.Getenv("DB_PORT"),
-			os.Getenv("DB_NAME")))
+	conn, err := pgx.Connect(context.Background(), config.GetAppConfig().PostgresURL)
 
 	if err != nil {
 		return nil, fmt.Errorf("unable to connect to database: %v", err)

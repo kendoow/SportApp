@@ -1,6 +1,6 @@
 module github.com/kendoow/SportApp/backend
 
-go 1.21.1
+go 1.21
 
 require (
 	github.com/golang-jwt/jwt/v5 v5.1.0
@@ -9,6 +9,7 @@ require (
 	github.com/stretchr/testify v1.8.4
 	github.com/swaggo/http-swagger v1.3.4
 	github.com/swaggo/swag v1.16.2
+	go.mongodb.org/mongo-driver v1.13.1
 	golang.org/x/crypto v0.9.0
 )
 
@@ -33,7 +34,6 @@ require (
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
-	go.mongodb.org/mongo-driver v1.13.1 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
