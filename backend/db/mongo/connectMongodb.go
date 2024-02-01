@@ -1,10 +1,10 @@
-package db
+package mongo
 
 import (
 	"context"
 	"fmt"
+	"github.com/kendoow/SportApp/backend/config"
 	"log"
-	"os"
 	"sync"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -18,10 +18,11 @@ var (
 
 func connectMongo() (*mongo.Client, error) {
 	// MongoDB connection string
-	connStr := fmt.Sprintf("mongodb://%s:%s@localhost:%s",
-		os.Getenv("DB_USER_MONGO"),
-		os.Getenv("DB_PASSWORD_MONGO"),
-		os.Getenv("DB_PORT_MONGO"))
+	//connStr := fmt.Sprintf("mongodb://%s:%s@localhost:%s",
+	//	os.Getenv("DB_USER_MONGO"),
+	//	os.Getenv("DB_PASSWORD_MONGO"),
+	//	os.Getenv("DB_PORT_MONGO"))
+	connStr := config.GetAppConfig().Mongo.URL
 
 	clientOptions := options.Client().ApplyURI(connStr)
 
@@ -48,6 +49,10 @@ func getMongoClient() *mongo.Client {
 	})
 
 	return mongoClient
+}
+
+func Client() *mongo.Client {
+	return getMongoClient()
 }
 
 // CloseMongoDB closes the MongoDB connection.

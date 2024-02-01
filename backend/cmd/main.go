@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gorilla/mux"
+	"github.com/kendoow/SportApp/backend/config"
 	_ "github.com/kendoow/SportApp/backend/docs"
 	"github.com/kendoow/SportApp/backend/internal/routes"
 	"github.com/kendoow/SportApp/backend/internal/utils"
@@ -23,6 +24,7 @@ import (
 // @name Authorization
 
 func main() {
+	config.GetAppConfig()
 	r := mux.NewRouter()
 
 	routes.AuthRoutes(r)
