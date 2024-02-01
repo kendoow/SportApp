@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	exerciseCollection = mongoDB.Database(config.GetAppConfig().Mongo.DBName).Collection(config.GetAppConfig().Mongo.Excercise.CollectionName)
+	exerciseCollection = mongoDB.Database(config.GetAppConfig().Mongo.DBName).Collection(config.GetAppConfig().Mongo.Exercise.CollectionName)
 )
 
 func GetAllExercises(ctx context.Context) (*mongo.Cursor, error) {

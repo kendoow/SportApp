@@ -15,7 +15,7 @@ type Config struct {
 		Template struct {
 			CollectionName string
 		}
-		Excercise struct {
+		Exercise struct {
 			CollectionName string
 		}
 	}
@@ -28,12 +28,17 @@ var (
 )
 
 func initConfig() {
+	appConfig = &Config{}
+
 	//MongoProps
 	appConfig.Mongo.URL = fmt.Sprintf("mongodb://%s:%s@localhost:%s",
 		os.Getenv("DB_USER_MONGO"),
 		os.Getenv("DB_PASSWORD_MONGO"),
 		os.Getenv("DB_PORT_MONGO"))
 	appConfig.Mongo.DBName = os.Getenv("DB_MONGO_DATABASE")
+	appConfig.Mongo.Workout.CollectionName = "workouts"
+	appConfig.Mongo.Template.CollectionName = "templates"
+	appConfig.Mongo.Exercise.CollectionName = "exercises"
 
 	//PostgresProps
 	appConfig.PostgresURL = fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
