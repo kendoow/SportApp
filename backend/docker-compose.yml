@@ -31,7 +31,7 @@ services:
 
   mongodb:
     container_name: mongodb-sp
-    image: mongo:latest
+    image: mongo:6.0.5
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER_MONGO}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD_MONGO}
