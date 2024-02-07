@@ -3,7 +3,7 @@ package workout
 import (
 	"context"
 	"github.com/kendoow/SportApp/backend/config"
-	"github.com/kendoow/SportApp/backend/internal/model/workout"
+	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -25,7 +25,7 @@ func GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cursor, error) {
 
 //TODO refactor to dao
 
-func CreateWorkout(ctx context.Context, workout *workout.Workout) error {
+func CreateWorkout(ctx context.Context, workout *model.Workout) error {
 	_, err := workoutCollection.InsertOne(ctx, workout)
 	if err != nil {
 		utils.Error.Println(err.Error())
