@@ -1,4 +1,4 @@
-import tagsNames from '@shared/constants/tagsNames';
+import tagsNames from '@shared/lib/constants/tagsNames';
 
 export type HistoryCardProps = {
   title: string;

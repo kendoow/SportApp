@@ -6,15 +6,12 @@ import Home from '@pages/Home';
 import Layout from '@pages/Layout/Layout';
 import Main from '@pages/main';
 import Templates from '@pages/Templates';
+import Workouts from '@pages/Workouts';
 import ProtectedRoute from '@app/router/ProtectedRoute';
 import authStore from '@features/auth/store/authStore';
 import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
 import RestoreFrom from '@features/auth/ui/RestoreForm/RestoreForm';
 import SignupForm from '@features/auth/ui/SignupForm/SignupForm';
-
-
-
-
 
 const router = createBrowserRouter([
   {
@@ -50,10 +47,26 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: 'builder',
+    element: (
+      <Layout>
+        <Templates />
+      </Layout>
+    ),
+  },
+  {
     path: 'history',
     element: (
       <Layout>
         <History />
+      </Layout>
+    ),
+  },
+  {
+    path: 'workouts',
+    element: (
+      <Layout>
+        <Workouts />
       </Layout>
     ),
   },

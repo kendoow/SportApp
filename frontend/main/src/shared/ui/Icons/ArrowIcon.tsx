@@ -1,9 +1,5 @@
 import { IconType } from '@shared/lib/types/iconTypes';
 
-
-
-
-
 const ArrowIcon = ({ className, onClick }: IconType) => {
   return (
     <svg

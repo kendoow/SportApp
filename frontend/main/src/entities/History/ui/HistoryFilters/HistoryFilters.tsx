@@ -1,5 +1,5 @@
 import SortByRecent from '@entities/SortByRecent/ui/SortByRecent';
-import tagsNames from '@shared/constants/tagsNames';
+import tagsNames from '@shared/lib/constants/tagsNames';
 import HorizontalDropdown from '@shared/ui/HorizontalDropdown/HorizontalDropdown';
 import Tag from '@shared/ui/Tag/Tag';
 
@@ -14,7 +14,10 @@ const HistoryFilters = () => {
           <div className={styles.wrapper}>
             <HorizontalDropdown title="tags">
               {tagsNames.map((tag: string) => (
-                <Tag text={tag} />
+                <Tag
+                  key={tag}
+                  text={tag}
+                />
               ))}
             </HorizontalDropdown>
           </div>

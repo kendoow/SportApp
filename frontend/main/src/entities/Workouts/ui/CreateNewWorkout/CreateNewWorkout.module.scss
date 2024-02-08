@@ -1,0 +1,17 @@
+.green {
+  background-color: var(--primaty-button);
+  color: var(--secondary) !important;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 91%;
+  color: #dfdfdf;
+  margin-bottom: 2.1875rem;
+}
+
+.container {
+  display: flex;
+  gap: 2.1875rem;
+}
