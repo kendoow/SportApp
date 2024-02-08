@@ -7,9 +7,10 @@ type ExerciseInfo struct {
 	Repetition []int32 `json:"reps"`
 }
 
-type WorkoutTemplate struct {
+type Template struct {
 	Name      string         `json:"name"`
 	Status    string         `json:"status"`
 	LastUsage time.Time      `json:"last_usage"`
 	Exercises []ExerciseInfo `json:"exercises"`
+	Id        string         `json:"id" bson:"_id"`
 }
