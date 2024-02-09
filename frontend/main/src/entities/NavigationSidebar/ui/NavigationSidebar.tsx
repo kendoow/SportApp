@@ -11,15 +11,16 @@ const NavigationSidebar = () => {
       <h3 className={styles.sidebarTitle}>main pages</h3>
       {mainPagesOptions.map((option) => (
         <NavLink
-          key={option}
-          to={`/${option}`}
+          key={option.name}
+          to={`/${option.name}`}
           className={({ isActive }) =>
             isActive
               ? cn(styles.sidebarActive, styles.sidebarElement)
               : cn(styles.sidebarElement, styles.sidebarInactive)
           }
         >
-          {option}
+          {option.image}
+          {option.name}
         </NavLink>
       ))}
     </div>

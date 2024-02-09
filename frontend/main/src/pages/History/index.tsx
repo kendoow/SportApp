@@ -29,17 +29,17 @@ const History = () => {
         isEditable={isEditable}
       />
       <HistoryFilters />
-      {/*<HistoryCard*/}
-      {/*  isEditable={isEditable}*/}
-      {/*  title="123"*/}
-      {/*  date="19/03/23"*/}
-      {/*  tags={tagsNames}*/}
-      {/*/>*/}
-      {/*<Pagination*/}
-      {/*  totalPages={10}*/}
-      {/*  currentPage={currentPage}*/}
-      {/*  onPageChange={handlePageChange}*/}
-      {/*/>*/}
+      <HistoryCard
+        isEditable={isEditable}
+        title="123"
+        date="19/03/23"
+        tags={tagsNames}
+      />
+      <Pagination
+        totalPages={10}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
       <HistoryEmpty />
     </>
   );

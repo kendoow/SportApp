@@ -1,5 +1,5 @@
 TN:
-SF:src\features\auth\api\index.ts
+SF:src\features\auth\api\index.tsx
 FN:5,authLogin
 FN:16,authSignup
 FNF:2

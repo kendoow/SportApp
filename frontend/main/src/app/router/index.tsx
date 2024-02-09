@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Bio from '@pages/Bio';
+import Builder from '@pages/Builder';
 import History from '@pages/History';
 import Home from '@pages/Home';
 import Layout from '@pages/Layout/Layout';
@@ -48,11 +49,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'builder',
-    element: (
-      <Layout>
-        <Templates />
-      </Layout>
-    ),
+    element: <Builder />,
   },
   {
     path: 'history',
