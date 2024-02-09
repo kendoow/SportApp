@@ -41,7 +41,7 @@ func CreateTemplate(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func GetTemplateById(w http.ResponseWriter, r *http.Request) {
+func GetTemplgitateById(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	templateId := vars["id"]
 	utils.Info.Println(templateId)

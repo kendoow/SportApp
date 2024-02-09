@@ -25,12 +25,19 @@ func GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cursor, error) {
 
 //TODO refactor to dao
 
-func CreateWorkout(ctx context.Context, workout *model.Workout) error {
-	_, err := workoutCollection.InsertOne(ctx, workout)
+func CreateWorkout(ctx context.Context, workout *model.Workout) (*mongo.InsertOneResult, error) {
+	result, err := workoutCollection.InsertOne(ctx, workout)
 	if err != nil {
 		utils.Error.Println(err.Error())
-		return err
+		return nil, err
 	}
 
-	return nil
+	return result, nil
 }
+
+func GetWorkoutById(ctx context.Context, filter bson.D) *mongo.SingleResult {
+	result := workoutCollection.FindOne(ctx, filter)
+	return result
+}
+
+func DeleteWorkouts(ctx context.Context, filter bson.D) *

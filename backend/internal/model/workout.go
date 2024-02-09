@@ -1,6 +1,7 @@
 package model
 
 type Workout struct {
+	Id              string `json:"id" bson:"_id"`
 	Name            string `json:"name"`
 	CreationDate    string/*time.Time*/ `json:"creation_date"`
 	Status          string `json:"status"`
@@ -17,3 +18,5 @@ type WorkoutBuilt struct {
 	Name      string         `json:"name"`
 	Exercises []ExerciseInfo `json:"excercises"`
 }
+
+type BulkWorkoutIds = []string

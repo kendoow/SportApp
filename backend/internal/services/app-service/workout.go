@@ -6,6 +6,7 @@ import (
 	repository "github.com/kendoow/SportApp/backend/internal/repository/workout"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 func GetAllWorkouts( /*params*/ ) (*[]*model.Workout, error) {
@@ -33,4 +34,35 @@ func GetAllWorkouts( /*params*/ ) (*[]*model.Workout, error) {
 	}
 
 	return &workouts, nil
+}
+
+func CreateWorkout(creatingWorkout *model.Workout) (interface{}, error) {
+	result, err := repository.CreateWorkout(context.TODO(), creatingWorkout)
+	if err != nil {
+		return "", err
+	}
+
+	return result.InsertedID, nil
+}
+
+func GetWorkoutById(ctx context.Context, id string) (*model.Workout, error) {
+	_id, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		utils.Error.Println(err)
+		return nil, err
+	}
+
+	filter := bson.D{{"_id", _id}}
+	result := repository.GetWorkoutById(ctx, filter)
+	var elem model.Workout
+
+	err = result.Decode(&elem)
+	if err != nil {
+		utils.Error.Println(err.Error())
+	}
+	return &elem, nil
+}
+
+func DeleteWorkouts(ids *model.BulkWorkoutIds) (*model.BulkWorkoutIds, error) {
+
 }
