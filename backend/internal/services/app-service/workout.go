@@ -63,12 +63,12 @@ func GetWorkoutById(ctx context.Context, id string) (*model.Workout, error) {
 	return &elem, nil
 }
 
-func DeleteWorkouts(ids *model.BulkWorkoutIds) (*model.BulkWorkoutIds, error) {
+func DeleteWorkouts(ids *model.BulkWorkoutIds) (int64, error) {
 	filter := &bson.M{"_id": bson.M{"$in": ids}}
 
 	result, err := repository.DeleteWorkouts(context.TODO(), filter)
 	if err != nil {
-		return nil, err
+		return -1, err
 	}
 
 	return result, nil

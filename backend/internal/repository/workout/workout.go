@@ -40,12 +40,12 @@ func GetWorkoutById(ctx context.Context, filter bson.D) *mongo.SingleResult {
 	return result
 }
 
-func DeleteWorkouts(ctx context.Context, filter *bson.M) (*model.BulkWorkoutIds, error) {
+func DeleteWorkouts(ctx context.Context, filter *bson.M) (int64, error) {
 	result, err := workoutCollection.DeleteMany(ctx, filter)
 	if err != nil {
 		logging.Err(err, "Failed deletion of workouts in repo, with reason: ")
-		return nil, err
+		return -1, err
 	}
 
-	return result.DeletedCount
+	return result.DeletedCount, nil
 }
