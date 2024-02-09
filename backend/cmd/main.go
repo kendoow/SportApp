@@ -5,7 +5,7 @@ import (
 	"github.com/kendoow/SportApp/backend/config"
 	_ "github.com/kendoow/SportApp/backend/docs"
 	"github.com/kendoow/SportApp/backend/internal/routes"
-	"github.com/kendoow/SportApp/backend/internal/utils"
+	"github.com/kendoow/SportApp/backend/internal/utils/logging"
 	"github.com/kendoow/SportApp/backend/middleware"
 	httpSwagger "github.com/swaggo/http-swagger"
 	"net/http"
@@ -36,6 +36,6 @@ func main() {
 	handler = middleware.PanicCatching(handler)
 	handler = middleware.CorsMiddleware(handler)
 
-	utils.Info.Println("Server started on", os.Getenv("PORT"))
-	utils.Error.Fatal(http.ListenAndServe(os.Getenv("PORT"), handler))
+	logging.Info.Println("Server started on", os.Getenv("PORT"))
+	logging.Error.Fatal(http.ListenAndServe(os.Getenv("PORT"), handler))
 }

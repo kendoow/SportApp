@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/kendoow/SportApp/backend/config"
 	"github.com/kendoow/SportApp/backend/internal/model"
-	"github.com/kendoow/SportApp/backend/internal/utils"
+	"github.com/kendoow/SportApp/backend/internal/utils/logging"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -17,7 +17,7 @@ func GetAllTemplates(ctx context.Context, filter *bson.M) (*mongo.Cursor, error)
 
 	cursor, err := templateCollection.Find(ctx, filter)
 	if err != nil {
-		utils.Error.Println(err.Error())
+		logging.Error.Println(err.Error())
 		return nil, err
 	}
 
@@ -27,7 +27,7 @@ func GetAllTemplates(ctx context.Context, filter *bson.M) (*mongo.Cursor, error)
 func CreateTemplate(ctx context.Context, createdTemplate *model.Template) (*mongo.InsertOneResult, error) {
 	templateResult, err := templateCollection.InsertOne(ctx, createdTemplate)
 	if err != nil {
-		utils.Error.Println(err.Error())
+		logging.Error.Println(err.Error())
 		return nil, err
 	}
 	return templateResult, nil

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/kendoow/SportApp/backend/config"
-	"github.com/kendoow/SportApp/backend/internal/utils"
+	"github.com/kendoow/SportApp/backend/internal/utils/logging"
 	"sync"
 
 	"github.com/jackc/pgx/v5"
@@ -28,7 +28,7 @@ func getDBPostgres() *pgx.Conn {
 	dbOnce.Do(func() {
 		conn, err := connectPostgres()
 		if err != nil {
-			utils.Error.Fatal(err)
+			logging.Error.Fatal(err)
 		}
 		db = conn
 	})

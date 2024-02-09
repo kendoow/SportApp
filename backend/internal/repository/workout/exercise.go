@@ -3,7 +3,7 @@ package workout
 import (
 	"context"
 	"github.com/kendoow/SportApp/backend/config"
-	"github.com/kendoow/SportApp/backend/internal/utils"
+	"github.com/kendoow/SportApp/backend/internal/utils/logging"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -17,7 +17,7 @@ func GetAllExercises(ctx context.Context) (*mongo.Cursor, error) {
 
 	cursor, err := exerciseCollection.Find(ctx, filter)
 	if err != nil {
-		utils.Error.Println(err.Error())
+		logging.Error.Println(err.Error())
 		return nil, err
 	}
 

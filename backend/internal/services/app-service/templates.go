@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/kendoow/SportApp/backend/internal/model"
 	repository "github.com/kendoow/SportApp/backend/internal/repository/workout"
-	"github.com/kendoow/SportApp/backend/internal/utils"
+	"github.com/kendoow/SportApp/backend/internal/utils/logging"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -22,14 +22,14 @@ func GetAllTemplates( /*params*/ ) (*[]*model.Template, error) {
 
 		err := cursor.Decode(&elem)
 		if err != nil {
-			utils.Error.Println(err.Error())
+			logging.Error.Println(err.Error())
 		}
 
 		templates = append(templates, &elem)
 	}
 
 	if err := cursor.Err(); err != nil {
-		utils.Error.Println(err.Error())
+		logging.Error.Println(err.Error())
 		return nil, err
 	}
 
@@ -48,7 +48,7 @@ func GetTemplateById(ctx context.Context, Id string) (*model.Template, error) {
 
 	id, err := primitive.ObjectIDFromHex(Id)
 	if err != nil {
-		utils.Error.Println(err)
+		logging.Error.Println(err)
 		return nil, err
 	}
 
@@ -58,7 +58,7 @@ func GetTemplateById(ctx context.Context, Id string) (*model.Template, error) {
 
 	err = result.Decode(&elem)
 	if err != nil {
-		utils.Error.Println(err.Error())
+		logging.Error.Println(err.Error())
 	}
 	return &elem, nil
 }
