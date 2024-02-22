@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 echo "Pre-commit hook started..."
-cd frontend
+cd ./frontend/main
 npm run lint -- --fix
