@@ -14,7 +14,7 @@ const AddNewCard: FC<AddNewCardProps> = ({ title, plus, description, to, classNa
       className={cn(styles.container, classNameW, className)}
     >
       <h2 className={cn(styles.title, className)}>{title}</h2>
-      {plus && <span className={cn(className, styles.plus)}>+</span>}
+      {plus && <p className={cn(className, styles.plus)}>+</p>}
       <p className={cn(className, styles.description)}>{description}</p>
     </div>
   );

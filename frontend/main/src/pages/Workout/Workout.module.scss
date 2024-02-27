@@ -1,0 +1,38 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    .date {
+      font-weight: 500;
+      font-size: 2rem;
+      color: var(--primary-text);
+    }
+  }
+
+  .icon {
+    margin-left: 0.8rem;
+  }
+
+  .actionsBlock {
+
+
+    .title {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 145%;
+      color: var(--button-text-disabled);
+    }
+
+    .actions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: start;
+    }
+  }
+}

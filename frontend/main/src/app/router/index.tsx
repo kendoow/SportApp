@@ -7,6 +7,7 @@ import Home from '@pages/Home';
 import Layout from '@pages/Layout/Layout';
 import Main from '@pages/main';
 import Templates from '@pages/Templates';
+import Workout from '@pages/Workout';
 import Workouts from '@pages/Workouts';
 import ProtectedRoute from '@app/router/ProtectedRoute';
 import authStore from '@features/auth/store/authStore';
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Workouts />
+      </Layout>
+    ),
+  },
+  {
+    path: 'workout/:id',
+    element: (
+      <Layout>
+        <Workout />
       </Layout>
     ),
   },
