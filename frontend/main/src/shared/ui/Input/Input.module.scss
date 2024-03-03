@@ -24,19 +24,24 @@
   color: var(--primary-text);
 }
 
-.error {
-  border-color: var(--error);
+.secondary{
 
+}
+
+.annotation {
+  border-color: var(--error);
+  border-bottom:2px solid #8E8E8E;
   &Text {
+    border-bottom: #8E8E8E;
     position: absolute;
     top: -8px;
-    left: 38px; /* Отступ от иконки до текста */
+    left: 0; /* Отступ от иконки до текста */
+    color: #8E8E8E;
     background-color: (--background);
-    font-size: 18px;
-    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
     line-height: 29px;
     padding: 2px 4px;
-    color: var(--error);
     pointer-events: none;
   }
 }

@@ -11,7 +11,7 @@
   flex-direction: column;
 
   &Text {
-    color: var(--button-text-disabled);
+    color: var(--primary-text);
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
@@ -20,6 +20,7 @@
 }
 
 .button {
+  background-color: var(--primary);
   display: flex;
   gap: 0.6rem;
 }

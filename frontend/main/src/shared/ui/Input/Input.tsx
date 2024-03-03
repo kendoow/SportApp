@@ -8,17 +8,17 @@ const Input = ({
   variant = 'primary',
   className,
   children,
-  error,
+  annotation,
   type,
   register,
   name,
   ...InputProps
 }: IInputProps) => {
-  const inputClassName = cn(error && styles.error, styles[variant], styles[type], className);
+  const inputClassName = cn(annotation && styles.annotation, styles[variant], styles[type], className);
 
   return (
     <label className={styles.input}>
-      {error && <p className={styles.errorText}>{error as ReactNode}</p>}
+      {annotation && <p className={styles.annotationText}>{annotation}</p>}
       <input
         {...InputProps}
         {...(register?.name && { ...register(name) })}
