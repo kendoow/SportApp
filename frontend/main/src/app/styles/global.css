@@ -17,38 +17,77 @@ svg {
 }
 
 /*theme*/
+:root[data-theme='light'] {
+    /*system background*/
+    --primary: #FFFFFF;
+    --secondary: #EBEEF1;
+    --modal-background: #ECECEC;
+    --glossy-backgound: #11111133;
+
+    /*text background*/
+    --primary-text: #0C0C0C;
+    --gray-text: #8E8E8E;
+
+    /*secondary button*/
+    --secondary-button: #111111;
+    --secondary-button-hover: #363636;
+    --secondary-button-active: #080808;
+    --secondary-button-default-text: #FFFFFF;
+    --secondary-button-disabled-text: #8E8E8E;
+
+
+    /*system general styles*/
+    --primaty-button: #7CD485;
+    --primaty-button-hover: #BEEFC3;
+    --primaty-button-active: #589D5F;
+    --default-text: #111111;
+    --disabled-text: #8E8E8E;
+    /*delete button*/
+    --delete-button: #A62828;
+    --delete-button-hover: #E16161;
+    --delete-button-active: #780000;
+    --delete-button-primary-text: #FFFFFF;
+    /*workout moods*/
+    --postitve: #7CD485;
+    --neutral: #E1D461;
+    --negative: #A62828
+}
+
 :root[data-theme='dark'] {
-    --background: #191A1B;
-    --primary-text: #DFDFDF;
+    /*system background*/
+    --primary: #0C0C0C;
     --secondary: #111111;
     --modal-background: #141415;
-    --delete-button: #A62828;
-    --delete-button-hover: #E16161;
-    --delete-button-active: #780000;
+    --glossy-backgound: #11111133;
+
+    /*text background*/
+    --primary-text: #FFFFFF;
+    --gray-text: #8E8E8E;
+
+    /*secondary button*/
+    --secondary-button: #111111;
+    --secondary-button-hover: #363636;
+    --secondary-button-active: #080808;
+    --secondary-button-default-text: #FFFFFF;
+    --secondary-button-disabled-text: #8E8E8E;
+
+    /*system general styles*/
     --primaty-button: #7CD485;
     --primaty-button-hover: #BEEFC3;
     --primaty-button-active: #589D5F;
-    --secondary-button-hover: #363636;
-    --secondary-button-active: #080808;
-    --button-text-disabled: #8E8E8E;
-}
-
-:root[data-theme='darkv2'] {
-    --background: #0C0C0C;
-    --primary-text: #DFDFDF;
-    --secondary: #111111;
-    --modal-background: #141415;
+    --default-text: #111111;
+    --disabled-text: #8E8E8E;
+    /*delete button*/
     --delete-button: #A62828;
     --delete-button-hover: #E16161;
     --delete-button-active: #780000;
-    --primaty-button: #7CD485;
-    --primaty-button-hover: #BEEFC3;
-    --primaty-button-active: #589D5F;
-
-    --secondary-button-hover: #363636;
-    --secondary-button-active: #080808;
-    --button-text-disabled: #8E8E8E;
+    --delete-button-primary-text: #FFFFFF;
+    /*workout moods*/
+    --postitve: #7CD485;
+    --neutral: #E1D461;
+    --negative: #A62828
 }
+
 
 :focus,
 :active {
@@ -78,7 +117,7 @@ body {
     width: 100%;
     height: 100vh;
     scroll-behavior: smooth;
-    background-color: var(--background);
+    background-color: var(--primary);
     font-size: 100%;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;

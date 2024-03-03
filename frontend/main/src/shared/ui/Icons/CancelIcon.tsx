@@ -12,7 +12,6 @@ const CancelIcon = ({ className }: IconType) => {
     >
       <path
         d="M17 7.5L7 17.5M7 7.5L17 17.5"
-        stroke="#DFDFDF"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

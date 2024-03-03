@@ -3,30 +3,32 @@
   padding: 1rem 1.5rem 1.5rem 1.5rem;
   width: 23.44rem;
   height: 13.19rem;
-  background: #111;
+  background: var(--secondary);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  color: #dfdfdf;
+  color: var(--primary);
 
   .title {
     font-weight: 400;
     font-size: 2rem;
     text-align: center;
+    color: var(--primary-text);
   }
 
   .plus {
     font-weight: 400;
     font-size: 2.5rem;
     text-align: center;
+    color: var(--primary-text);
   }
 
   .description {
     font-weight: 400;
     font-size: 1rem;
     text-align: center;
-    color: #8e8e8e;
+    color: var(--gray-text);
   }
 }

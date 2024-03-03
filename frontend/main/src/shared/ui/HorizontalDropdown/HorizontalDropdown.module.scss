@@ -5,7 +5,7 @@
   align-items: center;
   gap: 1.5rem;
   border-radius: 0.625rem;
-  background: #111;
+  background: var(--secondary);
 
   &Opened {
     cursor: pointer;
@@ -27,7 +27,7 @@
 
   .icon {
     cursor: pointer;
-
+    color: var(--primary-text);
     &Rotated {
       transform: rotateY(180deg);
       cursor: pointer;

@@ -9,7 +9,7 @@ const getTheme = (): Theme => {
   if (Object.values(themes).includes(theme)) return theme;
 
   const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
-  if (userMedia.matches) return themes.darkv2;
+  if (userMedia.matches) return themes.dark;
 
   return themes.dark;
 };

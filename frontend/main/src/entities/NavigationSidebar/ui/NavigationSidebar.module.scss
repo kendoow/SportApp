@@ -20,11 +20,11 @@
     display: flex;
     padding: 0.5rem 0.75rem 0.625rem 2rem;
     gap: 1rem;
-    align-items: flex-start;
     font-size: 1.375rem;
     font-style: normal;
     font-weight: 400;
     border-radius: 0.625rem;
+    align-items: center;
   }
 
   &Inactive {
@@ -34,11 +34,11 @@
 
   &Active {
     background-color: var(--primary-text);
-    color: var(--background);
+    color: var(--secondary);
 
     svg {
       path {
-        stroke: var(--background);
+        stroke: var(--secondary);
       }
     }
   }
