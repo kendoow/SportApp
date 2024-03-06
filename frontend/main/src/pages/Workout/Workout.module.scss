@@ -17,22 +17,24 @@
   .icon {
     margin-left: 0.8rem;
   }
+  .button {
+    background-color: var(--secondary);
+    color: var(--primary-text);
+  }
+  .actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1.5rem;
 
-  .actionsBlock {
-
-
-    .title {
-      font-family: var(--font-family);
-      font-weight: 400;
-      font-size: 1.25rem;
-      line-height: 145%;
-      color: var(--button-text-disabled);
-    }
-
-    .actions {
-      display: inline-flex;
-      align-items: center;
-      justify-content: start;
+    &Block {
+      .title {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 1.25rem;
+        line-height: 145%;
+        color: var(--button-text-disabled);
+      }
     }
   }
 }

@@ -16,7 +16,7 @@ const HistoryFilters = () => {
               {tagsNames.map((tag: string) => (
                 <Tag
                   key={tag}
-                  text={tag}
+                  name={tag}
                 />
               ))}
             </HorizontalDropdown>

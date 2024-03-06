@@ -1,6 +1,5 @@
 import { IInputProps } from './Input.typings';
 import cn from 'classnames';
-import { ReactNode } from 'react';
 
 import styles from './Input.module.scss';
 

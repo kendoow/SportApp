@@ -1,3 +1,3 @@
 export type TagProps = {
-  text: string;
+  name: string; // TODO: уточнить типы
 };

@@ -15,7 +15,7 @@ const HistoryCard = ({ title, tags, date, isEditable }: HistoryCardProps) => {
         </div>
         <div className={styles.tags}>
           {tags.map((tag: string) => (
-            <Tag text={tag} />
+            <Tag name={tag} />
           ))}
         </div>
       </div>

@@ -1,3 +1,5 @@
+import WorkoutData from '@features/workout/ui/WorkoutData/WorkoutData';
+import WorkoutCard from '@entities/Workout/ui/WorkoutCard/WorkoutCard';
 import { Button } from '@shared/ui/Button/Button';
 import BookIcon from '@shared/ui/Icons/BookIcon';
 import EditIcon from '@shared/ui/Icons/EditIcon';
@@ -11,17 +13,41 @@ const Workout = () => {
     <div className={styles.container}>
       <div className={styles.info}>
         <p className={styles.date}>12.07.24</p>
-        <Button renderIcon={() => <FileIcon className={styles.icon} />}> back day</Button>
-        <Button renderIcon={() => <FileIcon className={styles.icon} />}> rate</Button>
+        <Button
+          className={styles.button}
+          renderIcon={() => <FileIcon className={styles.icon} />}
+        >
+          {' '}
+          back day
+        </Button>
+        <Button
+          className={styles.button}
+          renderIcon={() => <FileIcon className={styles.icon} />}
+        >
+          {' '}
+          rate
+        </Button>
       </div>
       <div className={styles.actionsBlock}>
         <p className={styles.title}>actions:</p>
         <div className={styles.actions}>
-          <Button renderIcon={() => <EditIcon className={styles.icon} />}> back day</Button>
-          <Button renderIcon={() => <BookIcon className={styles.icon} />}> view in history</Button>
+          <Button
+            className={styles.button}
+            renderIcon={() => <EditIcon className={styles.icon} />}
+          >
+            {' '}
+            edit
+          </Button>
+          <Button
+            className={styles.button}
+            renderIcon={() => <BookIcon className={styles.icon} />}
+          >
+            {' '}
+            view in history
+          </Button>
         </div>
       </div>
-      <div className={styles.workoutStats}></div>
+      <WorkoutData />
     </div>
   );
 };

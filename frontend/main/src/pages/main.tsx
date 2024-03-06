@@ -9,7 +9,7 @@ import Tag from '@shared/ui/Tag/Tag';
 const Main: React.FC = () => {
   return (
     <div>
-      <Tag text="123" />
+      <Tag name="123" />
     </div>
   );
 };
