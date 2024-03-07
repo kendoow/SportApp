@@ -16,7 +16,7 @@ const Input = ({
   const inputClassName = cn(annotation && styles.annotation, styles[variant], styles[type], className);
 
   return (
-    <label className={styles.input}>
+    <label className={type !== 'checkbox' && styles.input}>
       {annotation && <p className={styles.annotationText}>{annotation}</p>}
       <input
         {...InputProps}

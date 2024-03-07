@@ -1,40 +1,35 @@
-@import '@styles/variables.scss';
-
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  max-width: 22rem;
 
-  .input {
-    margin-bottom: 0;
+  .title {
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--primary-text);
+    margin-bottom: 1.5rem;
   }
 
-  .btn {
-    margin-top: 18px;
+  .description {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--gray-text)
   }
 
-  .accounts {
+  .service {
     display: flex;
-    justify-content: space-between;
-    margin-top: 36px;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    align-items: center;
+    &Text {
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--primary-text);
+    }
+  }
+  .btn{
+    margin-top: 5rem;
     width: 100%;
-  }
-
-  .checkbox {
-    color: $black;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 29px;
-  }
-
-  .restore {
-    margin-top: 8px;
-    color: $grey-light;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 29px;
-    /* 161.111% */
-    text-decoration-line: underline;
   }
 }

@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build", 
+    "build-storybook": "storybook build",
     "test": "jest"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "react": "18.2.0",
     "react-calendar-heatmap": "^1.9.0",
     "react-dom": "18.2.0",
+    "react-input-mask": "^2.0.4",
     "react-router-dom": "6.20.0",
     "ts-node": "10.9.2"
   },

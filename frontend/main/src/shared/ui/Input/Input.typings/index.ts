@@ -5,7 +5,7 @@ export interface IInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLI
   variant?: 'primary';
   className?: string;
   checkboxLabel?: JSX.Element;
-  annotation?: string;
+  annotation?: string | boolean;
   children?: ReactNode;
   register?: UseFormRegister<FieldValues>;
 }

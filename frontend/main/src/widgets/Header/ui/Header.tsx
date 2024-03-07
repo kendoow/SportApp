@@ -1,12 +1,15 @@
+import { FC } from 'react';
+
+import { HeaderProps } from '@widgets/Header/model/types';
 import ProfileIcon from '@features/profile/ui/ProfileIcon/ProfileIcon';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header: FC<HeaderProps> = ({ isAuth }) => {
   return (
     <div className={styles.container}>
       <h2>@SportApp</h2>
-      <ProfileIcon />
+      {!isAuth && <ProfileIcon />}
     </div>
   );
 };
