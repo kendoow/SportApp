@@ -1,6 +1,4 @@
-package workout
-
-import "time"
+package model
 
 type Workout struct {
 	Name            string `json:"name"`
@@ -15,19 +13,7 @@ type ExerciseType struct {
 	Tags []string `json:"tags"`
 }
 
-type ExerciseInfo struct {
-	Name       string  `json:"name"`
-	Repetition []int32 `json:"reps"`
-}
-
 type WorkoutBuilt struct {
-	Name       string         `json:"name"`
-	Excercises []ExerciseInfo `json:"excercises"`
-}
-
-type WorkoutTempalte struct {
 	Name      string         `json:"name"`
-	Status    string         `json:"status"`
-	LastUsage time.Time      `json:"last_usage"`
-	Exercises []ExerciseInfo `json:"exercises"`
+	Exercises []ExerciseInfo `json:"excercises"`
 }
