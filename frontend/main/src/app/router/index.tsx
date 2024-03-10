@@ -12,6 +12,7 @@ import Workout from '@pages/Workout';
 import Workouts from '@pages/Workouts';
 import ProtectedRoute from '@app/router/ProtectedRoute';
 import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
+import CodeForm from "@features/auth/ui/CodeForm/CodeForm";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
     element: (
       // <ProtectedRoute accessToken={true}>
       <AuthLayout>
-        <LoginForm />
+        <CodeForm />
       </AuthLayout>
       // </ProtectedRoute>
     ),

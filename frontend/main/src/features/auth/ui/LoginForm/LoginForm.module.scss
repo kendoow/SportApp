@@ -17,18 +17,41 @@
     color: var(--gray-text)
   }
 
+  .input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    background-color: var(--background);
+    padding: 8px;
+    font-size: 2rem;
+    font-style: normal;
+    color: var(--primary-text);
+    border-bottom: 2px solid #8E8E8E;
+    margin-top: 1.5rem;
+    &::placeholder {
+      color: var(--gray-text)
+    }
+  }
+
   .service {
     display: flex;
     margin-top: 1.5rem;
     gap: 1rem;
     align-items: center;
+
     &Text {
       font-weight: 400;
       font-size: 1rem;
       color: var(--primary-text);
     }
   }
-  .btn{
+  .code{
+    &Reqest{
+      
+    }
+  }
+  .btn {
     margin-top: 5rem;
     width: 100%;
   }

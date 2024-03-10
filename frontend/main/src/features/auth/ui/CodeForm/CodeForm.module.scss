@@ -1,0 +1,22 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 22rem;
+  .title {
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--primary-text);
+    margin-bottom: 1.5rem;
+  }
+  .description {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--gray-text)
+  }
+
+  .btn {
+    margin-top: 5rem;
+    width: 100%;
+  }
+}

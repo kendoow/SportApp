@@ -1,19 +1,26 @@
+import InputMask from 'react-input-mask';
+import { useState } from 'react';
+
 import { Button } from '@shared/ui/Button/Button';
 import Input from '@shared/ui/Input/Input';
 
 import styles from './LoginForm.module.scss';
 
 const LoginForm = () => {
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+  const [phone, setPhone] = useState('');
+  const handleInput = ({ target: { value } }) => setPhone(value);
 
-    // phoneNumber: Yup.string().matches(phoneRegExp, 'Phone number is not valid')
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>sign up</h2>
       <p className={styles.description}>indicate your mobile phone number, it will remain between us</p>
-      <Input
-        type="tel"
-        annotation={true}
+      <InputMask
+        onChange={handleInput}
+        className={styles.input}
+        placeholder={'+7(999) 999-99-99'}
+        mask="+7(999)999-99-99"
+        maskChar={null}
+        value={phone}
       />
       <div className={styles.service}>
         <Input type={'checkbox'} />
