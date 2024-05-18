@@ -1,5 +1,5 @@
 import WorkoutData from '@features/workout/ui/WorkoutData/WorkoutData';
-import WorkoutCard from '@entities/Workout/ui/WorkoutCard/WorkoutCard';
+// import WorkoutCard from '@entities/Workout/ui/WorkoutCard/WorkoutCard';
 import { Button } from '@shared/ui/Button/Button';
 import BookIcon from '@shared/ui/Icons/BookIcon';
 import EditIcon from '@shared/ui/Icons/EditIcon';
