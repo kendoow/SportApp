@@ -18,6 +18,9 @@ type Config struct {
 		Exercise struct {
 			CollectionName string
 		}
+		Auth struct {
+			CollectionName string
+		}
 	}
 
 	PostgresURL string
@@ -39,7 +42,7 @@ func initConfig() {
 	appConfig.Mongo.Workout.CollectionName = "workouts"
 	appConfig.Mongo.Template.CollectionName = "templates"
 	appConfig.Mongo.Exercise.CollectionName = "exercises"
-
+	appConfig.Mongo.Auth.CollectionName = "auth"
 	//PostgresProps
 	appConfig.PostgresURL = fmt.Sprintf("host=localhost user=%s password=%s port=%s database=%s",
 		os.Getenv("DB_USER"),

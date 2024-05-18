@@ -1,4 +1,4 @@
-package workout
+package repository
 
 import (
 	"context"

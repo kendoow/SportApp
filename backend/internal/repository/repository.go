@@ -1,4 +1,4 @@
-package workout
+package repository
 
 import (
 	"github.com/kendoow/SportApp/backend/config"
