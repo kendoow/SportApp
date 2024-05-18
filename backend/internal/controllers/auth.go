@@ -47,7 +47,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	cookie := http.Cookie{
 		Name:     "refreshToken",
 		Value:    refreshToken,
-		MaxAge:   30 * 24 * 60 * 60 * 1000,
+		MaxAge:   1000,
 		HttpOnly: true,
 	}
 
