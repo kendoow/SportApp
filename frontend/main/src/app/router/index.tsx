@@ -10,8 +10,8 @@ import Main from '@pages/main';
 import Templates from '@pages/Templates';
 import Workout from '@pages/Workout';
 import Workouts from '@pages/Workouts';
-import ProtectedRoute from '@app/router/ProtectedRoute';
-import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
+// import ProtectedRoute from '@app/router/ProtectedRoute';
+// import LoginForm from '@features/auth/ui/LoginForm/LoginForm';
 import CodeForm from "@features/auth/ui/CodeForm/CodeForm";
 
 const router = createBrowserRouter([
