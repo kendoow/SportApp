@@ -1,4 +1,4 @@
-package workout
+package model
 
 import "time"
 
@@ -21,8 +21,8 @@ type ExerciseInfo struct {
 }
 
 type WorkoutBuilt struct {
-	Name       string         `json:"name"`
-	Excercises []ExerciseInfo `json:"excercises"`
+	Name      string         `json:"name"`
+	Exercises []ExerciseInfo `json:"exercises"`
 }
 
 type WorkoutTempalte struct {

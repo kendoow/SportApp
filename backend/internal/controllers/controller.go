@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/kendoow/SportApp/backend/config"
-	app_service "github.com/kendoow/SportApp/backend/internal/services/app-service"
+	app_service "github.com/kendoow/SportApp/backend/internal/services"
 )
 
 type Controller struct {

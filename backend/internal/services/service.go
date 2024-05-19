@@ -1,6 +1,8 @@
-package app_service
+package services
 
-import repository "github.com/kendoow/SportApp/backend/internal/repository/workout"
+import (
+	"github.com/kendoow/SportApp/backend/internal/repository"
+)
 
 type Service struct {
 	repo *repository.Repo

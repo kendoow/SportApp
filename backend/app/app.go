@@ -7,9 +7,9 @@ import (
 	"github.com/kendoow/SportApp/backend/config"
 	"github.com/kendoow/SportApp/backend/db"
 	"github.com/kendoow/SportApp/backend/internal/controllers"
-	"github.com/kendoow/SportApp/backend/internal/repository/workout"
+	"github.com/kendoow/SportApp/backend/internal/repository"
 	"github.com/kendoow/SportApp/backend/internal/routes"
-	app_service "github.com/kendoow/SportApp/backend/internal/services/app-service"
+	app_service "github.com/kendoow/SportApp/backend/internal/services"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"github.com/kendoow/SportApp/backend/middleware"
 	httpSwagger "github.com/swaggo/http-swagger"
@@ -22,14 +22,14 @@ func StartApplication(config *config.Config) {
 	if err != nil {
 		fmt.Errorf("Cannot initalizate db: %v", err)
 	}
-	repo := workout.CreateRepo(db)
+	repo := repository.CreateRepo(db)
 	repo.GetAllExercises(context.Background())
 	service := app_service.CreateService(repo)
 	controller := controllers.CreateController(config, service)
 
 	r := mux.NewRouter()
 
-	routes.AuthRoutes(r)
+	routes.AuthRoutes(r, controller)
 	routes.TemplatesRoutes(r)
 	routes.WorkoutRoutes(r, controller)
 

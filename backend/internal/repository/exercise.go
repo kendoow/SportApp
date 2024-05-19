@@ -1,4 +1,4 @@
-package workout
+package repository
 
 import (
 	"context"
@@ -7,10 +7,12 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func (repo *Repo) GetAllTemplates(ctx context.Context, filter *bson.M) (*mongo.Cursor, error) {
-	templates := repo.collections.Template
+func (repo *Repo) GetAllExercises(ctx context.Context) (*mongo.Cursor, error) {
+	exercises := repo.collections.Exercises
 
-	cursor, err := templates.Find(ctx, filter)
+	filter := bson.M{}
+
+	cursor, err := exercises.Find(ctx, filter)
 	if err != nil {
 		utils.Error.Println(err.Error())
 		return nil, err

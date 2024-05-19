@@ -1,21 +1,12 @@
 package model
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type User struct {
-	Id       int64  `db:"id"`
-	Username string `db:"username"`
-	Email    string `db:"email"`
-	Password string `db:"password"`
-}
-
-type UserCredits struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
-
-type UserInfo struct {
-	Username string `json:"username"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	ID    primitive.ObjectID `json:"id" bson:"_id"`
+	Name  string             `json:"name"`
+	Phone string             `json:"phone"`
+	Otp   string             `json:"otp,omitempty"`
 }
 
 type UserAuthorized struct {
