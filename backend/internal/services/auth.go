@@ -21,7 +21,7 @@ func (service *Service) SignUp(req *model.RegisterBody) (any, error) {
 	}
 
 	// create new user, everything cool
-	insertedId, err := repo.InsertUser(context.Background(), user)
+	insertedId, err := repo.InsertUser(context.Background(), req)
 
 	if err != nil {
 		log.Println("Error when inserting user in db")

@@ -68,6 +68,7 @@ func (controller *Controller) SignUp(w http.ResponseWriter, r *http.Request) {
 	var requestBody model.RegisterBody
 	fmt.Print(requestBody)
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
+
 	if err != nil {
 		utils.Error.Println("Invalid request body")
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
@@ -75,6 +76,7 @@ func (controller *Controller) SignUp(w http.ResponseWriter, r *http.Request) {
 	}
 
 	createdUserId, err := service.SignUp(&requestBody)
+
 	if err != nil {
 		utils.Error.Println("User cannot be created")
 		http.Error(w, err.Error(), http.StatusUnauthorized)

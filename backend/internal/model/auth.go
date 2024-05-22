@@ -1,7 +1,7 @@
 package model
 
 type RegisterBody struct {
-	Phone string `json:"phone"`
+	Phone string `json:"phone" bson:"phone"`
 }
 
 type VerifyOTPSchema struct {
