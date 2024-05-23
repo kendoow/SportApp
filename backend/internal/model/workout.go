@@ -7,7 +7,7 @@ type Workout struct {
 	CreationDate    string/*time.Time*/ `json:"creation_date"`
 	Status          string `json:"status"`
 	WorkoutDuration string/*time.Duration*/ `json:"workout_duration"`
-	Tags            []string `json:"tags"`
+	Tags            []string `json:"tags"` //TODO should be enum?
 }
 
 type ExerciseType struct {
@@ -16,8 +16,8 @@ type ExerciseType struct {
 }
 
 type ExerciseInfo struct {
-	Name       string  `json:"name"`
-	Repetition []int32 `json:"reps"`
+	Name       string  `json:"name" bson:"name"`
+	Repetition []int32 `json:"reps" bson:"repetition"`
 }
 
 type WorkoutBuilt struct {
@@ -26,8 +26,8 @@ type WorkoutBuilt struct {
 }
 
 type WorkoutTempalte struct {
-	Name      string         `json:"name"`
-	Status    string         `json:"status"`
-	LastUsage time.Time      `json:"last_usage"`
-	Exercises []ExerciseInfo `json:"exercises"`
+	Name      string         `json:"name" bson:"name"`
+	Status    string         `json:"status" bson:"status"`
+	LastUsage time.Time      `json:"last_usage" bson:"last_usage"`
+	Exercises []ExerciseInfo `json:"exercises" bson:"exercises"`
 }
