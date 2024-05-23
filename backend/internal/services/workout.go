@@ -1,13 +1,13 @@
-package app_service
+package services
 
 import (
 	"context"
-	"github.com/kendoow/SportApp/backend/internal/model/workout"
+	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (service *Service) GetAllWorkouts( /*params*/ ) (*[]*workout.Workout, error) {
+func (service *Service) GetAllWorkouts( /*params*/ ) (*[]*model.Workout, error) {
 	repo := service.repo
 
 	cursor, err := repo.GetAllWorkout(context.TODO(), &bson.M{})
@@ -16,10 +16,10 @@ func (service *Service) GetAllWorkouts( /*params*/ ) (*[]*workout.Workout, error
 	}
 	defer cursor.Close(context.TODO())
 
-	var workouts []*workout.Workout
+	var workouts []*model.Workout
 
 	for cursor.Next(context.TODO()) {
-		var elem workout.Workout
+		var elem model.Workout
 		err := cursor.Decode(&elem)
 		if err != nil {
 			utils.Error.Println(err.Error())

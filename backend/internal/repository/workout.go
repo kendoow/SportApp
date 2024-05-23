@@ -1,8 +1,8 @@
-package workout
+package repository
 
 import (
 	"context"
-	"github.com/kendoow/SportApp/backend/internal/model/workout"
+	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -22,7 +22,7 @@ func (repo *Repo) GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cur
 
 //TODO refactor to dao
 
-func (repo *Repo) CreateWorkout(ctx context.Context, workout *workout.Workout) error {
+func (repo *Repo) CreateWorkout(ctx context.Context, workout *model.Workout) error {
 	workouts := repo.collections.Workout
 
 	_, err := workouts.InsertOne(ctx, workout)

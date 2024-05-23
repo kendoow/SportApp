@@ -1,4 +1,4 @@
-package workout
+package repository
 
 import (
 	"github.com/kendoow/SportApp/backend/config"
@@ -23,6 +23,7 @@ type collections struct {
 	Exercises *mongo.Collection
 	Template  *mongo.Collection
 	Workout   *mongo.Collection
+	Auth      *mongo.Collection
 }
 
 func initDBCollection(client *mongo.Client) *collections {
@@ -30,13 +31,15 @@ func initDBCollection(client *mongo.Client) *collections {
 
 	database := client.Database(mongoConfig.DBName)
 
-	exercies := database.Collection(mongoConfig.Exercise.CollectionName)
+	exercises := database.Collection(mongoConfig.Exercise.CollectionName)
 	template := database.Collection(mongoConfig.Template.CollectionName)
 	workout := database.Collection(mongoConfig.Workout.CollectionName)
+	auth := database.Collection(mongoConfig.Auth.CollectionName)
 
 	return &collections{
-		Exercises: exercies,
+		Exercises: exercises,
 		Template:  template,
 		Workout:   workout,
+		Auth:      auth,
 	}
 }

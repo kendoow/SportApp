@@ -10,22 +10,7 @@ services:
     env_file:
       - .env
     depends_on:
-      - postgres
       - mongodb
-    networks:
-      - app-network
-
-  postgres:
-    container_name: postgres-sp
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
     networks:
       - app-network
 
@@ -44,7 +29,6 @@ services:
       - app-network
 
 volumes:
-  postgres-data:
   mongodb-data:
 
 networks:
