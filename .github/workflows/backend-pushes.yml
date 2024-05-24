@@ -23,6 +23,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Set working directory
+        run: cd backend
+
       - name: Install dependencies
         run: go get .
 
@@ -30,7 +33,7 @@ jobs:
         run: go build -v ./cmd/main.go
 
       - name: Test with the Go CLI
-        run: go test ./backend/...
+        run: go test ./...
 
 #  build:
 #    name: Build
