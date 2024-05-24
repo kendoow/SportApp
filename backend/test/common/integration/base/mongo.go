@@ -8,7 +8,6 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"time"
 )
 
 type MongoTestBase struct {
@@ -18,8 +17,7 @@ type MongoTestBase struct {
 }
 
 func (base *MongoTestBase) BeforeMongo() {
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	container, err := containers.CreateMongoTestContainer(ctx)
 	base.Require().NoError(err, "Unable to create mongo test container")
@@ -44,28 +42,26 @@ func (base *MongoTestBase) BeforeMongo() {
 }
 
 func (base *MongoTestBase) AfterMongo() {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	base.Require().NoError(base.container.Terminate(ctx))
 }
 
-type ModelDecoder = func(cursor *bson.Raw) (interface{}, error)
+type EntityDecoder = func(cursor *mongo.Cursor) interface{}
 
 func (base *MongoTestBase) FindAll(ctx context.Context, collectionName string,
-	decoder ModelDecoder) *[]interface{} {
+	decoder EntityDecoder) []interface{} {
 	cursor, err := base.db.Collection(collectionName).Find(ctx, bson.D{})
 	base.Require().NoError(err, "Unable to find all documents")
 
 	var result []interface{}
 
 	for cursor.Next(ctx) {
-		model, err := decoder(&cursor.Current) //should be pointers as result
-		base.Require().NoError(err, "Unable to deserialize model")
+		model := decoder(cursor)
 		result = append(result, model)
 	}
 
-	return &result
+	return result
 }
 
 func (base *MongoTestBase) CreateSomething(ctx context.Context, collectionName string, document *bson.D) {
