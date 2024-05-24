@@ -11,9 +11,9 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./backend
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
       - name: Setup Go
         uses: actions/setup-go@v4
@@ -24,13 +24,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: go get ./backend/
+        run: go get .
 
       - name: Build
-        run: go build -v ./backend/cmd/main.go
+        run: go build -v ./cmd/main.go
 
       - name: Test with the Go CLI
-        run: go test ./backend/...
+        run: go test ./...
 
 #  build:
 #    name: Build
