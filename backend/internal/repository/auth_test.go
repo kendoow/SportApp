@@ -58,6 +58,9 @@ func (suite *TestAuthRepo) TestRepo_FindUserByPhone() {
 
 	//then
 	suite.Require().Equal(value[0].Value, entity.Phone)
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }
 
 type UserEntity struct { //TODO create entity and models in different
@@ -93,6 +96,9 @@ func (suite *TestAuthRepo) TestRepo_InsertUser() {
 	suite.Require().NotEmptyf(result, "Collection should not be empty")
 
 	suite.Require().Equal(expectedValue, result[0])
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }
 
 func (suite *TestAuthRepo) TestRepo_UpdateUser() {
@@ -136,4 +142,7 @@ func (suite *TestAuthRepo) TestRepo_UpdateUser() {
 	suite.Require().NotEmptyf(result, "Collection should not be empty")
 
 	suite.Require().Equal(expectedValue, result[0])
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }

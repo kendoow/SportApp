@@ -67,4 +67,7 @@ func (suite *TestExerciseRepo) TestRepo_GetAllExercises() {
 
 	suite.Require().Equal(value[0].Value, result[0].Name)
 	suite.Require().Equal(value[1].Value, result[0].Repetition)
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }

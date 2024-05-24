@@ -68,3 +68,8 @@ func (base *MongoTestBase) CreateSomething(ctx context.Context, collectionName s
 	_, err := base.db.Collection(collectionName).InsertOne(ctx, document)
 	base.Require().NoError(err, "Inserting failed")
 }
+
+func (base *MongoTestBase) CleanCollection(ctx context.Context, collectionName string) {
+	_, err := base.db.Collection(collectionName).DeleteMany(ctx, bson.D{})
+	base.Require().NoError(err, "DeleteAll failed")
+}
