@@ -23,6 +23,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: go get .
+
+      - name: Build
+        run: go build -v ./cmd/main.go
+
       - name: Test with the Go CLI
         run: go test ./backend/...
 
