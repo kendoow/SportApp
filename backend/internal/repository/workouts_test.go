@@ -75,6 +75,9 @@ func (suite *TestWorkoutsRepo) TestRepo_GetAllWorkouts() {
 	suite.Require().Equal(value[2].Value, result[0].Status)
 	suite.Require().Equal(value[3].Value, result[0].WorkoutDuration)
 	suite.Require().Equal(value[4].Value, result[0].Tags)
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }
 
 func (suite *TestWorkoutsRepo) TestRepo_CreateWorkout() {
@@ -103,4 +106,7 @@ func (suite *TestWorkoutsRepo) TestRepo_CreateWorkout() {
 	suite.Require().NotEmptyf(result, "Collection should not be empty")
 
 	suite.Require().Equal(*insertedValue, result[0]) //TODO delete after all
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }

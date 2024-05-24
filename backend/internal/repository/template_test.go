@@ -81,4 +81,7 @@ func (suite *TestTemplateRepo) TestRepo_GetAllTemplates() {
 	suite.Require().Equal(value[1].Value, result[0].Status)
 	suite.Require().Equal(value[2].Value, result[0].LastUsage.Format(time.RFC3339))
 	suite.Require().Equal(value[3].Value, result[0].Exercises)
+
+	//over
+	suite.CleanCollection(context.Background(), suite.CollectionName)
 }
