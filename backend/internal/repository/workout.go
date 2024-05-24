@@ -8,7 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func (repo *Repo) GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cursor, error) {
+func (repo *Repo) GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cursor, error) { //TODO map to entity
 	workouts := repo.collections.Workout
 
 	cursor, err := workouts.Find(ctx, filter)
@@ -22,7 +22,7 @@ func (repo *Repo) GetAllWorkout(ctx context.Context, filter *bson.M) (*mongo.Cur
 
 //TODO refactor to dao
 
-func (repo *Repo) CreateWorkout(ctx context.Context, workout *model.Workout) error {
+func (repo *Repo) CreateWorkout(ctx context.Context, workout *model.Workout) error { //TODO naming of inserting methods
 	workouts := repo.collections.Workout
 
 	_, err := workouts.InsertOne(ctx, workout)
@@ -31,5 +31,5 @@ func (repo *Repo) CreateWorkout(ctx context.Context, workout *model.Workout) err
 		return err
 	}
 
-	return nil
+	return nil //TODO what inserting method should return? -> maybe void?
 }

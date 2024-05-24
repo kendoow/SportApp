@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-
 	"github.com/kendoow/SportApp/backend/internal/model"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -26,14 +25,14 @@ func (repo *Repo) FindUserByPhone(ctx context.Context, phone string) (*model.Reg
 		return nil, err
 	}
 
-	return &result, nil
+	return &result, nil //TODO returns UserEntity because use ObjectId in update
 }
 
-func (repo *Repo) InsertUser(ctx context.Context, user *model.RegisterBody) (any, error) {
+func (repo *Repo) InsertUser(ctx context.Context, user *model.RegisterBody) (primitive.ObjectID, error) {
 	authCollection := repo.collections.Auth
 	// Insert the user into the collection
 	result, err := authCollection.InsertOne(ctx, user)
-	return result.InsertedID, err
+	return result.InsertedID.(primitive.ObjectID), err
 }
 
 func (repo *Repo) UpdateUser(ctx context.Context, userID primitive.ObjectID, updatedFields map[string]any) error {

@@ -1,10 +1,10 @@
-package workout
+package repository
 
 import (
 	"context"
 	"github.com/kendoow/SportApp/backend/config"
 	"github.com/kendoow/SportApp/backend/db"
-	"github.com/kendoow/SportApp/backend/internal/model/workout"
+	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/test/common/integration/base"
 	"github.com/stretchr/testify/suite"
 	"go.mongodb.org/mongo-driver/bson"
@@ -48,8 +48,8 @@ func templateValue() bson.D {
 	}
 }
 
-func exercises() []workout.ExerciseInfo {
-	return []workout.ExerciseInfo{
+func exercises() []model.ExerciseInfo {
+	return []model.ExerciseInfo{
 		{Name: "excercise", Repetition: []int32{5, 5, 5, 5}},
 	}
 }
@@ -66,9 +66,9 @@ func (suite *TestTemplateRepo) TestRepo_GetAllTemplates() {
 	cursor, err := suite.Repo.GetAllTemplates(context.Background(), &bson.M{})
 	suite.Require().NoError(err, "Err then calling method GetAllTemplates")
 
-	var result []*workout.WorkoutTempalte
+	var result []*model.WorkoutTempalte
 	for cursor.Next(context.Background()) {
-		var entity workout.WorkoutTempalte
+		var entity model.WorkoutTempalte
 		err := cursor.Decode(&entity)
 		suite.Require().NoError(err, "Can not deserialize model")
 		result = append(result, &entity)

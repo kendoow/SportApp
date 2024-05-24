@@ -1,10 +1,10 @@
-package workout
+package repository
 
 import (
 	"context"
 	"github.com/kendoow/SportApp/backend/config"
 	"github.com/kendoow/SportApp/backend/db"
-	"github.com/kendoow/SportApp/backend/internal/model/workout"
+	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/test/common/integration/base"
 	"github.com/stretchr/testify/suite"
 	"go.mongodb.org/mongo-driver/bson"
@@ -54,9 +54,9 @@ func (suite *TestExerciseRepo) TestRepo_GetAllExercises() {
 	cursor, err := suite.Repo.GetAllExercises(context.Background())
 	suite.Require().NoError(err, "Err then calling method GetAllExercises")
 
-	var result []*workout.ExerciseInfo
+	var result []*model.ExerciseInfo
 	for cursor.Next(context.Background()) {
-		var entity workout.ExerciseInfo
+		var entity model.ExerciseInfo
 		err := cursor.Decode(&entity)
 		suite.Require().NoError(err, "Can not deserialize model")
 		result = append(result, &entity)

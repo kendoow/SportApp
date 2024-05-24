@@ -3,11 +3,11 @@ package model
 import "time"
 
 type Workout struct {
-	Name            string `json:"name"`
-	CreationDate    string/*time.Time*/ `json:"creation_date"`
-	Status          string `json:"status"`
-	WorkoutDuration string/*time.Duration*/ `json:"workout_duration"`
-	Tags            []string `json:"tags"` //TODO should be enum?
+	Name            string `json:"name" bson:"name"`
+	CreationDate    string/*time.Time*/ `json:"creation_date" bson:"creation_date"`
+	Status          string `json:"status" bson:"status"`
+	WorkoutDuration string/*time.Duration*/ `json:"workout_duration" bson:"workout_duration"`
+	Tags            []string `json:"tags" bson:"tags"` //TODO should be enum?
 }
 
 type ExerciseType struct {
