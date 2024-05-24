@@ -2,10 +2,10 @@ name: backend
 on:
   push:
 #    branches: [ main ] #TODO read docs
+    paths:
+      - backend/**
   pull_request:
 #    branches: [ main ]
-  paths:
-    - backend/**
 
 jobs:
   test:
