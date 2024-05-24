@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test with the Go CLI
-        run: go test ./...
+        run: go test ./backend/...
 
 #  build:
 #    name: Build
