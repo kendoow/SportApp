@@ -6,6 +6,11 @@ import (
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/client"
+	"github.com/golang-jwt/jwt/v5"
+	"math/rand"
+	"os"
+	"strconv"
+	"time"
 )
 
 func IsImgExist(ctx context.Context, cli *client.Client, imgName string) bool {
@@ -43,4 +48,18 @@ func FindContainer(ctx context.Context, cli *client.Client, containerName string
 	}
 
 	return "", false
+}
+
+func GenerateJWT(id string) (string, error) {
+	token := jwt.New(jwt.SigningMethodHS256)
+	claims := token.Claims.(jwt.MapClaims)
+	claims["userId"] = id
+	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
+	return token.SignedString([]byte(os.Getenv("SECRET_ACCESS_TOKEN")))
+}
+
+func GenerateRandomNumber() string {
+	// Generate a random number between 1000 and 9999 (inclusive)
+	num := rand.Intn(9000) + 1000
+	return strconv.Itoa(num)
 }
