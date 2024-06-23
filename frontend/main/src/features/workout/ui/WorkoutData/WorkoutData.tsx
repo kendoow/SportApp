@@ -28,7 +28,7 @@ const WorkoutData = () => {
         sets={10}
         deleteMode
       />
-      <div className={styles.comment}></div>
+      <div className={styles.comment}>123</div>
     </div>
   );
 };

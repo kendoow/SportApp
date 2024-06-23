@@ -18,6 +18,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@dicebear/collection": "^9.0.1",
+    "@dicebear/core": "^9.0.1",
     "@hookform/resolvers": "3.3.2",
     "axios": "1.6.2",
     "mobx": "6.11.0",

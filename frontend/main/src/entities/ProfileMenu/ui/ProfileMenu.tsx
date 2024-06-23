@@ -6,9 +6,7 @@ import Dropdown from '@shared/ui/DropDown/DropDown';
 import I18nIcon from '@shared/ui/Icons/I18nIcon';
 import LogoutIcon from '@shared/ui/Icons/LogoutIcon';
 import ThemeIcon from '@shared/ui/Icons/ThemeIcon';
-import UserIcon from '@shared/ui/Icons/UserIcon';
 import Toggle from '@shared/ui/Toggle/Toggle';
-import profile from '@assets/images/mockprofile.svg';
 
 import styles from './ProfileMenu.module.scss';
 
@@ -26,40 +24,24 @@ const ProfileMenu = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <img
-          src={profile}
-          alt="mock profile icon"
-        />
-        <span className={styles.title}>@username</span>
+        <ThemeIcon className={styles.icon} />
+        <p className={styles.text}>appearence</p>
       </div>
-      <Link
-        className={styles.wrapper}
-        to="/account"
-      >
-        <UserIcon className={styles.icon} />
-        <p className={styles.text}>account</p>
-      </Link>
-      <Dropdown
-        icon={<ThemeIcon className={styles.icon} />}
-        title="appearence"
-      >
-        <div className={styles.dropdown}>
-          <p className={styles.text}>dark/light</p>
-          <Toggle
-            onClick={toggleTheme}
-            className={styles.toggle}
-          />
-        </div>
-      </Dropdown>
-      <Dropdown
-        icon={<I18nIcon className={styles.icon} />}
-        title="language"
-      >
-        <div className={styles.dropdown}>
-          <p className={styles.text}>eng/ru</p>
-          <Toggle className={styles.toggle} />
-        </div>
-      </Dropdown>
+      <div className={styles.wrapper}>
+        <Toggle
+          onClick={toggleTheme}
+          className={styles.toggle}
+        />
+        <p className={styles.text}>dark/light</p>
+      </div>
+      <div className={styles.wrapper}>
+        <I18nIcon className={styles.icon} />
+        <p className={styles.text}>language</p>
+      </div>
+      <div className={styles.wrapper}>
+        <Toggle className={styles.toggle} />
+        <p className={styles.text}>eng/ru</p>
+      </div>
       <div className={styles.wrapper}>
         <LogoutIcon className={styles.icon} />
         <button

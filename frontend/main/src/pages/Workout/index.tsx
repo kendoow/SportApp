@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import WorkoutData from '@features/workout/ui/WorkoutData/WorkoutData';
 // import WorkoutCard from '@entities/Workout/ui/WorkoutCard/WorkoutCard';
 import { Button } from '@shared/ui/Button/Button';
@@ -9,6 +11,7 @@ import styles from './Workout.module.scss';
 
 // TODO: decompose component to fsd
 const Workout = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -17,7 +20,6 @@ const Workout = () => {
           className={styles.button}
           renderIcon={() => <FileIcon className={styles.icon} />}
         >
-          {' '}
           back day
         </Button>
         <Button
@@ -40,6 +42,7 @@ const Workout = () => {
           </Button>
           <Button
             className={styles.button}
+            onClick={() => navigate('/history')}
             renderIcon={() => <BookIcon className={styles.icon} />}
           >
             {' '}
