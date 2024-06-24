@@ -30,7 +30,7 @@ func StartApplication(config *config.Config) {
 	r := mux.NewRouter()
 
 	routes.AuthRoutes(r, controller)
-	routes.TemplatesRoutes(r)
+	routes.TemplatesRoutes(r, controller)
 	routes.WorkoutRoutes(r, controller)
 
 	r.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)

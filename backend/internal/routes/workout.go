@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-var WorkoutRoutes = func(router *mux.Router, controller *controllers.Controller) {
+var WorkoutRoutes = func(router *mux.Router, controllers *controllers.Controller) {
 	//router.HandleFunc("/workout/{id:[0-9]+}", controllers.GetWorkout).Methods("GET") // get one workout on workout page
-	router.HandleFunc("/workouts", controller.GetWorkout).Methods(http.MethodGet)
+	router.HandleFunc("/workouts", controllers.GetWorkout).Methods(http.MethodGet)
 }
