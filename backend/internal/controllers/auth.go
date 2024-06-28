@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/kendoow/SportApp/backend/internal/model"
 	"github.com/kendoow/SportApp/backend/internal/utils"
 	"net/http"
@@ -58,6 +57,29 @@ import (
 //	}
 //}
 
+func (controller *Controller) Login(w http.ResponseWriter, r *http.Request) {
+	// request body data
+
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	//service := controller.service
+	var requestBody model.RegisterBody
+
+	err := json.NewDecoder(r.Body).Decode(&requestBody)
+
+	if err != nil {
+		utils.Error.Println("Invalid request body")
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	//createdUserId, err := service.Login(&requestBody)
+
+}
+
 func (controller *Controller) SignUp(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -66,7 +88,7 @@ func (controller *Controller) SignUp(w http.ResponseWriter, r *http.Request) {
 
 	service := controller.service
 	var requestBody model.RegisterBody
-	fmt.Print(requestBody)
+
 	err := json.NewDecoder(r.Body).Decode(&requestBody)
 
 	if err != nil {

@@ -31,31 +31,31 @@ func (service *Service) SignUp(req *model.RegisterBody) (any, error) {
 	return insertedId, nil
 }
 
-//func (service *Service) Login(req *model.RegisterBody) (*model.UserAuthorized, string, error) {
-//	user, err := repository.GetUserByEmail(context.Background(), req.Email)
-//	if err != nil {
-//		log.Println(err.Error())
-//		log.Println("failed when getting user from db")
-//		return nil, "", err
-//	}
-//
-//	if err := utils.CheckPassword(req.Password, user.Password); err != nil {
-//		log.Println("incorrect password")
-//		return nil, "", err
-//	}
-//
-//	accessToken, refreshToken, err := CreatePairTokens(user.Email, user.Id) //TODO do upsert
-//	if err != nil {
-//		log.Println("failed in creating tokens")
-//		return nil, "", err
-//	}
-//
-//	log.Println(accessToken, "<--->", refreshToken)
-//
-//	return &model.UserAuthorized{
-//		user.Id,
-//		user.Username,
-//		user.Email,
-//		accessToken,
-//	}, refreshToken, nil
-//}
+func (service *Service) Login(req *model.RegisterBody) (any, error) {
+	repo := service.repo
+	user, err := repo.FindUserByPhone(context.Background(), req.Phone)
+
+	if err != nil {
+		log.Println("failed when getting user from db")
+		return "", err
+	}
+
+	if user == nil {
+		log.Println("Phone number not exists")
+		return "", err
+	}
+
+	//otp := utils.GenerateRandomNumber()
+	// save otp in database
+
+	//repo.UpdateUser(context.Background(), user._id, map[string]any{
+	//	"otp": otp,
+	//})
+
+	if err != nil {
+		log.Println("Error when inserting user in db")
+		return "", err
+	}
+
+	return 1, nil
+}
